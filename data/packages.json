@@ -1,0 +1,395 @@
+[
+  {
+    "id": "boracay-escape",
+    "name": "Boracay Ultimate Tropical Retreat",
+    "destination": "Boracay Island, Aklan",
+    "region": "Western Visayas",
+    "category": "beach",
+    "badge": "🔥 Best Seller",
+    "badgeColor": "bg-rose-500 text-white",
+    "duration": "3 Days / 2 Nights",
+    "stayDays": 3,
+    "stayNights": 2,
+    "transportType": "flight",
+    "transportBadge": "✈️ Roundtrip Flights Included",
+    "resort": "Henann Crystal Sands 4★ Beachfront Resort",
+    "basePrice": 8499,
+    "originalPrice": 11999,
+    "discount": "Save 29%",
+    "rating": "4.9",
+    "reviewsCount": 318,
+    "image": "images/boracay.jpg",
+    "inclusions": [
+      "Roundtrip Manila – Caticlan (MPH) Airfare",
+      "3D2N Luxury Beachfront Resort Accommodation",
+      "Daily International Buffet Breakfast",
+      "Private VIP Speedboat & Caticlan Land Transfers",
+      "Signature Island Hopping Tour with Crystal Kayak Photoshoot",
+      "Sunset Paraw Sailing Experience along White Beach",
+      "All Terminal, Environmental & Jetty Port Fees"
+    ],
+    "highlights": [
+      "White Beach Stations 1, 2 & 3 Leisure",
+      "Puka Shell Secluded Beach Visit",
+      "Paraw Sunset Sail Cruise",
+      "Crystal Kayak Instagram Photoshoot"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Island Arrival & Sunset Cocktails",
+        "desc": "Direct flight arrival at Caticlan Airport (MPH). Meet and greet by private coordinator. VIP speedboat transfer directly to Boracay Island. Check in at beachfront resort, enjoy welcome chilled coconut drink, and unwind with a sunset stroll along Station 1."
+      },
+      {
+        "day": 2,
+        "title": "Island Hopping & Paraw Sunset Sail",
+        "desc": "Morning island hopping boat tour visiting Puka Shell Beach and Crocodile Island coral reef. Snorkeling with marine turtles. Seafood barbecue picnic lunch. Afternoon crystal kayak session followed by private Paraw sunset sailing."
+      },
+      {
+        "day": 3,
+        "title": "Morning Paddleboarding & Departure",
+        "desc": "Hearty buffet breakfast at resort. Stand-up paddleboarding session or D'Mall souvenir shopping for dried mangoes and calamansi muffins. Check-out and private speedboat transfer back to Caticlan Airport for flight home."
+      }
+    ],
+    "roomTiers": [
+      { "id": "standard", "name": "Deluxe Garden View Room", "pricePerNight": 0, "desc": "Comfortable 36sqm room with private balcony" },
+      { "id": "premier", "name": "Premier Beachfront Suite", "pricePerNight": 1600, "desc": "Direct ocean panorama with private sun deck" },
+      { "id": "pool_villa", "name": "Executive Direct Pool Access Villa", "pricePerNight": 3200, "desc": "Step straight into the lagoon pool from your terrace" }
+    ],
+    "addons": [
+      { "id": "scuba", "name": "Introductory Scuba Diving with Photos & Video", "price": 1800, "perPax": true },
+      { "id": "ariel", "name": "Ariel's Point Cliff Diving & Snorkel Day Excursion", "price": 2200, "perPax": true },
+      { "id": "insurance", "name": "Comprehensive Travel & Medical Baggage Insurance", "price": 450, "perPax": true }
+    ]
+  },
+  {
+    "id": "coron-odyssey",
+    "name": "Coron & Palawan Island Odyssey",
+    "destination": "Coron, Palawan",
+    "region": "MIMAROPA",
+    "category": "island",
+    "badge": "⭐ Top Rated",
+    "badgeColor": "bg-amber-500 text-white",
+    "duration": "4 Days / 3 Nights",
+    "stayDays": 4,
+    "stayNights": 3,
+    "transportType": "flight",
+    "transportBadge": "✈️ Roundtrip Flights Included",
+    "resort": "Two Seasons Coron Bayside Eco-Resort 4★",
+    "basePrice": 11999,
+    "originalPrice": 15999,
+    "discount": "Save 25%",
+    "rating": "4.9",
+    "reviewsCount": 285,
+    "image": "images/coron.jpg",
+    "inclusions": [
+      "Roundtrip Manila – Busuanga (USU) Airfare",
+      "4D3N Bayside Eco-Resort Bayview Room",
+      "Daily Plated Continental Breakfast",
+      "Coron Ultimate Island Hopping Private Tour",
+      "Kayangan Lake & Twin Lagoon VIP Eco-Permits",
+      "Maquinit Saltwater Hot Springs Sunset Entry",
+      "Roundtrip Airport Van Transfers & Tour Life Vests"
+    ],
+    "highlights": [
+      "Kayangan Lake (Cleanest lake in Asia)",
+      "Twin Lagoon limestone swimming passage",
+      "Skeleton Wreck snorkel reef",
+      "Maquinit therapeutic hot spring soak"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Touchdown in Paradise & Hot Springs",
+        "desc": "Morning flight touchdown at Busuanga Airport (USU). Scenic 35-minute van transfer through pasture lands to Coron town. Check-in and relax. Late afternoon trip to Mount Tapyas 724-step panoramic summit, followed by a warm soak in Maquinit Natural Saltwater Hot Springs."
+      },
+      {
+        "day": 2,
+        "title": "Coron Ultimate Island Hopping Expedition",
+        "desc": "Board motorized outrigger banca for the world-renowned Coron Island circuit. Hike the wooden steps to view Kayangan Lake, swim beneath the limestone archway of Twin Lagoon, snorkel over the sunken Skeleton Wreck, and feast on a freshly grilled seafood lunch."
+      },
+      {
+        "day": 3,
+        "title": "Secluded Island Escapade",
+        "desc": "Cruise to the outer Calamian islands: powdery Malcapuya Island, Banana Island, and the shallow turquoise sandbar of Bulog Dos. Relax on hammocks and enjoy peaceful tropical isolation. Free evening to dine at Coron Harbor."
+      },
+      {
+        "day": 4,
+        "title": "Cashew Factory & Return Flight",
+        "desc": "Breakfast by the bayside pool. Quick visit to Coron Harvest for roasted garlic cashews and souvenirs. Airport shuttle to Busuanga Airport for your scenic flight back to Manila."
+      }
+    ],
+    "roomTiers": [
+      { "id": "standard", "name": "Bayside Deluxe Room", "pricePerNight": 0, "desc": "Spacious eco-chic room overlooking the gardens" },
+      { "id": "premier", "name": "Waterfront Panoramic Suite", "pricePerNight": 1900, "desc": "Direct balcony overlooking Coron Bay and limestone islands" },
+      { "id": "pool_villa", "name": "Overwater Sunset Bungalow", "pricePerNight": 4500, "desc": "Private overwater stilt bungalow with glass floor viewing panel" }
+    ],
+    "addons": [
+      { "id": "calauit", "name": "Calauit Safari Park Giraffe Feeding Safari", "price": 2800, "perPax": true },
+      { "id": "barracuda", "name": "Barracuda Lake Deep Thermocline Dive Experience", "price": 2400, "perPax": true },
+      { "id": "insurance", "name": "Comprehensive Travel & Medical Baggage Insurance", "price": 450, "perPax": true }
+    ]
+  },
+  {
+    "id": "baguio-banaue",
+    "name": "Baguio & Banaue Highland Heritage Expedition",
+    "destination": "Baguio & Banaue, Northern Luzon",
+    "region": "Cordillera",
+    "category": "highland",
+    "badge": "🌲 Highland Favorite",
+    "badgeColor": "bg-emerald-600 text-white",
+    "duration": "3 Days / 2 Nights",
+    "stayDays": 3,
+    "stayNights": 2,
+    "transportType": "bus",
+    "transportBadge": "🚌 Roundtrip Deluxe Bus Included",
+    "resort": "The Manor at Camp John Hay & Banaue Heritage Lodge",
+    "basePrice": 5899,
+    "originalPrice": 7999,
+    "discount": "Save 26%",
+    "rating": "4.8",
+    "reviewsCount": 190,
+    "image": "images/banaue.jpg",
+    "inclusions": [
+      "Roundtrip Victory Liner Deluxe Bus (Reclining Lazyboy Seats)",
+      "3D2N Mountain Forest View Lodge Accommodation",
+      "Daily Benguet Farm-to-Table Breakfast",
+      "Private Highland Van Tour: Camp John Hay & Mines View",
+      "Banaue Rice Terraces UNESCO Heritage Viewpoint Excursion",
+      "La Trinidad Organic Strawberry Farm Visit",
+      "Licensed Native Ifugao Cultural Tour Guide"
+    ],
+    "highlights": [
+      "Banaue 2,000-Year-Old Rice Terraces",
+      "Camp John Hay Pine Tree Nature Trail",
+      "Strawberry Picking in La Trinidad",
+      "Good Shepherd Ube Jam & Benguet Coffee"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Ascent to the City of Pines",
+        "desc": "Morning departure from Manila aboard Victory Liner Deluxe Bus with onboard restroom and WiFi. Scenic mountain ascent via Aspiras-Palispis Highway. Check-in at Camp John Hay. Stroll through the Bell Amphitheater and enjoy hearty dinner at Session Road."
+      },
+      {
+        "day": 2,
+        "title": "Banaue UNESCO Terraces & Ifugao Village",
+        "desc": "Early scenic drive through the Cordillera mountain ridges toward Banaue. Marvel at the 2,000-year-old carved emerald stairways to heaven. Meet traditional weavers and woodcarvers. Afternoon return with photo stop at La Trinidad Strawberry Valley."
+      },
+      {
+        "day": 3,
+        "title": "Baguio Market Shopping & Departure",
+        "desc": "Highland breakfast with fresh strawberries and mountain coffee. Visit Baguio Public Market and Good Shepherd Convent for authentic ube jam, peanut brittle, and hand-woven blankets. Board late afternoon luxury coach back to Manila."
+      }
+    ],
+    "roomTiers": [
+      { "id": "standard", "name": "Superior Pine View Room", "pricePerNight": 0, "desc": "Crisp mountain air with panoramic pine forest views" },
+      { "id": "premier", "name": "Camp John Hay Forest Suite", "pricePerNight": 1400, "desc": "Wood-burning fireplace and private sun deck" },
+      { "id": "pool_villa", "name": "Traditional Cordillera Mountain Chalet", "pricePerNight": 2800, "desc": "Authentic pine-timber chalet with sprawling mountain terrace" }
+    ],
+    "addons": [
+      { "id": "pulag", "name": "Mount Pulag Sea of Clouds Sunrise Side-Excursion", "price": 2900, "perPax": true },
+      { "id": "igorot", "name": "Igorot Traditional Costume Cultural Photoshoot", "price": 350, "perPax": true },
+      { "id": "insurance", "name": "Comprehensive Travel & Trip Delay Insurance", "price": 350, "perPax": true }
+    ]
+  },
+  {
+    "id": "siargao-adventure",
+    "name": "Siargao Surf, Lagoon & Island Explorer",
+    "destination": "Siargao Island, Surigao del Norte",
+    "region": "Caraga",
+    "category": "adventure",
+    "badge": "🏄 Adventure Pick",
+    "badgeColor": "bg-teal-600 text-white",
+    "duration": "4 Days / 3 Nights",
+    "stayDays": 4,
+    "stayNights": 3,
+    "transportType": "flight",
+    "transportBadge": "✈️ Roundtrip Flights Included",
+    "resort": "Kermit Siargao Surf Resort & Boutique Villas 4★",
+    "basePrice": 13499,
+    "originalPrice": 17500,
+    "discount": "Save 23%",
+    "rating": "4.9",
+    "reviewsCount": 215,
+    "image": "images/siargao.jpg",
+    "inclusions": [
+      "Roundtrip Manila – Sayak Siargao (IAO) Airfare",
+      "4D3N Boutique Eco-Resort Villa Stay",
+      "Daily Tropical Fruit Bowls & Artisanal Breakfast",
+      "Private 2-Hour Surfing Lesson with Certified Instructor & Board",
+      "Tri-Island Boat Tour: Naked, Daku & Guyam Islands with Seafood Lunch",
+      "Sugba Lagoon Stand-Up Paddleboarding & Diving Board Pass",
+      "Airport Roundtrip Transfers & Island Tourism Fees"
+    ],
+    "highlights": [
+      "Cloud 9 Iconic Surfing Boardwalk",
+      "Sugba Lagoon Turquoise Diving & Kayak",
+      "Magpupungko Natural Tidal Pools",
+      "Naked, Daku & Guyam Tri-Island Hopping"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Welcome to the Surfing Capital",
+        "desc": "Touch down at Sayak Airport (IAO). Enjoy the iconic drive bordered by thousands of coconut palms into General Luna. Check in at your tropical eco-villa. Catch the golden hour at Cloud 9 wooden pier and sample authentic woodfired pizza."
+      },
+      {
+        "day": 2,
+        "title": "Tri-Island Hopping & Surfing Lesson",
+        "desc": "Morning banca boat tour hopping between Naked Island's pure white sandbar, Daku Island for a fresh grilled seafood boodle fight under palm trees, and Guyam Island. Afternoon 1-on-1 surf coaching on gentle beginner waves."
+      },
+      {
+        "day": 3,
+        "title": "Sugba Lagoon & Magpupungko Pools",
+        "desc": "Cruise through lush mangrove canals to Sugba Lagoon. Leap off the famous wooden diving board and paddleboard across serene emerald waters. Continue to Magpupungko Rock Pools during low tide for natural cliff swimming."
+      },
+      {
+        "day": 4,
+        "title": "Island Cafe Hopping & Departure",
+        "desc": "Morning acai bowls along Tourism Road. Pick up handmade coconut crafts and local surf merchandise. Private van shuttle back to Sayak Airport for your flight back to Manila."
+      }
+    ],
+    "roomTiers": [
+      { "id": "standard", "name": "Tropical Garden Bungalow", "pricePerNight": 0, "desc": "Charming native nipa-style bungalow with open-air rainfall shower" },
+      { "id": "premier", "name": "Oceanview Coconut Loft", "pricePerNight": 1750, "desc": "Second-floor mezzanine overlooking coconut palms and reef" },
+      { "id": "pool_villa", "name": "Private Plunge Pool Luxury Villa", "pricePerNight": 3800, "desc": "Exclusive secluded villa with personal plunge pool and daybed" }
+    ],
+    "addons": [
+      { "id": "sohoton", "name": "Sohoton Cove Stingless Jellyfish Sanctuary Tour", "price": 2600, "perPax": true },
+      { "id": "surf_rental", "name": "3-Day Unlimited Surfboard Rental Package", "price": 1200, "perPax": true },
+      { "id": "insurance", "name": "Comprehensive Travel & Sports Baggage Insurance", "price": 450, "perPax": true }
+    ]
+  },
+  {
+    "id": "siquijor-haven",
+    "name": "Siquijor Enchanted Waterfalls & Coastal Haven",
+    "destination": "Siquijor Island & Dumaguete",
+    "region": "Central Visayas",
+    "category": "adventure",
+    "badge": "💦 Eco Discovery",
+    "badgeColor": "bg-cyan-600 text-white",
+    "duration": "3 Days / 2 Nights",
+    "stayDays": 3,
+    "stayNights": 2,
+    "transportType": "flight",
+    "transportBadge": "✈️ Flights & Fast Ferry Included",
+    "resort": "Coco Grove Beach Resort & Spa 4★",
+    "basePrice": 7999,
+    "originalPrice": 10500,
+    "discount": "Save 24%",
+    "rating": "4.8",
+    "reviewsCount": 160,
+    "image": "images/waterfall.jpg",
+    "inclusions": [
+      "Roundtrip Flight to Dumaguete (DGT) + OceanJet Ferry to Siquijor",
+      "3D2N Tropical Beachfront Resort Accommodation",
+      "Daily Seaside Breakfast Buffet",
+      "Full Island Coastal Tour: Cambugahay Falls & Balete Tree",
+      "Tubod Marine Sanctuary Snorkeling Pass & Gear",
+      "Salagdoong Cliff Jump Beach Pass",
+      "All Port Transfers, Van Transportation & Entrance Fees"
+    ],
+    "highlights": [
+      "Cambugahay 3-Tiered Turquoise Waterfall",
+      "400-Year-Old Old Enchanted Balete Tree",
+      "Paliton Beach Fiery Sunsets",
+      "Tubod Marine Sanctuary Giant Clam Snorkeling"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Ferry Crossing & Paliton Sunset",
+        "desc": "Fly into Dumaguete (DGT) and board the 45-minute OceanJet fast craft to Siquijor Island. Check-in at Coco Grove Beach Resort along San Juan coastline. Relax under leaning coconut palms at Paliton Beach as the sun sets over the Visayan Sea."
+      },
+      {
+        "day": 2,
+        "title": "Cambugahay Falls & Heritage Circuit",
+        "desc": "Cool off at the 3-tiered cascading turquoise waters of Cambugahay Falls with thrilling Tarzan rope swings. Visit the 400-year-old mystical Balete Tree for a natural fish spa, and head to Salagdoong Beach for scenic cliff leaps."
+      },
+      {
+        "day": 3,
+        "title": "Marine Sanctuary Snorkel & Return",
+        "desc": "Morning snorkel right outside your resort at Tubod Marine Sanctuary among giant clams and vibrant coral fish. Check-out, fast ferry back to Dumaguete, and afternoon flight back to Manila."
+      }
+    ],
+    "roomTiers": [
+      { "id": "standard", "name": "Heritage Garden Room", "pricePerNight": 0, "desc": "Surrounded by lush orchids and manicured tropical grounds" },
+      { "id": "premier", "name": "Sunset Beachfront Suite", "pricePerNight": 1500, "desc": "Steps away from powdery white sand with direct ocean views" },
+      { "id": "pool_villa", "name": "Coco Grove Private Family Villa", "pricePerNight": 3100, "desc": "Two-bedroom private sanctuary with personal whirlpool jacuzzi" }
+    ],
+    "addons": [
+      { "id": "apo", "name": "Apo Island Wild Sea Turtle Snorkel Expedition", "price": 2200, "perPax": true },
+      { "id": "healing", "name": "Traditional Siquijor Herbal Healing & Hilot Massage", "price": 900, "perPax": true },
+      { "id": "insurance", "name": "Comprehensive Travel & Trip Delay Insurance", "price": 350, "perPax": true }
+    ]
+  },
+  {
+    "id": "cebu-bohol",
+    "name": "Cebu & Bohol Twin Island Wonder Vacation",
+    "destination": "Cebu & Bohol, Central Visayas",
+    "region": "Central Visayas",
+    "category": "island",
+    "badge": "🌟 Twin Island Bundle",
+    "badgeColor": "bg-indigo-600 text-white",
+    "duration": "4 Days / 3 Nights",
+    "stayDays": 4,
+    "stayNights": 3,
+    "transportType": "flight",
+    "transportBadge": "✈️ Flights & Fastcraft Ferry Included",
+    "resort": "Mactan Bayside Hotel & Bohol Beach Club 4★",
+    "basePrice": 12750,
+    "originalPrice": 16900,
+    "discount": "Save 25%",
+    "rating": "4.9",
+    "reviewsCount": 340,
+    "image": "images/cebu_bohol.jpg",
+    "inclusions": [
+      "Roundtrip Manila – Cebu Mactan (CEB) Airfare",
+      "OceanJet Fast Ferry Roundtrip Tickets to Bohol",
+      "4D3N 4-Star Resort Accommodation (1N Cebu, 2N Bohol)",
+      "Oslob Whale Shark Snorkel & Tumalog Falls Tour",
+      "Bohol Countryside Tour: Chocolate Hills & Tarsier Sanctuary",
+      "Loboc River Floating Restaurant Buffet Lunch with Live Music",
+      "All Private AC Van Transfers & Tour Permits"
+    ],
+    "highlights": [
+      "UNESCO Chocolate Hills 1,268 Conical Mounds",
+      "Philippine Tarsier Sanctuary Visit",
+      "Oslob Whale Shark Swimming Encounter",
+      "Loboc River Rainforest Floating Lunch"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Cebu Heritage & Lechon Welcome",
+        "desc": "Arrive at Mactan-Cebu International Airport (CEB). Check-in and enjoy authentic Cebu lechon for lunch. Tour Magellan's Cross, Basilica del Santo Niño, and scenic Temple of Leah. Rest early for south tour."
+      },
+      {
+        "day": 2,
+        "title": "Whale Shark Encounter & Ferry to Bohol",
+        "desc": "Early morning drive to Oslob for an ethical snorkeling encounter with gentle whale sharks. Marvel at the sheer beauty of Tumalog Falls. Return to Cebu port and take the 2-hour fast ferry to Tagbilaran, Bohol. Check-in at Panglao beachfront resort."
+      },
+      {
+        "day": 3,
+        "title": "Bohol Countryside & Chocolate Hills",
+        "desc": "Ascend to the viewing terrace overlooking the iconic Chocolate Hills. See the world's smallest primates at the Philippine Tarsier Sanctuary. Board a covered riverboat on Loboc River for a traditional Filipino buffet lunch and cultural folk dancing."
+      },
+      {
+        "day": 4,
+        "title": "Panglao Beach Morning & Departure",
+        "desc": "Morning beach swim on Panglao's famous white sands. Pick up Bohol peanut kisses. Fast ferry back to Cebu City and transfer to Mactan Airport for your flight home."
+      }
+    ],
+    "roomTiers": [
+      { "id": "standard", "name": "Superior Resort Room", "pricePerNight": 0, "desc": "Contemporary island room with garden views" },
+      { "id": "premier", "name": "Panglao Beachfront Suite", "pricePerNight": 1850, "desc": "Steps from the water with private sea balcony" },
+      { "id": "pool_villa", "name": "Private Coral Pool Villa", "pricePerNight": 3600, "desc": "Exclusive villa with private pool in secluded coconut grove" }
+    ],
+    "addons": [
+      { "id": "canyoneering", "name": "Kawasan Falls Full-Day Canyoneering Adventure", "price": 2500, "perPax": true },
+      { "id": "balicasag", "name": "Balicasag Island Dolphin Watching & Sea Turtle Dive", "price": 2100, "perPax": true },
+      { "id": "insurance", "name": "Comprehensive Travel & Medical Baggage Insurance", "price": 450, "perPax": true }
+    ]
+  }
+]

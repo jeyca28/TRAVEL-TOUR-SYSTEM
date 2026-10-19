@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Bus Ticket - Mckanes Travel and Tours</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1a5b92',
+                            sky: '#5ba4d6',
+                            cta: '#3b82f6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom Bus Booking Stylesheet -->
+    <link rel="stylesheet" href="css/bus-booking.css">
+</head>
+<body class="bg-[#f8fafc] text-gray-800">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm transition-all duration-300">
+        <nav class="max-w-7xl mx-auto py-3.5 px-4 sm:px-6 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="home.html" class="flex items-center gap-2 flex-shrink-0 group" title="Return to Main Page">
+                <i class="fas fa-globe text-3xl text-[#1a5b92] group-hover:rotate-12 transition-transform duration-300"></i>
+                <div class="flex flex-col leading-none">
+                    <span class="font-bold text-xl text-[#1a5b92]">Mckanes</span>
+                    <span class="text-[9px] text-[#5ba4d6] font-bold tracking-wider mt-0.5">TRAVEL & TOURS</span>
+                </div>
+            </a>
+
+            <!-- Centered Navigation Links in Natural Flex Flow -->
+            <div class="hidden lg:flex items-center justify-center gap-5 xl:gap-7 flex-1 mx-2 sm:mx-4">
+                <div class="flex items-center gap-5 xl:gap-7 text-xs xl:text-sm font-semibold text-gray-700 whitespace-nowrap">
+                    <a href="home.html" class="hover:text-blue-600 transition">HOME</a>
+                    <a href="plane-booking.html" class="hover:text-blue-600 transition">FLIGHTS</a>
+                    <a href="home.html#about" class="hover:text-blue-600 transition">ABOUT</a>
+                    <a href="home.html#packages" class="hover:text-blue-600 transition">PACKAGE</a>
+                    <a href="home.html#contact" class="hover:text-blue-600 transition font-bold text-blue-700">CONTACT</a>
+                    <a href="home.html#reviews" class="hover:text-blue-600 transition">REVIEWS</a>
+                </div>
+            </div>
+
+            <!-- Navigation Actions -->
+            <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                <a href="index.html" class="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs font-bold text-gray-700 bg-white hover:bg-blue-50 hover:text-blue-700 rounded-full border border-gray-200 shadow-2xs transition" title="Switch Portal / Role Selection">
+                    <i class="fas fa-users-gear text-blue-600 text-xs"></i>
+                    <span class="hidden sm:inline">Role Portal</span>
+                </a>
+                <div id="bus-nav-account-pill" class="flex items-center gap-2 bg-gray-50 border border-gray-200/90 py-1 px-2.5 sm:px-3 rounded-full text-xs shadow-2xs flex-shrink-0">
+                    <div id="bus-nav-avatar" class="w-6 h-6 rounded-full bg-gradient-to-tr from-slate-500 to-slate-700 text-white font-bold flex items-center justify-center text-[10px]">GT</div>
+                    <span id="bus-nav-user-name" class="font-bold text-gray-800 text-xs hidden sm:inline truncate max-w-[120px]">Guest Traveler</span>
+                    <span class="w-2 h-2 rounded-full bg-slate-300" title="Guest Session"></span>
+                    <span class="text-[9px] bg-slate-100 text-slate-600 font-extrabold px-1.5 py-0.2 rounded-full uppercase hidden 2xl:inline">Guest Session</span>
+                </div>
+                <a href="home.html" class="text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1.5 transition flex-shrink-0 whitespace-nowrap">
+                    <i class="fas fa-arrow-left text-xs"></i> <span>Back to Home</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Graphic Banner (Exact Match Size to Plane Booking Hero) -->
+    <section class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-1">
+        <div class="w-full rounded-2xl overflow-hidden shadow-md border border-blue-100 bg-[#3a8adc]">
+            <img src="images/bus_banner_exact.png" alt="Book Your Bus Ticket - Mckanes Travel and Tours" class="w-full h-auto object-cover select-none">
+        </div>
+    </section>
+
+    <!-- Main Content Section (2 Columns with Search Card & Trip Summary) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-6 relative z-20 pb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+            <!-- Left Column: Search Card + Available Bus Trips (8 cols) -->
+            <div class="lg:col-span-8 space-y-6">
+
+                <!-- Search / Filter Card -->
+                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
+                    <!-- Trip Type Pills -->
+                    <div class="flex items-center gap-3 mb-5">
+                        <button id="btn-oneway" onclick="setTripType('oneway')" class="bg-blue-600 text-white rounded-full px-5 py-1.5 font-semibold text-xs tracking-wide shadow-sm transition">
+                            One-way
+                        </button>
+                        <button id="btn-roundtrip" onclick="setTripType('roundtrip')" class="text-gray-600 hover:text-blue-600 rounded-full px-4 py-1.5 font-medium text-xs tracking-wide transition">
+                            Round-trip
+                        </button>
+                    </div>
+
+                    <!-- Search Inputs Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 items-center">
+                        <!-- Origin & Destination with Swap Button -->
+                        <div class="col-span-1 sm:col-span-2 lg:col-span-6 flex flex-col sm:flex-row items-center gap-2 relative">
+                            <!-- From Dropdown -->
+                            <div class="flex-1 w-full border border-gray-200 rounded-xl p-2.5 flex items-center justify-between hover:border-blue-400 transition bg-gray-50/50">
+                                <div class="flex items-center gap-2.5 w-full min-w-0">
+                                    <i class="fas fa-map-marker-alt text-blue-500 text-base flex-shrink-0"></i>
+                                    <div class="w-full min-w-0">
+                                        <span class="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">From</span>
+                                        <select id="select-origin" onchange="updateSearchLabels()" class="w-full bg-transparent font-bold text-gray-900 text-xs sm:text-sm outline-none cursor-pointer truncate">
+                                            <option value="Manila (Pasay)">Manila (Pasay)</option>
+                                            <option value="Manila (Cubao)">Manila (Cubao)</option>
+                                            <option value="Baguio City">Baguio City</option>
+                                            <option value="Vigan">Vigan, Ilocos Sur</option>
+                                            <option value="La Union">La Union (San Fernando)</option>
+                                            <option value="Sagada">Sagada, Mt. Province</option>
+                                            <option value="Batangas Pier">Batangas Pier</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Swap Button -->
+                            <button type="button" onclick="swapLocations()" class="w-9 h-9 rounded-full border border-gray-200 hover:border-blue-500 hover:bg-blue-50 text-blue-600 flex items-center justify-center transition shadow-sm bg-white flex-shrink-0 -my-2 sm:my-0 z-10" title="Swap Origin & Destination">
+                                <i class="fas fa-arrows-up-down text-xs sm:hidden"></i>
+                                <i class="fas fa-arrows-left-right text-xs hidden sm:inline-block"></i>
+                            </button>
+
+                            <!-- To Dropdown -->
+                            <div class="flex-1 w-full border border-gray-200 rounded-xl p-2.5 flex items-center justify-between hover:border-blue-400 transition bg-gray-50/50">
+                                <div class="flex items-center gap-2.5 w-full min-w-0">
+                                    <i class="fas fa-map-marker-alt text-blue-500 text-base flex-shrink-0"></i>
+                                    <div class="w-full min-w-0">
+                                        <span class="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">To</span>
+                                        <select id="select-destination" onchange="updateSearchLabels()" class="w-full bg-transparent font-bold text-gray-900 text-xs sm:text-sm outline-none cursor-pointer truncate">
+                                            <option value="Baguio City" selected>Baguio City</option>
+                                            <option value="Manila (Pasay)">Manila (Pasay)</option>
+                                            <option value="Manila (Cubao)">Manila (Cubao)</option>
+                                            <option value="Vigan">Vigan, Ilocos Sur</option>
+                                            <option value="La Union">La Union (San Fernando)</option>
+                                            <option value="Sagada">Sagada, Mt. Province</option>
+                                            <option value="Batangas Pier">Batangas Pier</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Departure Date Picker -->
+                        <div class="col-span-1 sm:col-span-1 lg:col-span-2 border border-gray-200 rounded-xl p-2.5 flex items-center justify-between hover:border-blue-400 transition bg-gray-50/50">
+                            <div class="flex items-center gap-2.5 w-full min-w-0">
+                                <i class="far fa-calendar-alt text-blue-500 text-base flex-shrink-0"></i>
+                                <div class="w-full min-w-0">
+                                    <span class="block text-[10px] uppercase font-bold text-gray-400 tracking-wider truncate">Departure</span>
+                                    <input type="date" id="input-date" onchange="handleDateChange(this.value)" value="2026-10-18" class="w-full bg-transparent font-bold text-gray-900 text-xs sm:text-sm outline-none cursor-pointer tracking-tight">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Passengers Selector -->
+                        <div class="col-span-1 sm:col-span-1 lg:col-span-2 border border-gray-200 rounded-xl p-2.5 flex items-center justify-between hover:border-blue-400 transition bg-gray-50/50">
+                            <div class="flex items-center gap-2.5 w-full min-w-0">
+                                <i class="fas fa-user-friends text-blue-500 text-base flex-shrink-0"></i>
+                                <div class="w-full min-w-0">
+                                    <span class="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">Passengers</span>
+                                    <select id="select-passengers" onchange="handlePassengerChange(this.value)" class="w-full bg-transparent font-bold text-gray-900 text-xs sm:text-sm outline-none cursor-pointer">
+                                        <option value="1" selected>1 Passenger</option>
+                                        <option value="2">2 Passengers</option>
+                                        <option value="3">3 Passengers</option>
+                                        <option value="4">4 Passengers</option>
+                                        <option value="5">5 Passengers</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Search Button -->
+                        <div class="col-span-1 sm:col-span-2 lg:col-span-2">
+                            <button type="button" onclick="executeSearch()" id="btn-search-buses" class="w-full bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-semibold py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 shadow-lg shadow-blue-500/25 transition text-xs sm:text-sm whitespace-nowrap min-h-[50px]">
+                                <i class="fas fa-search text-xs"></i> <span>Search Buses</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Header & Date Navigation -->
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                            <span>Available Bus Trips</span>
+                            <span id="trips-count-badge" class="bg-blue-100 text-blue-700 text-xs px-2.5 py-0.5 rounded-full font-semibold">5 Trips</span>
+                        </h2>
+                        <p id="search-sub-status" class="text-xs text-gray-500 mt-0.5">Showing direct bus trips for Manila to Baguio.</p>
+                    </div>
+
+                    <!-- Date Navigator with Prev/Next buttons -->
+                    <div class="flex items-center gap-3 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm">
+                        <button onclick="changeDay(-1)" title="Previous Day" class="hover:text-blue-600 transition p-1"><i class="fas fa-chevron-left text-xs"></i></button>
+                        <span id="header-date-display">Sun, Oct 18, 2026</span>
+                        <button onclick="changeDay(1)" title="Next Day" class="hover:text-blue-600 transition p-1"><i class="fas fa-chevron-right text-xs"></i></button>
+                    </div>
+                </div>
+
+                <!-- Operators Filter Pills & Sort Dropdown -->
+                <div class="flex flex-wrap justify-between items-center gap-3 pt-2">
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold" id="operator-pills">
+                        <button onclick="filterOperator('all', this)" class="op-filter bg-blue-600 text-white rounded-full px-4 py-1.5 shadow-sm transition">All Operators</button>
+                        <button onclick="filterOperator('Victory Liner', this)" class="op-filter border border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 rounded-full px-4 py-1.5 bg-white transition">Victory Liner</button>
+                        <button onclick="filterOperator('Genesis Transport', this)" class="op-filter border border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 rounded-full px-4 py-1.5 bg-white transition">Genesis</button>
+                        <button onclick="filterOperator('JoyBus', this)" class="op-filter border border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 rounded-full px-4 py-1.5 bg-white transition">JoyBus</button>
+                        <button onclick="filterOperator('Partas', this)" class="op-filter border border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 rounded-full px-4 py-1.5 bg-white transition">Partas</button>
+                        <button onclick="filterOperator('Philtranco', this)" class="op-filter border border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 rounded-full px-4 py-1.5 bg-white transition">Philtranco</button>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
+                        <span>Sort by</span>
+                        <select id="sort-select" onchange="handleSortChange(this.value)" class="bg-transparent font-semibold text-gray-800 border-none outline-none cursor-pointer">
+                            <option value="time">Departure Time</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="duration">Duration</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Trips Cards Dynamic Container -->
+                <div class="space-y-4" id="trips-container">
+                    <!-- Populated dynamically via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Right Column: Trip Summary Sidebar (4 cols) -->
+            <div class="lg:col-span-4 sticky top-24">
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-lg p-6 overflow-hidden">
+                    
+                    <!-- Header -->
+                    <div class="flex items-center gap-2 mb-4 text-blue-600">
+                        <i class="far fa-newspaper text-lg"></i>
+                        <h3 class="font-bold text-gray-900 text-lg">Trip Summary</h3>
+                    </div>
+
+                    <!-- Destination Scenic Image Card -->
+                    <div class="relative h-36 rounded-xl overflow-hidden mb-5 shadow-sm group">
+                        <img id="summary-img" src="images/baguio.jpg" alt="Baguio City Scenery" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        <div class="absolute bottom-3 left-4 right-4 text-white">
+                            <h4 id="summary-route" class="font-bold text-lg leading-tight flex items-center gap-2">
+                                Manila <i class="fas fa-arrow-right text-xs text-sky-400"></i> Baguio
+                            </h4>
+                            <p id="summary-date-line" class="text-[11px] text-gray-200 mt-0.5">Sun, Oct 18, 2026 | 1 Passenger | One-way</p>
+                        </div>
+                    </div>
+
+                    <!-- Selected Trip Details -->
+                    <div class="mb-5 pb-5 border-b border-gray-100">
+                        <div class="flex items-center gap-2 text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
+                            <i class="fas fa-bus text-blue-600"></i> Selected Trip
+                        </div>
+
+                        <div class="flex items-center gap-3 mb-3">
+                            <div id="summary-logo-container" class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-red-600 text-xs font-bold border border-red-100">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <span id="summary-operator" class="font-bold text-gray-900 text-sm block">Victory Liner</span>
+                                <span id="summary-class" class="text-[11px] text-gray-500 block">Deluxe</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between text-xs text-gray-700 bg-gray-50 p-3 rounded-xl">
+                            <div>
+                                <span id="summary-dep-time" class="font-bold block text-sm">06:00 AM</span>
+                                <span id="summary-origin" class="text-gray-500 text-[11px]">Manila (Pasay)</span>
+                            </div>
+                            <div class="text-center">
+                                <span id="summary-duration" class="text-[10px] text-gray-400 block font-semibold">5h 30m</span>
+                                <i class="fas fa-arrow-right text-blue-500 text-xs"></i>
+                                <span class="text-[10px] text-gray-400 block">Direct</span>
+                            </div>
+                            <div class="text-right">
+                                <span id="summary-arr-time" class="font-bold block text-sm">11:30 AM</span>
+                                <span id="summary-dest" class="text-gray-500 text-[11px]">Baguio City</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Passenger Details -->
+                    <div class="mb-5 pb-5 border-b border-gray-100">
+                        <div class="flex items-center gap-2 text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
+                            <i class="far fa-user text-blue-600"></i> Passenger Details
+                        </div>
+                        <div class="flex justify-between items-center text-xs">
+                            <span id="summary-pax-count" class="font-semibold text-gray-800">1 Adult</span>
+                            <span id="summary-passenger-name" class="text-gray-600">Lead Passenger</span>
+                        </div>
+                    </div>
+
+                    <!-- Fare Details -->
+                    <div class="mb-6 space-y-2 text-xs">
+                        <div class="flex items-center gap-2 font-bold text-gray-500 uppercase tracking-wider mb-2">
+                            <i class="far fa-credit-card text-blue-600"></i> Fare Details
+                        </div>
+                        <div class="flex justify-between text-gray-600">
+                            <span>Base Fare (<span id="calc-pax-label">1x</span>)</span>
+                            <span id="summary-base-fare">₱750</span>
+                        </div>
+                        <div class="flex justify-between text-gray-600">
+                            <span>Terminal Fee</span>
+                            <span id="summary-terminal-fare">₱30</span>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex justify-between items-center text-sm">
+                            <span class="font-bold text-gray-900">Total Amount</span>
+                            <span id="summary-total-fare" class="text-2xl font-extrabold text-blue-600">₱780</span>
+                        </div>
+                    </div>
+
+                    <!-- Continue Button -->
+                    <button onclick="openPassengerModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg shadow-blue-500/25 transition flex items-center justify-center gap-2 group">
+                        <span>Continue to Passenger Details</span>
+                        <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Passenger Details & Seat Selection Modal Form -->
+    <div id="passenger-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 md:p-8 relative">
+            <!-- Close Button -->
+            <button onclick="closePassengerModal()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold">
+                    <i class="fas fa-bus-alt"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Passenger Information</h3>
+                    <p class="text-xs text-gray-500">Please provide traveler details to complete your bus ticket booking.</p>
+                </div>
+            </div>
+
+            <!-- Booking Trip Summary Header Inside Form -->
+            <div class="bg-blue-50 border border-blue-100 rounded-2xl p-4 mb-6 flex flex-wrap justify-between items-center text-xs gap-3">
+                <div>
+                    <span class="text-gray-500 block">Trip Route:</span>
+                    <strong id="modal-route" class="text-blue-900 text-sm">Manila → Baguio</strong>
+                </div>
+                <div>
+                    <span class="text-gray-500 block">Operator:</span>
+                    <strong id="modal-operator" class="text-blue-900 text-sm">Victory Liner (Deluxe)</strong>
+                </div>
+                <div>
+                    <span class="text-gray-500 block">Departure:</span>
+                    <strong id="modal-departure" class="text-blue-900 text-sm">Oct 18, 2026 - 06:00 AM</strong>
+                </div>
+                <div>
+                    <span class="text-gray-500 block">Total Due:</span>
+                    <strong id="modal-total" class="text-blue-600 text-base font-extrabold">₱780</strong>
+                </div>
+            </div>
+
+            <!-- Account Linked & Auto-fill Verification Banner -->
+            <div id="modal-account-sync-banner" class="mb-4 p-3.5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50/60 border border-blue-200/80 flex items-center justify-between gap-3 text-xs shadow-2xs">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black text-xs flex items-center justify-center shadow-xs flex-shrink-0" id="modal-account-sync-avatar">
+                        CH
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="font-extrabold text-gray-900" id="modal-account-sync-name">Chibiba Mckanes</span>
+                            <span class="text-[9px] bg-blue-100 text-blue-700 font-extrabold px-1.5 py-0.5 rounded-md uppercase tracking-wider">Account Linked</span>
+                        </div>
+                        <p class="text-[11px] text-gray-500 mt-0.5" id="modal-account-sync-details">chibiba@mckanes.com • +63 917 123 4567</p>
+                    </div>
+                </div>
+                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100/90 border border-emerald-300 px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 flex-shrink-0">
+                    <i class="fas fa-check-circle text-[9px]"></i> Auto-Filled
+                </span>
+            </div>
+
+            <!-- Form -->
+            <form id="bus-booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                <div id="dynamic-passenger-inputs" class="space-y-3">
+                    <!-- Injected via JavaScript based on passenger count -->
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Email Address *</label>
+                        <input type="email" id="bus-contact-email" required placeholder="e.g. traveler@email.com" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Mobile Number *</label>
+                        <input type="tel" id="bus-contact-phone" required placeholder="e.g. +63 917 123 4567" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                </div>
+
+                <!-- Seat Preference -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Select Seat Preference</label>
+                    <div class="grid grid-cols-4 gap-2 text-xs" id="seat-options">
+                        <label class="seat-option border-2 border-blue-600 bg-blue-50 text-blue-700 p-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer font-semibold">
+                            <input type="radio" name="seat" value="12A" checked onchange="highlightSeats()" class="text-blue-600"> 12A (Window)
+                        </label>
+                        <label class="seat-option border border-gray-200 p-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer hover:border-blue-400">
+                            <input type="radio" name="seat" value="12B" onchange="highlightSeats()" class="text-blue-600"> 12B (Aisle)
+                        </label>
+                        <label class="seat-option border border-gray-200 p-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer hover:border-blue-400">
+                            <input type="radio" name="seat" value="14A" onchange="highlightSeats()" class="text-blue-600"> 14A (Window)
+                        </label>
+                        <label class="seat-option border border-gray-200 p-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer hover:border-blue-400">
+                            <input type="radio" name="seat" value="14B" onchange="highlightSeats()" class="text-blue-600"> 14B (Aisle)
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Payment Option</label>
+                    <div class="grid grid-cols-3 gap-3 text-xs">
+                        <label class="border-2 border-blue-600 bg-blue-50/50 p-3 rounded-xl flex items-center justify-center gap-2 cursor-pointer font-semibold text-gray-800">
+                            <input type="radio" name="payment" value="gcash" checked class="text-blue-600"> GCash / Maya
+                        </label>
+                        <label class="border border-gray-200 p-3 rounded-xl flex items-center justify-center gap-2 cursor-pointer hover:border-blue-400 text-gray-800">
+                            <input type="radio" name="payment" value="card" class="text-blue-600"> Credit Card
+                        </label>
+                        <label class="border border-gray-200 p-3 rounded-xl flex items-center justify-center gap-2 cursor-pointer hover:border-blue-400 text-gray-800">
+                            <input type="radio" name="payment" value="terminal" class="text-blue-600"> Over-the-counter
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4 flex items-center justify-end gap-3">
+                    <button type="button" onclick="closePassengerModal()" class="px-5 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 transition">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-8 py-3 rounded-xl shadow-lg shadow-blue-500/25 transition flex items-center gap-2">
+                        <i class="fas fa-check-circle"></i> Confirm & Book Ticket
+                    </button>
+                </div>
+            </form>
+
+            <!-- Success Confirmation State (hidden by default) -->
+            <div id="booking-success" class="hidden text-center py-6">
+                <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-gray-900 mb-1">Ticket Confirmed!</h4>
+                <p class="text-sm text-gray-500 max-w-md mx-auto mb-6">Your booking reference has been issued. An e-ticket receipt and QR boarding pass have been prepared.</p>
+                
+                <div id="printable-bus-ticket" class="bg-white border-2 border-slate-800 rounded-2xl p-5 text-left max-w-md mx-auto mb-6 text-xs space-y-3 shadow-md">
+                    <!-- Ticket Header Strip -->
+                    <div class="flex items-center justify-between pb-3 border-b border-gray-200">
+                        <div class="flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-lg bg-amber-500 text-white font-black text-xs flex items-center justify-center shadow-xs">
+                                <i class="fas fa-bus"></i>
+                            </span>
+                            <div>
+                                <h5 class="font-black text-sm text-gray-900 leading-tight">Mckanes Bus Express</h5>
+                                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-wider block">Official Transit E-Ticket & Pass</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[9px] font-bold text-gray-400 uppercase tracking-wider block">Booking Ref</span>
+                            <span id="ticket-booking-code" class="text-sm font-mono font-black text-blue-600 tracking-wider">MCK-BUS-8492</span>
+                        </div>
+                    </div>
+
+                    <!-- Passenger & Trip Details -->
+                    <div class="space-y-2 py-0.5">
+                        <div class="flex justify-between items-center bg-gray-50 p-2 rounded-xl border border-gray-100">
+                            <span class="text-gray-500 font-semibold text-[11px]">Lead Passenger:</span>
+                            <span id="ticket-passenger" class="font-extrabold text-gray-900 text-xs">Lead Passenger</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="bg-gray-50 p-2 rounded-xl border border-gray-100">
+                                <span class="text-[9px] text-gray-400 uppercase font-bold block">Route</span>
+                                <span id="ticket-route" class="font-extrabold text-gray-900 text-[11px] truncate block">Manila → Baguio</span>
+                            </div>
+                            <div class="bg-gray-50 p-2 rounded-xl border border-gray-100">
+                                <span class="text-[9px] text-gray-400 uppercase font-bold block">Operator / Class</span>
+                                <span id="ticket-operator" class="font-extrabold text-gray-900 text-[11px] truncate block">Victory Liner (Deluxe)</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="bg-gray-50 p-2 rounded-xl border border-gray-100">
+                                <span class="text-[9px] text-gray-400 uppercase font-bold block">Departure Date & Time</span>
+                                <span id="ticket-date" class="font-extrabold text-blue-700 text-[11px] truncate block">Oct 18, 2026 - 06:00 AM</span>
+                            </div>
+                            <div class="bg-gray-50 p-2 rounded-xl border border-gray-100">
+                                <span class="text-[9px] text-gray-400 uppercase font-bold block">Assigned Seat(s)</span>
+                                <span id="ticket-seats" class="font-extrabold text-emerald-700 text-[11px] truncate block">12A (Window)</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center p-2.5 rounded-xl bg-blue-50/70 border border-blue-200 font-bold">
+                            <span class="text-gray-800 text-xs">Total Amount Paid:</span>
+                            <span id="ticket-total" class="text-emerald-700 font-black text-sm">₱780.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Barcode / QR Simulation Strip -->
+                    <div class="pt-2 flex items-center justify-between border-t border-dashed border-gray-300">
+                        <div class="space-y-0.5">
+                            <div class="font-mono text-[9px] text-gray-400">BUS TRANSIT PASS • SCANNABLE</div>
+                            <div class="font-mono font-bold text-[10px] text-gray-700" id="bus-barcode-text">||||| | |||| ||| |||||| || |||||||| ||||</div>
+                        </div>
+                        <i class="fas fa-qrcode text-2xl text-gray-800"></i>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-3 no-print">
+                    <button type="button" onclick="printBusTicket()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-5 py-2.5 rounded-xl text-sm font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-xs">
+                        <i class="fas fa-print"></i> Print Ticket
+                    </button>
+                    <button type="button" onclick="closePassengerModal();" class="bg-blue-600 text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition cursor-pointer">
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Notice / Alert Modal -->
+    <div id="bus-notice-modal" class="fixed inset-0 z-[115] bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4 hidden transition-opacity duration-200">
+        <div id="bus-notice-box" class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-gray-100 transform scale-95 opacity-0 transition-all duration-200 text-center">
+            <div class="p-6">
+                <div id="bus-notice-icon-bg" class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 border border-blue-100 text-2xl shadow-xs">
+                    <i id="bus-notice-icon" class="fas fa-user-lock"></i>
+                </div>
+                <h3 id="bus-notice-title" class="text-lg font-black text-gray-900 mb-1.5">Account Sign-In Required</h3>
+                <p id="bus-notice-message" class="text-xs text-gray-600 leading-relaxed max-w-sm mx-auto">You must be signed in to your Mckanes account to finalize your bus reservation and issue your digital ticket.</p>
+            </div>
+            <div class="p-4 bg-gray-50/80 border-t border-gray-100 flex items-center justify-end gap-2.5">
+                <button type="button" id="bus-notice-cancel-btn" onclick="resolveBusNotice(false)" class="px-4 py-2.5 rounded-xl bg-white hover:bg-gray-100 border border-gray-200 text-gray-700 font-bold text-xs transition cursor-pointer">
+                    Stay on Page
+                </button>
+                <button type="button" id="bus-notice-confirm-btn" onclick="resolveBusNotice(true)" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition cursor-pointer">
+                    <span id="bus-notice-confirm-text">Sign In Now</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complete Dynamic JavaScript Engine -->
+    <script src="js/bus-booking.js"></script>
+</body>
+</html>

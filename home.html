@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mckanes Travel and Tours</title>
+    <!-- Immediate Role Selection Gateway Redirect on Page Refresh -->
+    <script>
+        (function() {
+            try {
+                var navEntries = (window.performance && typeof window.performance.getEntriesByType === 'function') ? 
+                                 window.performance.getEntriesByType('navigation') : null;
+                var isReload = false;
+                if (navEntries && navEntries.length > 0) {
+                    isReload = (navEntries[0].type === 'reload');
+                } else if (window.performance && window.performance.navigation) {
+                    isReload = (window.performance.navigation.type === 1);
+                }
+                if (isReload) {
+                    window.location.replace('index.html');
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        script: ['Caveat', 'Segoe Print', 'Brush Script MT', 'cursive'],
+                    },
+                    colors: {
+                        primary: '#1E40AF', // Blue
+                        secondary: '#F3F4F6',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom Animation & Typography Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top" class="bg-gray-50 text-gray-800 overflow-x-clip">
+
+    <!-- Sticky Top Navigation Header -->
+    <header id="main-header" class="sticky top-0 z-50 bg-gray-50/95 backdrop-blur-md border-b border-gray-200/40 transition-all duration-300">
+        <nav class="max-w-[1280px] mx-auto py-4 sm:py-5 px-6 md:px-12 flex items-center justify-between gap-4">
+            <!-- Logo (Clickable to return Home) -->
+            <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="flex items-center gap-2 flex-shrink-0 group cursor-pointer" title="Return to Top / Home">
+                <i class="fas fa-globe text-3xl text-[#1a5b92] group-hover:rotate-12 transition-transform duration-300"></i>
+                <div class="flex flex-col leading-none">
+                    <span class="font-bold text-xl text-[#1a5b92]">Mckanes</span>
+                    <span class="text-[9px] text-[#5ba4d6] font-bold tracking-wider mt-1">TRAVEL & TOURS</span>
+                </div>
+            </a>
+            <!-- Centered Links in Natural Flex Flow -->
+            <div class="hidden md:flex items-center justify-center gap-6 lg:gap-8 flex-1 mx-4">
+                <div class="flex items-center gap-6 lg:gap-8 text-sm font-semibold text-gray-800 whitespace-nowrap">
+                    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="hover:text-blue-600 transition">HOME</a>
+                    <a href="#about" class="hover:text-blue-600 transition">ABOUT</a>
+                    <a href="#packages" class="hover:text-blue-600 transition">PACKAGE</a>
+                    <a href="#contact" class="hover:text-blue-600 transition font-bold text-blue-700">CONTACT</a>
+                    <a href="#reviews" class="hover:text-blue-600 transition">REVIEWS</a>
+                </div>
+            </div>
+            <!-- User Authentication Action Area -->
+            <div id="nav-auth-container" class="flex items-center justify-end gap-2 sm:gap-3 flex-shrink-0">
+                <button type="button" onclick="openAuthModal('signin')" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-full transition shadow-md shadow-blue-600/20 cursor-pointer">
+                    <i class="fas fa-user-circle text-sm sm:text-base"></i>
+                    <span>Sign In</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Full View Hero Section -->
+    <section class="min-h-[calc(100vh-80px)] flex flex-col bg-gray-50 font-sans relative pb-10 overflow-x-clip">
+
+        <!-- Main Hero Image Area -->
+        <div class="flex-1 w-full max-w-[1280px] mx-auto px-4 sm:px-6 relative flex flex-col justify-between">
+            <!-- The big hero container with overlapping elements -->
+            <div id="hero-interactive-stage" class="relative w-full h-[540px] sm:h-[580px] md:h-[620px] lg:h-[670px] flex-shrink-0 my-2">
+                
+                <!-- 1. Background Landscape Card (Clipped with rounded corners) -->
+                <div id="hero-bg-card" class="absolute inset-0 rounded-[2.8rem] lg:rounded-[3.2rem] overflow-hidden shadow-2xl bg-gray-300 transition-all duration-700" style="background-image: url('images/hero_bg.jpg'); background-size: cover; background-position: center bottom;">
+                    <!-- The organic stepped cutout shape at the bottom right -->
+                    <div class="absolute bottom-0 right-0 z-20 select-none pointer-events-auto">
+                        <div class="relative w-[340px] sm:w-[380px] lg:w-[440px] h-[131px] sm:h-[147px] lg:h-[170px]">
+                            <!-- Scalable Stepped Curve SVG Backdrop -->
+                            <svg class="absolute inset-0 w-full h-full filter drop-shadow-[-6px_-6px_16px_rgba(0,0,0,0.06)]" viewBox="0 0 440 170" fill="none">
+                                <!-- 1. Outer Cutout Path (Page background #f9fafb / bg-gray-50) -->
+                                <path d="M 25.5 170 
+                                         A 28 28 0 0 0 53.01 136.79 
+                                         A 58 58 0 0 1 110 68 
+                                         L 190 68 
+                                         C 225 68, 235 14, 275 14 
+                                         L 440 14 
+                                         L 440 170 Z" 
+                                      fill="#f9fafb" />
+
+                                <!-- 2. Inner Stepped Badge Card Shape -->
+                                <path id="hero-cutout-path" 
+                                      d="M 110 170 
+                                         A 44 44 0 0 1 110 82 
+                                         L 195 82 
+                                         C 225 82, 235 28, 275 28 
+                                         L 415 28 
+                                         A 20 20 0 0 1 435 48 
+                                         L 435 150 
+                                         A 20 20 0 0 1 415 170 Z" 
+                                      fill="#4a6375" 
+                                      class="transition-colors duration-500" />
+                            </svg>
+
+                            <!-- HTML Content Overlay -->
+                            <div id="hero-cutout-card" class="absolute inset-0 z-10 text-white pointer-events-auto">
+                                <!-- Upper Tier: Centered in Upper Wing -->
+                                <div class="absolute top-[16.5%] h-[31.8%] right-0 w-[37.5%] flex items-center justify-center pr-2">
+                                    <a id="hero-badge-link" href="#destinations" class="flex items-center gap-2 text-gray-900 hover:text-white font-bold text-xs tracking-wide transition group cursor-pointer">
+                                        <span id="hero-badge-link-text">Know More</span> 
+                                        <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                                    </a>
+                                </div>
+
+                                <!-- Lower Tier: Centered in Lower Pill -->
+                                <div class="absolute top-[48.2%] bottom-0 inset-x-0 flex items-center pl-[18.5%] pr-4 gap-3 sm:gap-3.5">
+                                    <!-- 3 Destination Circular Avatars -->
+                                    <div id="hero-badge-avatars" class="flex -space-x-2.5 select-none transition-all duration-300 flex-shrink-0">
+                                        <img class="w-10 h-10 lg:w-11 lg:h-11 rounded-full border-2 border-white object-cover shadow-sm" src="images/place1.jpg" alt="Palawan">
+                                        <img class="w-10 h-10 lg:w-11 lg:h-11 rounded-full border-2 border-white object-cover shadow-sm" src="images/place2.jpg" alt="Bohol">
+                                        <img class="w-10 h-10 lg:w-11 lg:h-11 rounded-full border-2 border-white object-cover shadow-sm" src="images/place3.jpg" alt="Boracay">
+                                    </div>
+                                    <div class="min-w-0">
+                                        <h4 id="hero-badge-title" class="font-bold text-xs lg:text-sm tracking-wide leading-tight text-white transition-all duration-300 truncate">Awesome Places</h4>
+                                        <p id="hero-badge-desc" class="text-[10px] text-gray-200 leading-snug mt-0.5 transition-all duration-300">Discover The World<br>One At A Time!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Overlapping Airplane (Breaks out of top-right corner) -->
+                <img id="hero-plane" src="images/user_plane.png" class="absolute z-30 pointer-events-none select-none anim-hero-plane transition-all duration-700 ease-out" style="left: 49.5%; top: 5.5%; width: 75%; filter: drop-shadow(0 20px 25px rgba(0,0,0,0.35));" alt="Passenger Airplane">
+                
+                <!-- 3. Overlapping Bus (Breaks out of bottom-left corner) -->
+                <img id="hero-bus" src="images/bus.png" class="absolute z-30 pointer-events-none select-none anim-hero-bus transition-all duration-700 ease-out" style="left: -0.5%; bottom: 4%; width: 26.5%; filter: drop-shadow(0 15px 20px rgba(0,0,0,0.45));" alt="Tour Bus">
+
+                <!-- 4. Content Overlay (Stepper & Text) -->
+                <div class="absolute inset-0 p-8 sm:p-12 lg:p-14 flex z-30 pointer-events-none">
+                    <!-- Interactive 3-Slide Stepper -->
+                    <div id="hero-stepper-container" class="flex flex-col items-center mr-6 lg:mr-10 relative mt-1 pointer-events-auto select-none" role="tablist" aria-label="Hero Showcase Slides">
+                        <!-- Step 1 Button -->
+                        <button type="button" onclick="goToSlide(0)" id="step-btn-0" role="tab" aria-selected="true" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-black font-extrabold flex items-center justify-center z-10 text-sm transition-all duration-300 hover:scale-110 focus:outline-none cursor-pointer scale-105" style="box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25);" title="Slide 1: Multimodal Travel Experience">
+                            1
+                        </button>
+                        <!-- Track 1-2 -->
+                        <div class="w-[2px] h-14 sm:h-16 lg:h-20 bg-white/35 my-1 relative overflow-hidden rounded-full shadow-sm">
+                            <div id="step-track-0" class="w-full bg-white rounded-full h-0 shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+                        </div>
+                        <!-- Step 2 Button -->
+                        <button type="button" onclick="goToSlide(1)" id="step-btn-1" role="tab" aria-selected="false" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-[1.5px] border-white/85 bg-white/25 text-white font-bold flex items-center justify-center z-10 backdrop-blur-sm shadow-md shadow-black/10 text-sm transition-all duration-300 hover:bg-white/40 hover:scale-110 focus:outline-none cursor-pointer scale-100" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); border: 1.5px solid rgba(255, 255, 255, 0.85);" title="Slide 2: Island Flight Adventures">
+                            2
+                        </button>
+                        <!-- Track 2-3 -->
+                        <div class="w-[2px] h-14 sm:h-16 lg:h-20 bg-white/35 my-1 relative overflow-hidden rounded-full shadow-sm">
+                            <div id="step-track-1" class="w-full bg-white rounded-full h-0 shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+                        </div>
+                        <!-- Step 3 Button -->
+                        <button type="button" onclick="goToSlide(2)" id="step-btn-2" role="tab" aria-selected="false" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-[1.5px] border-white/85 bg-white/25 text-white font-bold flex items-center justify-center z-10 backdrop-blur-sm shadow-md shadow-black/10 text-sm transition-all duration-300 hover:bg-white/40 hover:scale-110 focus:outline-none cursor-pointer scale-100" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); border: 1.5px solid rgba(255, 255, 255, 0.85);" title="Slide 3: Mountain Bus Expeditions">
+                            3
+                        </button>
+                    </div>
+                    
+                    <!-- Dynamic Text Area -->
+                    <div id="hero-text-area" class="mt-0.5 max-w-xl pointer-events-auto select-none transition-all duration-300">
+                        <p id="hero-slide-tag" class="text-white tracking-[0.2em] font-semibold text-xs mb-3 uppercase drop-shadow-md anim-tag">Elevate Your Travel Journey</p>
+                        <h1 id="hero-slide-title" class="text-5xl md:text-6xl lg:text-7xl xl:text-[5.2rem] font-extrabold leading-[1.08] drop-shadow-lg tracking-tight">
+                            <span id="hero-word-1" class="text-white anim-line-1">Experience</span><br>
+                            <span id="hero-word-2" class="text-[#1a2332] anim-line-2">The Magic</span><br>
+                            <span id="hero-word-3" class="text-[#1a2332] anim-line-3">Of Travel!</span>
+                        </h1>
+                        
+                        <div class="mt-6 lg:mt-8 flex items-center gap-5 anim-cta-group">
+                            <a id="hero-slide-cta" href="#services" class="inline-flex items-center justify-center bg-[#2986fe] hover:bg-blue-600 hover:shadow-blue-500/50 hover:scale-[1.02] active:scale-95 text-white px-8 py-3.5 rounded-full font-semibold shadow-lg shadow-blue-500/30 transition duration-300 cursor-pointer text-sm md:text-base">
+                                Book A Trip Now
+                            </a>
+                            <div class="relative flex items-center justify-center">
+                                <span class="absolute w-12 h-12 rounded-full bg-blue-400/40 ripple-halo pointer-events-none"></span>
+                                <button type="button" onclick="openVideoModal()" class="relative w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg shadow-black/10 hover:scale-110 active:scale-95 transition duration-300 group cursor-pointer z-10" title="Watch Philippines Travel Trailer">
+                                    <i class="fas fa-play text-[#2986fe] text-sm ml-0.5 group-hover:scale-110 transition"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Social & Partners Row -->
+            <div class="mt-6 w-full flex flex-wrap justify-between items-center px-4 lg:px-8">
+                <!-- Social -->
+                <div class="bg-white border border-gray-100 shadow-sm rounded-full px-6 py-2.5 flex items-center gap-5">
+                    <span class="font-bold text-sm text-gray-900 mr-2">Follow</span>
+                    <a href="#" class="text-black hover:text-gray-600 transition"><i class="fab fa-twitter text-base"></i></a>
+                    <a href="#" class="text-black hover:text-gray-600 transition"><i class="fab fa-instagram text-base"></i></a>
+                    <div class="w-7 h-7 rounded-full bg-[#1877f2] flex items-center justify-center text-white cursor-pointer hover:bg-blue-700 transition shadow-sm">
+                        <i class="fab fa-facebook-f text-xs"></i>
+                    </div>
+                    <a href="#" class="text-black hover:text-gray-600 transition"><i class="fab fa-tiktok text-base"></i></a>
+                </div>
+                
+                <!-- Partners -->
+                <div class="flex items-center gap-10 lg:gap-14 mt-6 md:mt-0 select-none">
+                    <!-- Booking.com -->
+                    <span class="font-black text-xl text-[#003580] tracking-tight">Booking<span class="text-[#006ce4]">.com</span></span>
+                    
+                    <!-- Expedia -->
+                    <div class="flex items-center gap-1.5">
+                        <div class="w-6 h-6 rounded-full bg-[#00355f] flex items-center justify-center text-[#ffc72c]">
+                            <i class="fas fa-plane text-xs transform -rotate-45"></i>
+                        </div>
+                        <span class="font-extrabold text-xl text-[#00355f] tracking-tight">Expedia</span>
+                    </div>
+
+                    <!-- agoda -->
+                    <div class="flex flex-col items-center">
+                        <span class="font-bold text-base text-gray-600 tracking-wider lowercase">agoda</span>
+                        <div class="flex items-center gap-1 mt-0.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#e13b30]"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#f8a51d]"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#a142f4]"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#26b2e8]"></span>
+                        </div>
+                    </div>
+
+                    <!-- trivago -->
+                    <span class="font-extrabold text-xl tracking-tight"><span class="text-[#e62b4c]">tri</span><span class="text-[#f48f00]">va</span><span class="text-[#007fad]">go</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Cards -->
+    <section id="services" class="py-16 bg-gray-50 px-8 scroll-mt-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Explore the Philippines, <span class="text-blue-600">Your Way!</span></h2>
+                <p class="text-gray-500 mt-2">Discover amazing destinations and book your tickets easily and securely.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div onclick="document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' });" class="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-xl transition duration-300 relative cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=800&q=80" alt="Destination" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="p-6 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-gray-900">Find Your<br>Destination</h3>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-4 leading-relaxed">Discover amazing destinations and find the perfect place for your next trip.</p>
+                        <a href="#destinations" onclick="event.stopPropagation();" class="inline-flex items-center text-white bg-blue-600 rounded-full px-5 py-2 font-medium text-sm gap-2 hover:bg-blue-700 transition shadow-md shadow-blue-500/20 cursor-pointer">Find Now <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div onclick="requireAuthToBook('plane', event)" class="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-xl transition duration-300 relative cursor-pointer group">
+                    <img src="images/cebu_plane.jpg" alt="Cebu Pacific Plane Ticket" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500" style="object-position: center 55%;">
+                    <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-md text-xs font-bold text-blue-800 shadow">Cebu Pacific</div>
+                    <div class="p-6 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-gray-900">Book<br>A Plane Ticket</h3>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-4 leading-relaxed">Get the best deals and book your tickets easily and securely.</p>
+                        <button type="button" onclick="requireAuthToBook('plane', event)" class="inline-flex items-center text-white bg-blue-600 rounded-full px-5 py-2 font-medium text-sm gap-2 hover:bg-blue-700 transition shadow-md shadow-blue-500/20 cursor-pointer">Book Now <i class="fas fa-arrow-right text-xs"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div onclick="requireAuthToBook('bus', event)" class="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-xl transition duration-300 relative cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80" alt="Bus Ticket" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-md text-xs font-bold text-red-600 shadow">Victory Liner</div>
+                    <div class="p-6 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-gray-900">Book A Bus<br>Ticket</h3>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-4 leading-relaxed">Travel with ease and explore beautiful destinations by bus.</p>
+                        <button type="button" onclick="requireAuthToBook('bus', event)" class="inline-flex items-center text-white bg-blue-600 rounded-full px-5 py-2 font-medium text-sm gap-2 hover:bg-blue-700 transition shadow-md shadow-blue-500/20 cursor-pointer">Book Now <i class="fas fa-arrow-right text-xs"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations Section -->
+    <section id="destinations" class="py-16 bg-gray-50 px-4 sm:px-8 border-t border-gray-200/50 scroll-mt-24">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3 shadow-xs">
+                        <i class="fas fa-compass text-blue-500"></i> Top Philippine Escapes
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Popular <span class="text-blue-600">Destinations</span></h2>
+                    <p class="text-gray-500 mt-1.5 text-sm md:text-base">Find your next unforgettable escape across the Philippine islands.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button type="button" onclick="openAllDestinationsModal()" class="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1.5 cursor-pointer bg-blue-50/80 hover:bg-blue-100 px-4 py-2.5 rounded-xl transition shadow-xs">
+                        <span>Explore all destinations</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Selector Pills -->
+            <div class="flex flex-wrap items-center gap-2 mb-6 text-xs font-semibold" id="dest-quick-pills">
+                <span class="text-gray-400 mr-1 hidden sm:inline">Featured:</span>
+                <button type="button" onclick="selectDestination(0)" id="pill-dest-0" class="dest-quick-pill px-3.5 py-1.5 rounded-full border border-blue-600 bg-blue-600 text-white font-bold transition shadow-xs flex items-center gap-1.5 cursor-pointer">
+                    <i class="fas fa-umbrella-beach text-[11px]"></i> Coron Island
+                </button>
+                <button type="button" onclick="selectDestination(1)" id="pill-dest-1" class="dest-quick-pill px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 hover:border-blue-400 hover:text-blue-600 transition flex items-center gap-1.5 cursor-pointer">
+                    <i class="fas fa-sun text-[11px]"></i> White Beach (Boracay)
+                </button>
+                <button type="button" onclick="selectDestination(2)" id="pill-dest-2" class="dest-quick-pill px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 hover:border-blue-400 hover:text-blue-600 transition flex items-center gap-1.5 cursor-pointer">
+                    <i class="fas fa-water text-[11px]"></i> Waterfall Trails (Siquijor)
+                </button>
+                <button type="button" onclick="selectDestination(3)" id="pill-dest-3" class="dest-quick-pill px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 hover:border-blue-400 hover:text-blue-600 transition flex items-center gap-1.5 cursor-pointer">
+                    <i class="fas fa-mountain text-[11px]"></i> Cultural Landscapes (Banaue)
+                </button>
+            </div>
+            
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Left: Featured Destination (7 cols) -->
+                <div class="lg:col-span-7">
+                    <div id="featured-dest-card" class="relative h-[480px] sm:h-[520px] rounded-3xl overflow-hidden shadow-xl group border border-gray-100 transition-all duration-500">
+                        <!-- Featured Image with Transition Effect -->
+                        <img id="featured-dest-img" src="images/coron.jpg" alt="Coron Island" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+                        
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950/95 via-gray-950/50 to-transparent"></div>
+                        
+                        <!-- Top Floating Badges -->
+                        <div class="absolute top-5 left-5 right-5 flex items-center justify-between pointer-events-none z-10">
+                            <span id="featured-dest-category" class="bg-white/20 backdrop-blur-md text-white border border-white/30 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+                                <i class="fas fa-map-pin text-blue-400 text-xs"></i> <span id="featured-dest-category-text">Island Hopping & Diving</span>
+                            </span>
+                            <span id="featured-dest-transport-pill" class="bg-blue-600/90 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1.5">
+                                <i id="featured-dest-transport-icon" class="fas fa-plane text-xs"></i> <span id="featured-dest-transport-text">Direct Flight Available</span>
+                            </span>
+                        </div>
+
+                        <!-- Content Area -->
+                        <div class="absolute bottom-0 left-0 p-6 sm:p-8 w-full z-10">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 id="featured-dest-title" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Coron Island</h3>
+                                <div id="featured-dest-rating" class="bg-blue-600 text-white px-3 py-1 rounded-full font-bold text-xs sm:text-sm flex items-center gap-1 shadow-md">
+                                    <i class="fas fa-star text-amber-300 text-xs"></i> <span>4.9</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 mb-3 text-white text-xs sm:text-sm">
+                                <div class="flex items-center gap-1.5 text-blue-200">
+                                    <i class="fas fa-map-marker-alt text-red-400"></i>
+                                    <span id="featured-dest-location" class="font-medium">Palawan, Philippines</span>
+                                </div>
+                                <span class="text-white/40">•</span>
+                                <span id="featured-dest-season" class="text-gray-300 text-xs">Best: Nov – May</span>
+                            </div>
+
+                            <p id="featured-dest-desc" class="text-gray-200 text-xs sm:text-sm mb-6 max-w-lg leading-relaxed line-clamp-2 sm:line-clamp-none">
+                                Crystal clear lagoons, dramatic limestone cliffs, Kayangan Lake, and world-class WWII shipwreck diving await in Coron.
+                            </p>
+
+                            <!-- Action Buttons -->
+                            <div class="flex flex-wrap items-center gap-3">
+                                <button type="button" id="featured-dest-explore-btn" onclick="openDestinationModal(0)" class="inline-flex items-center text-white bg-blue-600 rounded-full px-5 sm:px-6 py-2.5 sm:py-3 font-bold text-xs sm:text-sm gap-2 hover:bg-blue-700 transition shadow-lg shadow-blue-500/40 cursor-pointer">
+                                    <span>Explore Destination</span>
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </button>
+                                <a id="featured-dest-book-btn" href="plane-booking.html?dest=PPS" onclick="requireAuthToBook('plane', event)" class="inline-flex items-center text-white bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 font-bold text-xs sm:text-sm gap-2 transition cursor-pointer">
+                                    <i id="featured-dest-book-icon" class="fas fa-plane text-xs text-blue-300"></i>
+                                    <span id="featured-dest-book-label">Book Flight to Palawan</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Smaller Destinations List (5 cols) -->
+                <div class="lg:col-span-5 flex flex-col gap-4 justify-between h-[480px] sm:h-[520px]">
+                    <!-- Item 1: White Beach -->
+                    <div id="dest-card-1" onclick="selectDestination(1)" class="dest-item-card flex items-center gap-4 sm:gap-5 group cursor-pointer flex-1 bg-white hover:bg-blue-50/40 border-2 border-transparent hover:border-blue-200 rounded-2xl p-3 sm:p-3.5 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="w-2/5 h-full rounded-2xl overflow-hidden shadow-xs relative flex-shrink-0">
+                            <img src="images/boracay.jpg" alt="White Beach" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <span class="absolute top-2 left-2 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-full sm:hidden">4.8 ★</span>
+                        </div>
+                        <div class="w-3/5 flex flex-col justify-between py-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <h4 class="text-base sm:text-lg font-extrabold text-gray-900 group-hover:text-blue-600 transition leading-tight">White Beach</h4>
+                                    <span id="badge-viewing-1" class="hidden text-[10px] font-bold bg-blue-600 text-white px-2 py-0.5 rounded-full shadow-xs">Viewing</span>
+                                </div>
+                                <p class="text-gray-500 text-xs mb-2 flex items-center gap-1.5">
+                                    <i class="fas fa-map-marker-alt text-blue-500 text-xs"></i>
+                                    <span>Boracay Island, Aklan</span>
+                                </p>
+                                <p class="text-gray-400 text-[11px] leading-tight line-clamp-1 mb-2">Powdery soft sand & paraw sunsets</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full font-bold text-xs items-center gap-1">
+                                    <i class="fas fa-star text-amber-400 text-[10px]"></i> 4.8
+                                </div>
+                                <span class="text-xs font-bold text-blue-600 group-hover:underline flex items-center gap-1">
+                                    Preview <i class="fas fa-chevron-right text-[10px]"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2: Waterfall Trails -->
+                    <div id="dest-card-2" onclick="selectDestination(2)" class="dest-item-card flex items-center gap-4 sm:gap-5 group cursor-pointer flex-1 bg-white hover:bg-blue-50/40 border-2 border-transparent hover:border-blue-200 rounded-2xl p-3 sm:p-3.5 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="w-2/5 h-full rounded-2xl overflow-hidden shadow-xs relative flex-shrink-0">
+                            <img src="images/waterfall.jpg" alt="Waterfall Trails" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <span class="absolute top-2 left-2 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-full sm:hidden">4.7 ★</span>
+                        </div>
+                        <div class="w-3/5 flex flex-col justify-between py-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <h4 class="text-base sm:text-lg font-extrabold text-gray-900 group-hover:text-blue-600 transition leading-tight">Waterfall Trails</h4>
+                                    <span id="badge-viewing-2" class="hidden text-[10px] font-bold bg-blue-600 text-white px-2 py-0.5 rounded-full shadow-xs">Viewing</span>
+                                </div>
+                                <p class="text-gray-500 text-xs mb-2 flex items-center gap-1.5">
+                                    <i class="fas fa-map-marker-alt text-blue-500 text-xs"></i>
+                                    <span>Lazi, Siquijor</span>
+                                </p>
+                                <p class="text-gray-400 text-[11px] leading-tight line-clamp-1 mb-2">Cambugahay Falls & Tarzan rope swings</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full font-bold text-xs items-center gap-1">
+                                    <i class="fas fa-star text-amber-400 text-[10px]"></i> 4.7
+                                </div>
+                                <span class="text-xs font-bold text-blue-600 group-hover:underline flex items-center gap-1">
+                                    Preview <i class="fas fa-chevron-right text-[10px]"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3: Cultural Landscapes -->
+                    <div id="dest-card-3" onclick="selectDestination(3)" class="dest-item-card flex items-center gap-4 sm:gap-5 group cursor-pointer flex-1 bg-white hover:bg-blue-50/40 border-2 border-transparent hover:border-blue-200 rounded-2xl p-3 sm:p-3.5 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="w-2/5 h-full rounded-2xl overflow-hidden shadow-xs relative flex-shrink-0">
+                            <img src="images/banaue.jpg" alt="Cultural Landscapes" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <span class="absolute top-2 left-2 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-full sm:hidden">4.5 ★</span>
+                        </div>
+                        <div class="w-3/5 flex flex-col justify-between py-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <h4 class="text-base sm:text-lg font-extrabold text-gray-900 group-hover:text-blue-600 transition leading-tight">Cultural Landscapes</h4>
+                                    <span id="badge-viewing-3" class="hidden text-[10px] font-bold bg-blue-600 text-white px-2 py-0.5 rounded-full shadow-xs">Viewing</span>
+                                </div>
+                                <p class="text-gray-500 text-xs mb-2 flex items-center gap-1.5">
+                                    <i class="fas fa-map-marker-alt text-blue-500 text-xs"></i>
+                                    <span>Banaue, Ifugao</span>
+                                </p>
+                                <p class="text-gray-400 text-[11px] leading-tight line-clamp-1 mb-2">2,000-year-old UNESCO rice terraces</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full font-bold text-xs items-center gap-1">
+                                    <i class="fas fa-star text-amber-400 text-[10px]"></i> 4.5
+                                </div>
+                                <span class="text-xs font-bold text-blue-600 group-hover:underline flex items-center gap-1">
+                                    Preview <i class="fas fa-chevron-right text-[10px]"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Curated Vacation Packages Section ("Exclusive Tour & Vacation Packages") -->
+    <section id="packages" class="py-20 bg-gray-50 px-4 sm:px-8 border-t border-gray-200/50 scroll-mt-24">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3 shadow-xs border border-emerald-100">
+                        <i class="fas fa-suitcase-rolling text-emerald-500"></i> All-Inclusive Holiday Bundles
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+                        Curated Tour & Vacation <span class="text-blue-600">Packages</span>
+                    </h2>
+                    <p class="text-gray-500 mt-2 text-sm md:text-base max-w-2xl leading-relaxed">
+                        Handcrafted Philippine travel experiences combining roundtrip flights or deluxe buses, handpicked 4-star beach resorts, guided island hopping tours, and hassle-free VIP transfers.
+                    </p>
+                </div>
+                
+                <!-- Value Guarantees Banner -->
+                <div class="flex flex-wrap items-center gap-3 bg-white p-3 rounded-2xl border border-gray-200/70 shadow-xs text-xs font-semibold text-gray-700">
+                    <span class="flex items-center gap-1.5 text-blue-700 bg-blue-50 px-3 py-1.5 rounded-xl">
+                        <i class="fas fa-shield-alt text-blue-600"></i> Best Price Guarantee
+                    </span>
+                    <span class="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-xl">
+                        <i class="fas fa-concierge-bell text-emerald-600"></i> 24/7 Island Concierge
+                    </span>
+                    <span class="flex items-center gap-1.5 text-amber-700 bg-amber-50 px-3 py-1.5 rounded-xl">
+                        <i class="fas fa-calendar-check text-amber-600"></i> Flexible Dates
+                    </span>
+                </div>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-8 scrollbar-none">
+                <button type="button" onclick="filterPackages('all', this)" class="pkg-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition shadow-xs cursor-pointer whitespace-nowrap bg-blue-600 text-white">
+                    All Packages (6)
+                </button>
+                <button type="button" onclick="filterPackages('beach', this)" class="pkg-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition shadow-xs cursor-pointer whitespace-nowrap bg-white text-gray-700 hover:bg-gray-100 border border-gray-200">
+                    🏖️ Beach & Islands
+                </button>
+                <button type="button" onclick="filterPackages('island', this)" class="pkg-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition shadow-xs cursor-pointer whitespace-nowrap bg-white text-gray-700 hover:bg-gray-100 border border-gray-200">
+                    🌴 Island Hopping
+                </button>
+                <button type="button" onclick="filterPackages('highland', this)" class="pkg-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition shadow-xs cursor-pointer whitespace-nowrap bg-white text-gray-700 hover:bg-gray-100 border border-gray-200">
+                    🌲 Highland Escapes
+                </button>
+                <button type="button" onclick="filterPackages('adventure', this)" class="pkg-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition shadow-xs cursor-pointer whitespace-nowrap bg-white text-gray-700 hover:bg-gray-100 border border-gray-200">
+                    🏄 Eco-Adventure
+                </button>
+            </div>
+
+            <!-- Packages Cards Grid (Dynamically rendered) -->
+            <div id="packages-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Populated by renderPackageCards() -->
+            </div>
+
+            <!-- Custom Package Inquiry Strip -->
+            <div class="mt-14 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <span class="inline-block bg-white/20 backdrop-blur-xs text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+                        Custom Corporate & Group Travel
+                    </span>
+                    <h3 class="text-xl sm:text-2xl font-black mb-1">Looking for a customized group tour package?</h3>
+                    <p class="text-blue-100 text-xs sm:text-sm max-w-xl">
+                        We design tailor-made vacation itineraries for corporate team retreats, weddings, and family reunions with custom flights, chartered yachts, and dedicated tour directors.
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 relative z-10 w-full sm:w-auto">
+                    <a href="#contact" class="w-full sm:w-auto bg-yellow-400 hover:bg-yellow-300 text-blue-950 font-extrabold text-sm px-6 py-3.5 rounded-xl transition shadow-lg text-center flex items-center justify-center gap-2">
+                        <i class="fas fa-envelope-open-text"></i> Inquire Custom Package
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Traveler Reviews Section ("WHAT OUR TRAVELERS SAY") -->
+    <section id="reviews" class="py-20 bg-gray-50 px-8 relative overflow-hidden border-t border-gray-200/50 scroll-mt-24">
+        <!-- Decorative Background Airplane Path (Top Right) -->
+        <div class="absolute top-10 right-12 hidden lg:flex items-center gap-2 pointer-events-none opacity-80">
+            <svg class="w-32 h-16 text-blue-400 stroke-current fill-none" viewBox="0 0 120 60">
+                <path d="M 10 50 Q 60 10 100 20" stroke-dasharray="4 4" stroke-width="2"/>
+            </svg>
+            <i class="fas fa-plane text-blue-500 text-2xl transform rotate-12"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-block bg-[#e0f2fe] text-[#0284c7] font-extrabold text-xs tracking-widest uppercase px-5 py-2 rounded-full mb-4 shadow-sm">
+                    Traveler Reviews
+                </span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight mb-4">
+                    WHAT OUR <span class="text-blue-600">TRAVELERS SAY</span>
+                </h2>
+                <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                    Hear from travelers who use our platform to discover beautiful destinations and plan their journeys across the Philippines. We're here to make every trip easier, smoother, and more memorable.
+                </p>
+            </div>
+
+            <!-- Review Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review Card 1 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <!-- Destination Image -->
+                        <div class="h-44 rounded-2xl overflow-hidden mb-5">
+                            <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=600&q=80" alt="Easy Booking" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <!-- Star Rating -->
+                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <!-- Headline -->
+                        <h3 class="font-bold text-gray-900 text-base mb-2">Easy Booking Experience</h3>
+                        <!-- Quote -->
+                        <p class="text-gray-500 text-xs leading-relaxed mb-6">
+                            “Booking my bus ticket was quick and easy! I found my trip details in just a few clicks. This website made planning my trip so much more convenient.”
+                        </p>
+                    </div>
+                    <!-- Author Info -->
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-50">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Maria S." class="w-10 h-10 rounded-full object-cover border border-gray-200">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-xs">Maria S.</h4>
+                            <span class="text-gray-400 text-[11px] block">Manila</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <!-- Destination Image -->
+                        <div class="h-44 rounded-2xl overflow-hidden mb-5">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Discovering New Places" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <!-- Star Rating -->
+                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <!-- Headline -->
+                        <h3 class="font-bold text-gray-900 text-base mb-2">Discovering New Places</h3>
+                        <!-- Quote -->
+                        <p class="text-gray-500 text-xs leading-relaxed mb-6">
+                            “I love how easy it is to explore different destinations in the Philippines. It helped me discover places I want to visit on my next vacation!”
+                        </p>
+                    </div>
+                    <!-- Author Info -->
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-50">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Angela R." class="w-10 h-10 rounded-full object-cover border border-gray-200">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-xs">Angela R.</h4>
+                            <span class="text-gray-400 text-[11px] block">Laguna</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <!-- Destination Image -->
+                        <div class="h-44 rounded-2xl overflow-hidden mb-5">
+                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Convenient Travel Planning" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <!-- Star Rating -->
+                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <!-- Headline -->
+                        <h3 class="font-bold text-gray-900 text-base mb-2">Convenient Travel Planning</h3>
+                        <!-- Quote -->
+                        <p class="text-gray-500 text-xs leading-relaxed mb-6">
+                            “Having plane and bus booking options in one place makes planning trips much easier. The website is simple to navigate and very helpful.”
+                        </p>
+                    </div>
+                    <!-- Author Info -->
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-50">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Joshua M." class="w-10 h-10 rounded-full object-cover border border-gray-200">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-xs">Joshua M.</h4>
+                            <span class="text-gray-400 text-[11px] block">Quezon City</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar Row -->
+            <div class="mt-16 bg-white/90 backdrop-blur-sm border border-blue-100/80 rounded-3xl p-8 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 shadow-sm">
+                <!-- Stat 1 -->
+                <div class="flex items-center gap-4 justify-center md:justify-start md:border-r border-gray-100 md:pr-4">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <span class="text-3xl font-extrabold text-blue-900 block leading-none">10+</span>
+                        <span class="text-xs text-gray-500 font-medium mt-1 block">Destinations to Explore</span>
+                    </div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="flex items-center gap-4 justify-center md:justify-start md:border-r border-gray-100 md:pr-4">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div>
+                        <span class="text-3xl font-extrabold text-blue-900 block leading-none">12K+</span>
+                        <span class="text-xs text-gray-500 font-medium mt-1 block">Travelers Inspired</span>
+                    </div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="flex items-center gap-4 justify-center md:justify-start">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div>
+                        <span class="text-3xl font-extrabold text-blue-900 block leading-none">4.9</span>
+                        <span class="text-xs text-gray-500 font-medium mt-1 block">Average User Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ABOUT US SECTION (Exact Mockup Match)      -->
+    <!-- ========================================== -->
+    <section id="about" class="relative overflow-hidden scroll-mt-20 bg-gradient-to-b from-blue-50/50 via-white to-[#fbf8f2]">
+        
+        <!-- Subtle World Map & Atmospheric Background Watermark -->
+        <div class="absolute inset-0 pointer-events-none select-none overflow-hidden opacity-30">
+            <!-- Mountain silhouette gradient wash -->
+            <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#fbf8f2] to-transparent"></div>
+            <!-- Subtle World Map Vector Watermark in Top Right -->
+            <svg class="absolute -right-24 -top-8 w-[640px] h-[420px] text-blue-300/40" fill="currentColor" viewBox="0 0 1000 500">
+                <path d="M150,120 Q160,100 180,105 Q210,110 215,130 Q220,150 200,170 Q180,190 160,180 Q140,170 145,140 Z M220,190 Q240,180 260,200 Q280,240 270,280 Q250,320 230,300 Q210,260 215,220 Z M450,110 Q500,80 540,100 Q560,130 540,160 Q500,180 470,160 Z M520,200 Q560,190 580,230 Q600,280 570,320 Q540,340 520,300 Q500,250 515,220 Z M700,100 Q780,80 840,120 Q880,170 850,220 Q800,250 740,210 Q680,170 700,120 Z M780,280 Q840,270 870,310 Q880,360 840,380 Q800,380 770,340 Q760,300 780,280 Z" opacity="0.4"/>
+            </svg>
+        </div>
+
+        <!-- 1. TOP STORY BLOCK: Story Narrative & 3-Polaroid Collage -->
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-16 sm:pt-20 pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left: Story Narrative -->
+                <div class="lg:col-span-6 relative z-10">
+                    <span class="inline-block text-xs sm:text-sm font-bold tracking-[0.28em] text-[#1e3a5f] uppercase mb-2">ABOUT US</span>
+                    <h2 class="font-script text-5xl sm:text-6xl lg:text-7xl font-bold text-[#143256] leading-[1.08] tracking-wide mb-3 drop-shadow-xs">
+                        Mckanes Travels and Tour.
+                    </h2>
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 tracking-tight mb-4">
+                        Your Journey, Our Priority
+                    </h3>
+                    <p class="text-gray-600 text-sm sm:text-[15px] leading-relaxed max-w-xl mb-6">
+                        Mckanes Travels and Tour is a trusted travel agency committed to creating memorable and hassle-free travel experiences. We specialize in personalized travel packages, tour arrangements, and travel assistance for individuals, families, and groups — because we believe that every journey should be more than just a destination, it should be an experience.
+                    </p>
+
+                    <!-- Airplane & Dashed Loop Heart Doodle -->
+                    <div class="flex items-center gap-4 pt-1">
+                        <div class="relative inline-flex items-center">
+                            <svg class="w-36 h-20 text-[#1a446c]" viewBox="0 0 140 80" fill="none" stroke="currentColor">
+                                <!-- Curved dashed flight loop forming a heart -->
+                                <path d="M 15 50 C 15 25, 45 20, 55 38 C 65 20, 95 25, 95 50 C 95 68, 65 74, 55 78 C 45 74, 25 65, 35 48 C 45 30, 80 32, 110 20" 
+                                      stroke="#1a446c" stroke-width="1.75" stroke-dasharray="4 3.5" stroke-linecap="round" fill="none" opacity="0.75"/>
+                                <!-- Small cute airplane at trajectory end -->
+                                <g transform="translate(112, 19) rotate(35)" fill="#1a446c" stroke="none">
+                                    <path d="M0 -7 L4 5 L0 3 L-4 5 Z"/>
+                                    <path d="M-6 0 L6 0 L0 -3 Z"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: 3 Tilted Polaroid Photo Cards with Handwritten Caption -->
+                <div class="lg:col-span-6 relative flex items-center justify-center lg:justify-end">
+                    <div class="relative w-full max-w-[360px] sm:max-w-[480px] md:max-w-[520px] h-[320px] sm:h-[380px] md:h-[420px]">
+                        
+                        <!-- Card 1 (Left / Large): Turquoise Island Lagoon with Outrigger Boat -->
+                        <div class="polaroid-frame absolute left-0 sm:left-2 top-2 w-[190px] sm:w-[250px] md:w-[275px] -rotate-3 rounded-sm p-2.5 pb-8 sm:p-3 sm:pb-10 z-10 cursor-pointer">
+                            <div class="w-full aspect-[4/5] overflow-hidden bg-gray-100 rounded-2xs">
+                                <img src="images/about_lagoon_hd.jpg" alt="Coron Island Lagoon" class="w-full h-full object-cover" onerror="this.src='images/coron.jpg'">
+                            </div>
+                        </div>
+
+                        <!-- Card 2 (Top Right): Sunset Airplane Wing Over Clouds -->
+                        <div class="polaroid-frame absolute right-4 sm:right-8 top-0 w-[155px] sm:w-[200px] md:w-[215px] rotate-[4deg] rounded-sm p-2 pb-6 sm:p-2.5 sm:pb-8 z-0 cursor-pointer">
+                            <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 rounded-2xs">
+                                <img src="images/about_plane_hd.jpg" alt="Airplane Wing Sunset" class="w-full h-full object-cover" onerror="this.src='images/about_plane.jpg'">
+                            </div>
+                        </div>
+
+                        <!-- Card 3 (Bottom Right Overlapping): Backpacker Overlooking Mountain Vista -->
+                        <div class="polaroid-frame absolute right-6 sm:right-12 bottom-0 w-[150px] sm:w-[190px] md:w-[210px] rotate-[7deg] rounded-sm p-2 pb-7 sm:p-2.5 sm:pb-9 z-20 cursor-pointer">
+                            <div class="w-full aspect-[3/4] overflow-hidden bg-gray-100 rounded-2xs">
+                                <img src="images/about_traveler_hd.jpg" alt="Traveler Mountain Vista" class="w-full h-full object-cover" onerror="this.src='images/about_traveler8.jpg'">
+                            </div>
+                        </div>
+
+                        <!-- Handwritten Script Annotation to the Right -->
+                        <div class="absolute -right-2 sm:-right-8 bottom-4 sm:bottom-10 z-25 text-right font-script text-[#1a446c] select-none pointer-events-none -rotate-3 leading-tight">
+                            <span class="block text-xl sm:text-2xl font-bold tracking-tight">Explore</span>
+                            <span class="block text-xl sm:text-2xl font-bold tracking-tight">Discover</span>
+                            <span class="block text-xl sm:text-2xl font-bold tracking-tight">Create Memories</span>
+                            <span class="inline-block text-2xl sm:text-3xl mt-1 text-[#1a446c]">♡</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 2. MIDDLE MISSION / VISION / VALUES STRIP (Warm Ivory Background) -->
+        <div class="w-full bg-[#fbf8f2] border-y border-[#ede6d8] py-12 sm:py-14 px-6 sm:px-8 lg:px-12 relative z-10 shadow-xs">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 divide-y md:divide-y-0 md:divide-x divide-[#ede6d8]">
+                
+                <!-- Our Mission -->
+                <div class="pt-6 md:pt-0 md:pr-8 flex items-start gap-4 sm:gap-5">
+                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#132a4a] text-white flex items-center justify-center text-xl shrink-0 shadow-md">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-[#132a4a] mb-1.5">Our Mission</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                            To provide safe, reliable, and affordable travel services while delivering excellent customer care and unforgettable experiences for every traveler.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Our Vision -->
+                <div class="pt-6 md:pt-0 md:px-8 flex items-start gap-4 sm:gap-5">
+                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#132a4a] text-white flex items-center justify-center text-xl shrink-0 shadow-md">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-[#132a4a] mb-1.5">Our Vision</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                            To be a leading and most trusted travel agency, known for our commitment to quality service, innovation, and customer satisfaction in the tourism industry.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Our Values -->
+                <div class="pt-6 md:pt-0 md:pl-8 flex items-start gap-4 sm:gap-5">
+                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#132a4a] text-white flex items-center justify-center text-xl shrink-0 shadow-md">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-lg sm:text-xl font-bold text-[#132a4a] mb-2">Our Values</h3>
+                        <ul class="space-y-1 text-xs sm:text-sm text-gray-700 font-medium">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-[#132a4a] text-xs font-bold"></i>
+                                <span>Customer First</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-[#132a4a] text-xs font-bold"></i>
+                                <span>Integrity</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-[#132a4a] text-xs font-bold"></i>
+                                <span>Reliability</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-[#132a4a] text-xs font-bold"></i>
+                                <span>Excellence</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-[#132a4a] text-xs font-bold"></i>
+                                <span>Passion for Travel</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 3. BOTTOM "WHY CHOOSE US" STRIP -->
+        <div class="relative py-16 sm:py-20 px-6 sm:px-8 lg:px-12 bg-gradient-to-b from-[#fbf8f2]/60 via-white to-gray-50 border-b border-gray-200/60">
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-14">
+                
+                <!-- Left: Headline & Text -->
+                <div class="lg:w-5/12 text-center lg:text-left">
+                    <span class="inline-block text-xs sm:text-sm font-bold tracking-[0.28em] text-[#1e3a5f] uppercase mb-2">WHY CHOOSE US</span>
+                    <h3 class="font-script text-4xl sm:text-5xl lg:text-6xl font-bold text-[#143256] leading-tight mb-3">
+                        More Than Just a Trip
+                    </h3>
+                    <p class="text-gray-600 text-sm sm:text-[15px] leading-relaxed max-w-md mx-auto lg:mx-0">
+                        At Mckanes Travels and Tour, we go beyond bookings. We help you plan, explore, and experience the world — with care, convenience, and confidence.
+                    </p>
+                </div>
+
+                <!-- Right: 4 Circular Feature Pillars -->
+                <div class="lg:w-7/12 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-4 md:gap-6 w-full">
+                    
+                    <!-- Pillar 1: Customized Travel Packages -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white border border-gray-100 shadow-md shadow-blue-900/5 flex items-center justify-center text-[#1a446c] text-xl sm:text-2xl mb-3.5 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
+                            <i class="fas fa-plane -rotate-45"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-xs sm:text-sm leading-snug mb-1">Customized<br>Travel Packages</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed px-1">Tours designed to fit your interests and budget.</p>
+                    </div>
+
+                    <!-- Pillar 2: Safe & Reliable Travel -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white border border-gray-100 shadow-md shadow-blue-900/5 flex items-center justify-center text-[#1a446c] text-xl sm:text-2xl mb-3.5 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-xs sm:text-sm leading-snug mb-1">Safe & Reliable<br>Travel</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed px-1">Your safety and comfort are always our priority.</p>
+                    </div>
+
+                    <!-- Pillar 3: Expert Travel Assistance -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white border border-gray-100 shadow-md shadow-blue-900/5 flex items-center justify-center text-[#1a446c] text-xl sm:text-2xl mb-3.5 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-xs sm:text-sm leading-snug mb-1">Expert Travel<br>Assistance</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed px-1">From booking to on-site support, we're with you.</p>
+                    </div>
+
+                    <!-- Pillar 4: Affordable Rates -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white border border-gray-100 shadow-md shadow-blue-900/5 flex items-center justify-center text-[#1a446c] text-xl sm:text-2xl mb-3.5 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
+                            <i class="fas fa-tag rotate-45"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-xs sm:text-sm leading-snug mb-1">Affordable<br>Rates</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed px-1">Great experiences don't have to be expensive.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-12 px-8 border-t border-gray-800 scroll-mt-24">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+            <!-- Brand Column -->
+            <div class="md:col-span-1">
+                <a href="#top" class="flex items-center gap-2 mb-4 group cursor-pointer inline-flex">
+                    <i class="fas fa-globe text-3xl text-[#5ba4d6] group-hover:rotate-12 transition-transform duration-300"></i>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-bold text-xl text-white">Mckanes</span>
+                        <span class="text-[9px] text-[#5ba4d6] font-bold tracking-wider mt-1">TRAVEL & TOURS</span>
+                    </div>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Elevating your travel journey with reliable multimodal ticketing across the Philippines. Bus, flight, and curated tour bookings made simple.
+                </p>
+                <div class="flex items-center gap-3">
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center text-gray-300 hover:text-white transition shadow-sm"><i class="fab fa-facebook-f text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-sky-500 flex items-center justify-center text-gray-300 hover:text-white transition shadow-sm"><i class="fab fa-twitter text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-pink-600 flex items-center justify-center text-gray-300 hover:text-white transition shadow-sm"><i class="fab fa-instagram text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-black flex items-center justify-center text-gray-300 hover:text-white transition shadow-sm"><i class="fab fa-tiktok text-sm"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-bold text-sm tracking-wider uppercase text-gray-200 mb-4">Quick Links</h4>
+                <ul class="space-y-2.5 text-sm text-gray-400">
+                    <li><a href="#top" class="hover:text-white transition">Home</a></li>
+                    <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="plane-booking.html" class="hover:text-white transition">Flight Reservation</a></li>
+                    <li><a href="bus-booking.html" class="hover:text-white transition">Bus Reservation</a></li>
+                    <li><a href="#packages" class="hover:text-white transition font-bold text-blue-400">Vacation Packages</a></li>
+                    <li><a href="#destinations" class="hover:text-white transition">Destinations</a></li>
+                    <li><a href="#reviews" class="hover:text-white transition">Traveler Reviews</a></li>
+                </ul>
+            </div>
+
+            <!-- Domestic Hubs -->
+            <div>
+                <h4 class="font-bold text-sm tracking-wider uppercase text-gray-200 mb-4">Top Destinations</h4>
+                <ul class="space-y-2.5 text-sm text-gray-400">
+                    <li><a href="#destinations" class="hover:text-white transition">Baguio City, Benguet</a></li>
+                    <li><a href="#destinations" class="hover:text-white transition">Coron & El Nido, Palawan</a></li>
+                    <li><a href="#destinations" class="hover:text-white transition">Boracay Island, Aklan</a></li>
+                    <li><a href="#destinations" class="hover:text-white transition">Bohol Chocolate Hills</a></li>
+                    <li><a href="#destinations" class="hover:text-white transition">Vigan Heritage City</a></li>
+                    <li><a href="#destinations" class="hover:text-white transition">Siargao Cloud 9</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Channels -->
+            <div>
+                <h4 class="font-bold text-sm tracking-wider uppercase text-gray-200 mb-4">Get In Touch</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                        <span>Metro Manila, Philippines</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-phone text-blue-400"></i>
+                        <span>+63 (02) 8888-MCKANES</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-blue-400"></i>
+                        <span>support@mckanestravel.ph</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-clock text-blue-400"></i>
+                        <span>Mon - Sun: 24/7 Support</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright & Back to Top -->
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+            <p>© 2026 Mckanes Travel and Tours. All rights reserved.</p>
+            <div class="flex items-center gap-6">
+                <a href="#" class="hover:text-gray-400 transition">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-400 transition">Terms of Service</a>
+                <a href="#top" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold transition">
+                    Back to Top <i class="fas fa-arrow-up text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Showcase Modal -->
+    <div id="video-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none" onclick="if (event.target === this) closeVideoModal();">
+        <div class="relative bg-gray-900 border border-white/20 rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl transform scale-95 transition-all duration-300" id="video-modal-card">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-4 px-6 border-b border-white/10 bg-black/40">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-play-circle text-blue-500 text-lg"></i>
+                    <span class="text-white font-bold text-sm">Experience The Magic Of Philippine Travel</span>
+                </div>
+                <button type="button" onclick="closeVideoModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white flex items-center justify-center transition cursor-pointer">
+                    <i class="fas fa-times text-sm"></i>
+                </button>
+            </div>
+            <!-- Video Player Area -->
+            <div class="relative aspect-video w-full bg-black">
+                <iframe id="video-iframe" class="w-full h-full" src="" title="Philippine Travel Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <!-- Modal Footer -->
+            <div class="p-4 px-6 flex items-center justify-between bg-black/40 text-xs text-gray-400">
+                <span>Discover Boracay, Palawan, Baguio & more with Mckanes Travel.</span>
+                <a href="#services" onclick="closeVideoModal()" class="text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1 transition">
+                    Book Your Tour Now <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Destination Detail & Itinerary Modal -->
+    <div id="destination-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none" onclick="if (event.target === this) closeDestinationModal();">
+        <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] overflow-y-auto shadow-2xl transform scale-95 transition-all duration-300 border border-gray-100" id="destination-modal-card">
+            <!-- Modal Cover Photo Banner -->
+            <div class="relative h-60 sm:h-72 w-full overflow-hidden bg-gray-900">
+                <img id="dest-modal-img" src="images/coron.jpg" alt="Destination Cover" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-black/30"></div>
+                
+                <!-- Close Button -->
+                <button type="button" onclick="closeDestinationModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm transition cursor-pointer z-20">
+                    <i class="fas fa-times text-sm"></i>
+                </button>
+
+                <!-- Floating Badges -->
+                <div class="absolute top-4 left-4 flex items-center gap-2">
+                    <span id="dest-modal-tag" class="bg-blue-600/90 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-xs shadow-sm">
+                        Lagoon & Diving Paradise
+                    </span>
+                </div>
+
+                <!-- Banner Bottom Content -->
+                <div class="absolute bottom-4 left-4 right-4 text-white z-10">
+                    <div class="flex items-center gap-3 mb-1">
+                        <h3 id="dest-modal-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight">Coron Island</h3>
+                        <div class="bg-amber-400 text-gray-950 px-2.5 py-0.5 rounded-full font-black text-xs flex items-center gap-1 shadow-sm">
+                            <i class="fas fa-star text-[10px]"></i> <span id="dest-modal-rating">4.9</span>
+                        </div>
+                    </div>
+                    <p id="dest-modal-location" class="text-xs sm:text-sm text-gray-200 flex items-center gap-1.5">
+                        <i class="fas fa-map-marker-alt text-red-400"></i> <span>Palawan, Philippines</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div class="p-6 sm:p-8 space-y-6">
+                <!-- Overview Section -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">About This Destination</h4>
+                    <p id="dest-modal-desc" class="text-gray-700 text-xs sm:text-sm leading-relaxed">
+                        Crystal clear lagoons, dramatic limestone cliffs, Kayangan Lake, and world-class WWII shipwreck diving await in Coron.
+                    </p>
+                </div>
+
+                <!-- Info Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                    <div class="bg-blue-50/60 border border-blue-100 rounded-2xl p-3.5 flex flex-col justify-between">
+                        <span class="text-gray-500 font-semibold flex items-center gap-1.5 mb-1 text-[11px]">
+                            <i class="far fa-calendar-alt text-blue-600"></i> Best Season
+                        </span>
+                        <span id="dest-modal-season" class="font-bold text-gray-900 text-xs">Nov – May (Dry)</span>
+                    </div>
+                    <div class="bg-blue-50/60 border border-blue-100 rounded-2xl p-3.5 flex flex-col justify-between">
+                        <span class="text-gray-500 font-semibold flex items-center gap-1.5 mb-1 text-[11px]">
+                            <i class="far fa-clock text-blue-600"></i> Recommended Stay
+                        </span>
+                        <span id="dest-modal-stay" class="font-bold text-gray-900 text-xs">4 Days / 3 Nights</span>
+                    </div>
+                    <div class="bg-blue-50/60 border border-blue-100 rounded-2xl p-3.5 flex flex-col justify-between">
+                        <span class="text-gray-500 font-semibold flex items-center gap-1.5 mb-1 text-[11px]">
+                            <i class="fas fa-route text-blue-600"></i> Travel Route
+                        </span>
+                        <span id="dest-modal-transport" class="font-bold text-gray-900 text-xs">Direct Flight (Busuanga)</span>
+                    </div>
+                </div>
+
+                <!-- Top Highlights & Attractions -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Top Highlights & Experiences</h4>
+                    <div id="dest-modal-highlights" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+
+                <!-- Sample Itinerary Summary -->
+                <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+                    <h4 class="text-xs font-bold text-gray-800 mb-2 flex items-center gap-2">
+                        <i class="fas fa-map-signs text-blue-600"></i> Sample Itinerary Highlights
+                    </h4>
+                    <ul id="dest-modal-itinerary" class="text-xs text-gray-600 space-y-1.5 list-disc list-inside">
+                        <!-- Filled by JS -->
+                    </ul>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-gray-100">
+                    <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                        <a id="dest-modal-flight-btn" href="plane-booking.html" onclick="requireAuthToBook('plane', event)" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition shadow-md shadow-blue-500/20">
+                            <i class="fas fa-plane text-xs"></i> <span>Book Flight Ticket</span>
+                        </a>
+                        <a id="dest-modal-bus-btn" href="bus-booking.html" onclick="requireAuthToBook('bus', event)" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition shadow-md shadow-red-500/20">
+                            <i class="fas fa-bus text-xs"></i> <span>Book Bus Ticket</span>
+                        </a>
+                    </div>
+                    <button type="button" onclick="closeDestinationModal()" class="w-full sm:w-auto text-gray-500 hover:text-gray-800 text-xs font-semibold px-4 py-2 cursor-pointer">
+                        Close Preview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Destinations Directory Modal -->
+    <div id="all-destinations-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none" onclick="if (event.target === this) closeAllDestinationsModal();">
+        <div class="relative bg-white rounded-3xl max-w-5xl w-full max-h-[92vh] overflow-y-auto shadow-2xl transform scale-95 transition-all duration-300 p-6 sm:p-8 border border-gray-100" id="all-destinations-modal-card">
+            <!-- Header -->
+            <div class="flex items-start justify-between pb-6 border-b border-gray-100 mb-6">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+                        <i class="fas fa-globe-asia text-blue-600"></i> Explore The Philippines
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">All Featured Destinations</h3>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-1">Discover 8 unforgettable island getaways, highland escapes, and natural wonders across the country.</p>
+                </div>
+                <button type="button" onclick="closeAllDestinationsModal()" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 flex items-center justify-center transition cursor-pointer">
+                    <i class="fas fa-times text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap items-center gap-2 mb-6 text-xs font-semibold" id="directory-filter-tabs">
+                <button type="button" onclick="filterDirectoryCategory('all', this)" class="dir-tab-btn active bg-blue-600 text-white px-4 py-2 rounded-xl shadow-xs transition cursor-pointer">
+                    All Destinations (8)
+                </button>
+                <button type="button" onclick="filterDirectoryCategory('islands', this)" class="dir-tab-btn bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-xl transition cursor-pointer">
+                    🏝️ Beaches & Islands
+                </button>
+                <button type="button" onclick="filterDirectoryCategory('highlands', this)" class="dir-tab-btn bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-xl transition cursor-pointer">
+                    ⛰️ Highlands & Mountains
+                </button>
+                <button type="button" onclick="filterDirectoryCategory('nature', this)" class="dir-tab-btn bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-xl transition cursor-pointer">
+                    🌊 Waterfalls & Eco-Trails
+                </button>
+            </div>
+
+            <!-- Destinations Grid (8 Cards) -->
+            <div id="directory-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Dynamically populated by renderDirectoryGrid() -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Package Details, Customizer & Booking Modal -->
+    <div id="package-booking-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-6 overflow-y-auto" onclick="if(event.target === this) closePackageModal()">
+        <div id="package-modal-card" class="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col transform transition-transform duration-300 scale-95 border border-gray-100 my-auto">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-4.5 bg-white border-b border-gray-100 flex items-center justify-between flex-shrink-0 z-10">
+                <div class="flex items-center gap-3">
+                    <span id="pkg-modal-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-rose-500 text-white">
+                        🔥 Best Seller
+                    </span>
+                    <h3 id="pkg-modal-title" class="text-base sm:text-lg font-black text-gray-900 truncate">
+                        Package Title
+                    </h3>
+                </div>
+                <button type="button" onclick="closePackageModal()" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 flex items-center justify-center transition cursor-pointer" title="Close (Esc)">
+                    <i class="fas fa-times text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body (Two Column: Left = Overview & Itinerary; Right = Customizer / Booking Form) -->
+            <div class="flex-1 overflow-y-auto custom-scrollbar">
+                
+                <!-- 1. Normal Booking Flow View -->
+                <div id="pkg-form-container" class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
+                    
+                    <!-- Left Column: Package Overview, Inclusions & Itinerary (7 cols) -->
+                    <div class="lg:col-span-7 p-6 sm:p-8 space-y-6">
+                        <!-- Hero Image & Quick Info -->
+                        <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-sm group">
+                            <img id="pkg-modal-img" src="images/boracay.jpg" alt="" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
+                                <div class="flex items-center gap-2 mb-1 text-xs">
+                                    <span id="pkg-modal-transport" class="bg-blue-600 text-white px-2.5 py-0.5 rounded-full font-bold text-[10px] shadow-xs">✈️ Roundtrip Flights</span>
+                                    <span id="pkg-modal-duration" class="bg-white/20 backdrop-blur-xs px-2.5 py-0.5 rounded-full font-semibold text-[10px]">3 Days / 2 Nights</span>
+                                </div>
+                                <h4 id="pkg-modal-subname" class="text-lg font-extrabold">Boracay Ultimate Tropical Retreat</h4>
+                                <p id="pkg-modal-resort" class="text-xs text-blue-200 flex items-center gap-1.5 mt-0.5">
+                                    <i class="fas fa-hotel"></i> Henann Crystal Sands Beachfront Resort
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- All Inclusions Checklist -->
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                                <i class="fas fa-check-circle text-emerald-500"></i> What's Included in This Package
+                            </h5>
+                            <ul id="pkg-modal-inclusions" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-700">
+                                <!-- Populated dynamically -->
+                            </ul>
+                        </div>
+
+                        <!-- Day-by-Day Itinerary -->
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                                <i class="fas fa-map-marked-alt text-blue-500"></i> Day-by-Day Travel Itinerary
+                            </h5>
+                            <div id="pkg-modal-itinerary" class="space-y-3.5 relative pl-4 border-l-2 border-blue-100 ml-2">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Customizer, Live Calculator & Booking Form (5 cols) -->
+                    <div class="lg:col-span-5 p-6 sm:p-8 bg-gray-50/70 flex flex-col justify-between">
+                        <form id="package-booking-form" onsubmit="handlePackageBookingSubmit(event)" class="space-y-5">
+                            
+                            <!-- Step 1: Select Departure Date -->
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                                    <i class="fas fa-calendar-alt text-blue-600"></i> Preferred Travel Date
+                                </label>
+                                <input type="date" id="pkg-input-date" required class="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-xs">
+                            </div>
+
+                            <!-- Step 2: Guest Counters (Adults & Children) -->
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-white p-3 rounded-xl border border-gray-200 shadow-xs">
+                                    <span class="text-[11px] font-bold text-gray-500 block mb-1">Adults (12+ yrs)</span>
+                                    <div class="flex items-center justify-between">
+                                        <button type="button" onclick="changePax('adult', -1)" class="w-7 h-7 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold flex items-center justify-center transition cursor-pointer">-</button>
+                                        <span id="pkg-adult-count" class="font-black text-sm text-gray-900">2</span>
+                                        <button type="button" onclick="changePax('adult', 1)" class="w-7 h-7 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold flex items-center justify-center transition cursor-pointer">+</button>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-xl border border-gray-200 shadow-xs">
+                                    <span class="text-[11px] font-bold text-gray-500 block mb-1">Kids (30% OFF)</span>
+                                    <div class="flex items-center justify-between">
+                                        <button type="button" onclick="changePax('child', -1)" class="w-7 h-7 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold flex items-center justify-center transition cursor-pointer">-</button>
+                                        <span id="pkg-child-count" class="font-black text-sm text-gray-900">0</span>
+                                        <button type="button" onclick="changePax('child', 1)" class="w-7 h-7 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold flex items-center justify-center transition cursor-pointer">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Room Tier Selection -->
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                                    <i class="fas fa-bed text-blue-600"></i> Accommodation Tier
+                                </label>
+                                <div id="pkg-room-tiers-container" class="space-y-2">
+                                    <!-- Populated dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Optional Add-ons -->
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                                    <i class="fas fa-plus-circle text-blue-600"></i> Enhance Your Trip (Optional)
+                                </label>
+                                <div id="pkg-addons-container" class="space-y-2">
+                                    <!-- Populated dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- Step 5: Passenger Contact Information -->
+                            <div class="pt-2 border-t border-gray-200/70 space-y-2.5">
+                                <div class="flex items-center justify-between">
+                                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                                        Lead Traveler Details
+                                    </label>
+                                    <span id="pkg-account-badge" class="hidden text-[9px] bg-emerald-50 text-emerald-700 border border-emerald-200 font-extrabold px-2 py-0.5 rounded-full">
+                                        <i class="fas fa-check-circle text-[8px]"></i> Account Linked
+                                    </span>
+                                </div>
+
+                                <!-- Account Pre-Fill Verification Card -->
+                                <div id="pkg-account-sync-banner" class="hidden p-2.5 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50/60 border border-blue-200/80 flex items-center justify-between gap-2 text-xs shadow-2xs">
+                                    <div class="flex items-center gap-2 min-w-0">
+                                        <div id="pkg-account-sync-avatar" class="w-7 h-7 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black text-xs flex items-center justify-center flex-shrink-0 shadow-xs">
+                                            TR
+                                        </div>
+                                        <div class="min-w-0">
+                                            <div class="flex items-center gap-1.5">
+                                                <span id="pkg-account-sync-name" class="font-bold text-gray-900 truncate text-xs">Traveler Name</span>
+                                                <span class="text-[9px] bg-blue-100 text-blue-700 font-extrabold px-1.5 py-0.2 rounded">Auto-Filled</span>
+                                            </div>
+                                            <div id="pkg-account-sync-contact" class="text-[10px] text-gray-500 truncate">traveler@email.com</div>
+                                        </div>
+                                    </div>
+                                    <span class="text-[9px] font-bold text-emerald-700 bg-emerald-100/90 border border-emerald-200 px-2 py-0.5 rounded-full flex items-center gap-1 flex-shrink-0">
+                                        <i class="fas fa-check text-[8px]"></i> Verified
+                                    </span>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-2">
+                                    <input type="text" id="pkg-cust-first" required placeholder="First Name" class="bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-medium text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-xs">
+                                    <input type="text" id="pkg-cust-last" required placeholder="Last Name" class="bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-medium text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-xs">
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <input type="email" id="pkg-cust-email" required placeholder="Email Address" class="bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-medium text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-xs">
+                                    <input type="tel" id="pkg-cust-phone" required placeholder="Phone (+63)" class="bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-medium text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-xs">
+                                </div>
+                            </div>
+
+                            <!-- Live Price Summary Card -->
+                            <div class="bg-white p-4 rounded-2xl border border-blue-100 shadow-sm space-y-1.5 text-xs">
+                                <div class="flex justify-between text-gray-500">
+                                    <span>Base Package (<span id="pkg-calc-pax-label">2 Adults</span>):</span>
+                                    <span id="pkg-calc-base" class="font-semibold text-gray-700">₱16,998</span>
+                                </div>
+                                <div class="flex justify-between text-gray-500">
+                                    <span>Room Tier Upgrade:</span>
+                                    <span id="pkg-calc-room" class="font-semibold text-gray-700">+₱0</span>
+                                </div>
+                                <div class="flex justify-between text-gray-500">
+                                    <span>Selected Add-ons:</span>
+                                    <span id="pkg-calc-addons" class="font-semibold text-gray-700">+₱0</span>
+                                </div>
+                                <div class="flex justify-between text-gray-500">
+                                    <span>Taxes, Port & Eco Fees:</span>
+                                    <span id="pkg-calc-fees" class="font-semibold text-gray-700">₱600</span>
+                                </div>
+                                <div class="pt-2 border-t border-gray-100 flex items-baseline justify-between">
+                                    <span class="font-black text-gray-900 text-sm">Total Package Fare:</span>
+                                    <span id="pkg-calc-total" class="font-black text-xl text-blue-600">₱17,598</span>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-3.5 rounded-xl transition shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 text-sm cursor-pointer">
+                                <span>Confirm & Reserve Package</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 2. Instant Booking Confirmation Card View (Hidden by default) -->
+                <div id="pkg-confirmation-container" class="hidden p-6 sm:p-10 text-center space-y-6">
+                    <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-3xl shadow-sm animate-bounce">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>
+                        <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-2 border border-emerald-100">
+                            Reservation Confirmed
+                        </span>
+                        <h4 class="text-2xl sm:text-3xl font-black text-gray-900">Your Vacation Package is Booked!</h4>
+                        <p class="text-sm text-gray-500 mt-1">Our travel concierge will reach out within 2 hours to finalize your itinerary details.</p>
+                    </div>
+
+                    <!-- Voucher Summary Card -->
+                    <div id="printable-package-voucher" class="max-w-xl mx-auto bg-gradient-to-b from-amber-50/60 to-white border-2 border-dashed border-amber-300 rounded-3xl p-6 text-left shadow-md relative overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-gray-200/70 pb-4 mb-4">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-globe text-2xl text-blue-600"></i>
+                                <div>
+                                    <h5 class="font-black text-sm text-gray-900">Mckanes Travel & Tours</h5>
+                                    <span class="text-[10px] text-gray-400 font-bold tracking-wider">OFFICIAL VACATION VOUCHER</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[10px] text-gray-400 block font-semibold">Reference Code</span>
+                                <span id="voucher-ref-code" class="text-sm font-black text-blue-600">MCK-PKG-5821-BOR</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 text-xs mb-4">
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-bold">Package Name</span>
+                                <span id="voucher-pkg-name" class="font-bold text-gray-800">Boracay Tropical Retreat</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-bold">Accommodation</span>
+                                <span id="voucher-resort-name" class="font-bold text-gray-800">Henann Crystal Sands (Premier)</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-bold">Lead Traveler</span>
+                                <span id="voucher-lead-name" class="font-bold text-gray-800">Traveler Name</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-bold">Departure Date</span>
+                                <span id="voucher-travel-date" class="font-bold text-gray-800">Oct 24, 2026</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-bold">Guests</span>
+                                <span id="voucher-guests" class="font-bold text-gray-800">2 Adults, 0 Children</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-bold">Total Package Price</span>
+                                <span id="voucher-total-fare" class="font-black text-emerald-600 text-sm">₱17,598</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-100/60 p-3 rounded-xl text-[11px] text-amber-900 flex items-center gap-2">
+                            <i class="fas fa-info-circle text-amber-600"></i>
+                            <span>Please present this voucher or reference code upon airport transfer and resort check-in.</span>
+                        </div>
+                    </div>
+
+                    <!-- Voucher Action Buttons -->
+                    <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+                        <button type="button" onclick="window.print()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 cursor-pointer shadow-xs">
+                            <i class="fas fa-print"></i> Print Voucher
+                        </button>
+                        <button type="button" onclick="downloadPackageVoucher()" class="bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 cursor-pointer shadow-xs">
+                            <i class="fas fa-download"></i> Download E-Voucher (.txt)
+                        </button>
+                        <button type="button" onclick="resetPackageBookingForm()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs sm:text-sm transition cursor-pointer shadow-md">
+                            Done
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================================================
+         SIGN IN REQUIRED POP-UP MODAL (BOOKING GATE)
+         ========================================================================== -->
+    <div id="auth-required-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 overflow-y-auto" onclick="if(event.target === this) closeAuthRequiredModal()">
+        <div id="auth-required-modal-card" class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-gray-100 overflow-hidden transform transition-all duration-300 scale-95 my-auto">
+            
+            <!-- Modal Header -->
+            <div class="p-6 pb-0 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-10 h-10 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 shadow-xs">
+                        <i class="fas fa-lock text-base"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-amber-600 block">Account Verification</span>
+                        <h3 class="font-extrabold text-base text-gray-900 leading-tight">Sign In Required</h3>
+                    </div>
+                </div>
+                <button type="button" onclick="closeAuthRequiredModal()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 flex items-center justify-center transition cursor-pointer" title="Close (Esc)">
+                    <i class="fas fa-times text-xs"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 space-y-4">
+                <!-- Context Message Banner -->
+                <div class="bg-blue-50/80 border border-blue-100 rounded-2xl p-4 text-left">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-ticket-alt text-blue-600 text-lg mt-0.5"></i>
+                        <div>
+                            <h4 id="auth-required-target-title" class="font-bold text-xs text-blue-900 mb-1">
+                                Ready to book your journey?
+                            </h4>
+                            <p id="auth-required-target-desc" class="text-[11px] text-blue-800 leading-relaxed">
+                                You must be signed in to your Mckanes account before booking tickets or vacation packages.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why Sign In Feature Badges -->
+                <div class="space-y-2.5 pt-1">
+                    <div class="flex items-center gap-3 text-xs text-gray-700">
+                        <div class="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 text-[10px]">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="font-medium">Instant E-Ticket & Digital Boarding Pass issuance</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs text-gray-700">
+                        <div class="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 text-[10px]">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="font-medium">Real-time SMS & email trip schedule alerts</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs text-gray-700">
+                        <div class="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 text-[10px]">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="font-medium">Official PNR reservation code saved to your profile</span>
+                    </div>
+                </div>
+
+                <!-- Action CTA Buttons -->
+                <div class="space-y-2 pt-3">
+                    <button type="button" onclick="proceedToSignInFromGate()" class="w-full bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-extrabold py-3 px-4 rounded-xl shadow-lg shadow-blue-600/25 text-xs sm:text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+                        <i class="fas fa-sign-in-alt text-xs"></i>
+                        <span>Sign In to Continue Booking</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </button>
+                    <button type="button" onclick="proceedToSignUpFromGate()" class="w-full bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+                        <i class="fas fa-user-plus text-xs text-blue-600"></i>
+                        <span>Create New Traveler Account</span>
+                    </button>
+                </div>
+
+                <!-- Dismiss Action -->
+                <div class="pt-2 flex items-center justify-end text-[11px] text-gray-400 border-t border-gray-100">
+                    <button type="button" onclick="closeAuthRequiredModal()" class="hover:text-gray-700 font-semibold cursor-pointer">
+                        Cancel & Browse More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Authentication Modal (Sign In / Register) -->
+    <div id="auth-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 overflow-y-auto" onclick="if(event.target === this) closeAuthModal()">
+        <div id="auth-modal-card" class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-gray-100 overflow-hidden transform transition-all duration-300 scale-95 my-auto">
+            
+            <!-- Modal Header -->
+            <div class="p-6 pb-0 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-globe text-2xl text-[#1a5b92]"></i>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-bold text-base text-[#1a5b92]">Mckanes</span>
+                        <span class="text-[8px] text-[#5ba4d6] font-bold tracking-wider mt-0.5">TRAVEL & TOURS</span>
+                    </div>
+                </div>
+                <button type="button" onclick="closeAuthModal()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 flex items-center justify-center transition cursor-pointer" title="Close (Esc)">
+                    <i class="fas fa-times text-xs"></i>
+                </button>
+            </div>
+
+            <!-- Tab Switcher (Sign In vs Create Account) -->
+            <div class="px-6 pt-5 pb-3">
+                <div class="flex p-1 bg-gray-100 rounded-2xl text-xs font-bold">
+                    <button type="button" id="tab-auth-signin" onclick="switchAuthTab('signin')" class="flex-1 py-2.5 rounded-xl transition cursor-pointer text-center bg-blue-600 text-white shadow-xs">
+                        Sign In
+                    </button>
+                    <button type="button" id="tab-auth-signup" onclick="switchAuthTab('signup')" class="flex-1 py-2.5 rounded-xl transition cursor-pointer text-center text-gray-600 hover:text-gray-900">
+                        Create Account
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-6 pt-3">
+                <!-- 1. SIGN IN FORM -->
+                <form id="form-auth-signin" onsubmit="handleSignInSubmit(event)" class="space-y-3.5">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Email Address</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 text-xs">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input type="text" id="signin-email" inputmode="email" autocomplete="email" required placeholder="you@example.com" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-gray-800 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="text-xs font-bold text-gray-700">Password</label>
+                            <a href="#" onclick="handleForgotPassword(); return false;" class="text-[11px] text-blue-600 hover:underline font-semibold">Forgot?</a>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 text-xs">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input type="password" id="signin-password" required placeholder="Enter your password" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-9 pr-10 py-2.5 text-xs text-gray-800 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition" autocomplete="current-password">
+                            <button type="button" onclick="togglePasswordVisibility('signin-password', 'signin-eye-icon')" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-gray-600 cursor-pointer">
+                                <i id="signin-eye-icon" class="fas fa-eye text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between text-xs pt-1">
+                        <label class="flex items-center gap-2 cursor-pointer text-gray-600 select-none">
+                            <input type="checkbox" id="signin-remember" onchange="handleRememberMeToggle(this)" checked class="rounded text-blue-600 focus:ring-blue-500 cursor-pointer">
+                            <span>Keep me signed in</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-3 rounded-xl transition shadow-lg shadow-blue-600/25 text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer mt-2">
+                        <span>Sign In</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </button>
+
+                    <!-- Quick Demo Credentials Pill for Traveler Testing -->
+                    <div class="pt-2 flex items-center justify-center">
+                        <button type="button" onclick="autofillClientCredentials('julie@gmail.com', 'password123')" class="text-[11px] text-gray-500 hover:text-blue-600 transition flex items-center gap-1.5 py-1 px-3 rounded-lg bg-gray-50 hover:bg-blue-50 border border-gray-200 cursor-pointer">
+                            <i class="fas fa-key text-[10px] text-amber-500"></i>
+                            <span>Quick Demo Fill: <strong class="text-blue-700 font-mono">julie@gmail.com</strong> / <strong class="text-blue-700 font-mono">password123</strong></span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- 2. SIGN UP / REGISTER FORM (Hidden by default) -->
+                <form id="form-auth-signup" onsubmit="handleSignUpSubmit(event)" class="space-y-3 hidden">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Full Name</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 text-xs">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            <input type="text" id="signup-name" required placeholder="e.g. Juan Dela Cruz" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-gray-800 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Email Address</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 text-xs">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input type="email" id="signup-email" required placeholder="you@example.com" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-gray-800 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Mobile Number</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 text-xs">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                            <input type="tel" id="signup-phone" required placeholder="+63 912 345 6789" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-gray-800 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Password</label>
+                            <input type="password" id="signup-password" required placeholder="At least 6 chars" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs text-gray-800 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Confirm</label>
+                            <input type="password" id="signup-confirm" required placeholder="Re-type password" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs text-gray-800 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                    </div>
+                    <label class="flex items-start gap-2 cursor-pointer text-[11px] text-gray-500 pt-1">
+                        <input type="checkbox" required class="mt-0.5 rounded text-blue-600 focus:ring-blue-500">
+                        <span>I agree to Mckanes <a href="#" class="text-blue-600 underline">Terms</a> & <a href="#" class="text-blue-600 underline">Privacy Policy</a></span>
+                    </label>
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 rounded-xl transition shadow-lg shadow-emerald-600/25 text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer mt-2">
+                        <span>Create Account</span>
+                        <i class="fas fa-user-plus text-xs"></i>
+                    </button>
+                </form>
+
+                <!-- Demo helper notice -->
+                <p class="text-center text-[11px] text-gray-400 mt-4">
+                    🔒 256-bit SSL encrypted. Fast booking with saved traveler details.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Auth Toast Notification -->
+    <div id="auth-toast" class="fixed bottom-6 right-6 z-50 bg-gray-900 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 text-xs font-semibold transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <i id="auth-toast-icon" class="fas fa-check-circle text-emerald-400 text-base"></i>
+        <span id="auth-toast-message">Notification message</span>
+    </div>
+
+    <!-- Scripts: Header Scroll, Hero Stepper Carousel, Video Modal, Popular Destinations Showcase -->
+    <script src="js/main.js"></script>
+</body>
+</html>

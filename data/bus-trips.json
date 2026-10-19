@@ -1,0 +1,127 @@
+[
+  {
+    "id": 1,
+    "operator": "Victory Liner",
+    "class": "Deluxe",
+    "icon": "<i class=\"fas fa-check text-red-600\"></i>",
+    "iconBg": "bg-red-50 border-red-100 text-red-600",
+    "origin": "Manila (Pasay)",
+    "destination": "Baguio City",
+    "depTime": "06:00 AM",
+    "arrTime": "11:30 AM",
+    "duration": "5h 30m",
+    "durationMinutes": 330,
+    "baseFare": 750,
+    "amenities": [
+      "WiFi",
+      "Charging Port",
+      "Comfortable Seat"
+    ],
+    "terminalOrigin": "Pasay Victory Terminal",
+    "terminalDest": "Baguio Victory Terminal"
+  },
+  {
+    "id": 2,
+    "operator": "Genesis Transport",
+    "class": "Premium Deluxe",
+    "icon": "<i class=\"fas fa-circle-notch text-amber-700\"></i>",
+    "iconBg": "bg-orange-50 border-orange-100 text-amber-700",
+    "origin": "Manila (Cubao)",
+    "destination": "Baguio City",
+    "depTime": "07:00 AM",
+    "arrTime": "12:45 PM",
+    "duration": "5h 45m",
+    "durationMinutes": 345,
+    "baseFare": 800,
+    "amenities": [
+      "WiFi",
+      "Charging Port",
+      "Comfortable Seat"
+    ],
+    "terminalOrigin": "Cubao Genesis Terminal",
+    "terminalDest": "Baguio Central Terminal"
+  },
+  {
+    "id": 3,
+    "operator": "JoyBus",
+    "class": "Executive",
+    "icon": "JoyBus",
+    "iconBg": "bg-blue-900 border-blue-800 text-yellow-400 text-xs font-bold",
+    "origin": "Manila (Cubao)",
+    "destination": "Baguio City",
+    "depTime": "08:00 AM",
+    "arrTime": "01:30 PM",
+    "duration": "5h 30m",
+    "durationMinutes": 330,
+    "baseFare": 850,
+    "amenities": [
+      "WiFi",
+      "Charging Port",
+      "Comfortable Seat"
+    ],
+    "terminalOrigin": "Cubao JoyBus Lounge",
+    "terminalDest": "Baguio Gov Pack Terminal"
+  },
+  {
+    "id": 4,
+    "operator": "Partas",
+    "class": "Deluxe",
+    "icon": "<i class=\"fas fa-location-arrow text-blue-700\"></i>",
+    "iconBg": "bg-blue-50 border-blue-100 text-blue-700",
+    "origin": "Manila (Pasay)",
+    "destination": "Baguio City",
+    "depTime": "09:00 AM",
+    "arrTime": "03:00 PM",
+    "duration": "6h 00m",
+    "durationMinutes": 360,
+    "baseFare": 780,
+    "amenities": [
+      "WiFi",
+      "Charging Port",
+      "Comfortable Seat"
+    ],
+    "terminalOrigin": "Pasay Partas Station",
+    "terminalDest": "Baguio Partas Terminal"
+  },
+  {
+    "id": 5,
+    "operator": "Philtranco",
+    "class": "Deluxe",
+    "icon": "<i class=\"fas fa-sun text-yellow-500 mr-1\"></i> PT",
+    "iconBg": "bg-amber-50 border-amber-200 text-blue-900 text-xs font-bold",
+    "origin": "Manila (Pasay)",
+    "destination": "Baguio City",
+    "depTime": "10:00 AM",
+    "arrTime": "03:45 PM",
+    "duration": "5h 45m",
+    "durationMinutes": 345,
+    "baseFare": 720,
+    "amenities": [
+      "WiFi",
+      "Charging Port",
+      "Comfortable Seat"
+    ],
+    "terminalOrigin": "Pasay Philtranco Terminal",
+    "terminalDest": "Baguio City Terminal"
+  },
+  {
+    "id": 6,
+    "operator": "Victory Liner",
+    "class": "Standard Aircon",
+    "icon": "<i class=\"fas fa-check text-red-600\"></i>",
+    "iconBg": "bg-red-50 border-red-100 text-red-600",
+    "origin": "Manila (Cubao)",
+    "destination": "Baguio City",
+    "depTime": "11:00 AM",
+    "arrTime": "05:00 PM",
+    "duration": "6h 00m",
+    "durationMinutes": 360,
+    "baseFare": 650,
+    "amenities": [
+      "WiFi",
+      "Comfortable Seat"
+    ],
+    "terminalOrigin": "Cubao Victory Terminal",
+    "terminalDest": "Baguio Victory Terminal"
+  }
+]

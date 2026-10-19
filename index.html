@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mckanes Travel and Tours - Choose Your Portal (Admin or Client)</title>
+    <meta name="description" content="Select your portal experience for Mckanes Travel and Tours. Access Client Travel Booking or Staff Flight Operations Console.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .ambient-shimmer {
+            background-size: 200% 200%;
+            animation: shimmer 8s ease infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="h-full bg-slate-950 text-white select-none overflow-x-hidden md:overflow-hidden flex flex-col justify-between">
+
+    <!-- Top Floating Global Brand Badge -->
+    <header class="fixed top-3 sm:top-5 inset-x-0 z-30 flex items-center justify-center px-4 pointer-events-none">
+        <div class="pointer-events-auto inline-flex items-center gap-3 px-4 sm:px-5 py-2 rounded-full bg-slate-950/60 backdrop-blur-md border border-white/20 shadow-2xl transition hover:bg-slate-950/80">
+            <i class="fas fa-globe text-xl sm:text-2xl text-amber-400 animate-spin-slow"></i>
+            <div class="flex flex-col leading-none">
+                <span class="font-extrabold text-xs sm:text-sm tracking-wider text-white">Mckanes</span>
+                <span class="text-[9px] text-sky-300 font-bold tracking-widest mt-0.5">TRAVEL & TOURS</span>
+            </div>
+            <span class="text-white/30 hidden sm:inline">•</span>
+            <span class="text-[10px] text-white/80 font-semibold tracking-wider uppercase hidden sm:inline">Role Selection Gateway</span>
+        </div>
+    </header>
+
+    <!-- Main Two-Column Split Screen Hero Portal -->
+    <main class="w-full flex-1 flex flex-col md:grid md:grid-cols-2 relative">
+
+        <!-- ======================================================================
+             LEFT SIDE: ADMIN PORTAL (Operations Console & Management)
+             ====================================================================== -->
+        <section 
+            id="admin-side"
+            onclick="navigateToAdmin(event)"
+            onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); navigateToAdmin(event); }"
+            tabindex="0"
+            role="button"
+            aria-label="Access Admin Operations Console"
+            class="group relative flex-1 min-h-[50vh] md:min-h-full flex flex-col items-center justify-between px-6 pt-16 sm:pt-20 pb-8 sm:pb-12 bg-gradient-to-b from-[#014eae] via-[#0156c0] to-[#013f92] hover:from-[#0156c0] hover:to-[#01357a] transition-all duration-500 cursor-pointer overflow-hidden border-b md:border-b-0 md:border-r border-white/15 focus:outline-none focus:ring-4 focus:ring-white/40">
+            
+            <!-- Soft Ambient Backlight Glow -->
+            <div class="absolute -top-20 -left-20 w-80 h-80 bg-sky-400/20 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+            <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-900/40 rounded-full blur-3xl pointer-events-none"></div>
+
+            <!-- Top Header & Role Badge -->
+            <div class="relative z-10 text-center flex flex-col items-center">
+                <span class="text-[11px] sm:text-xs font-bold text-sky-200/90 tracking-widest uppercase mb-1 flex items-center gap-1.5 bg-black/20 px-3 py-1 rounded-full border border-white/10 backdrop-blur-xs">
+                    <i class="fas fa-shield-halved text-amber-300 text-[10px]"></i> Authorized Personnel
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+                    Admin
+                </h1>
+                <p class="text-xs sm:text-sm text-sky-100/80 font-medium mt-1 max-w-xs">
+                    Flight Dispatch, Bus Schedules & Bookings Console
+                </p>
+            </div>
+
+            <!-- Center Character Illustration (Admin in Black Suit & Tie) -->
+            <div class="relative z-10 flex-1 flex items-center justify-center my-2 sm:my-4 w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[380px]">
+                <div class="relative transition-all duration-300 group-hover:-translate-y-3 group-hover:scale-105">
+                    <img 
+                        src="images/role_admin_2x.png" 
+                        alt="Mckanes Travel Admin Operations Manager" 
+                        class="w-full h-auto max-h-[36vh] sm:max-h-[44vh] md:max-h-[48vh] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.45)] select-none">
+                </div>
+            </div>
+
+            <!-- Bottom Interactive Call to Action Button -->
+            <div class="relative z-10 flex flex-col items-center">
+                <a 
+                    href="admin.html?action=login" 
+                    onclick="navigateToAdmin(event);"
+                    class="inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-3 sm:py-3.5 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#0156c0] font-black text-sm sm:text-base border border-white/30 backdrop-blur-md shadow-xl transition-all duration-300 group-hover:bg-white group-hover:text-[#0156c0] group-hover:shadow-[0_10px_30px_rgba(255,255,255,0.35)] group-hover:scale-105">
+                    <i class="fas fa-arrow-right-to-bracket text-xs"></i>
+                    <span>Admin Login</span>
+                    <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Center Floating "OR" Divider Badge (Desktop) -->
+        <div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none items-center justify-center">
+            <div class="w-12 h-12 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/25 text-white font-black text-xs flex items-center justify-center shadow-2xl tracking-wider">
+                OR
+            </div>
+        </div>
+
+        <!-- ======================================================================
+             RIGHT SIDE: CLIENT PORTAL (Main Travel & Tour Website)
+             ====================================================================== -->
+        <section 
+            id="client-side"
+            onclick="navigateToClient(event)"
+            onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); navigateToClient(event); }"
+            tabindex="0"
+            role="button"
+            aria-label="Access Client Booking Main Page"
+            class="group relative flex-1 min-h-[50vh] md:min-h-full flex flex-col items-center justify-between px-6 pt-16 sm:pt-20 pb-8 sm:pb-12 bg-gradient-to-b from-[#0057c7] via-[#004eb2] to-[#003882] hover:from-[#004eb2] hover:to-[#002f6c] transition-all duration-500 cursor-pointer overflow-hidden border-t md:border-t-0 md:border-l border-white/15 focus:outline-none focus:ring-4 focus:ring-white/40">
+            
+            <!-- Soft Ambient Backlight Glow -->
+            <div class="absolute -top-20 -right-20 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-indigo-900/40 rounded-full blur-3xl pointer-events-none"></div>
+
+            <!-- Top Header & Role Badge -->
+            <div class="relative z-10 text-center flex flex-col items-center">
+                <span class="text-[11px] sm:text-xs font-bold text-sky-200/90 tracking-widest uppercase mb-1 flex items-center gap-1.5 bg-black/20 px-3 py-1 rounded-full border border-white/10 backdrop-blur-xs">
+                    <i class="fas fa-plane text-yellow-300 text-[10px]"></i> Traveler & Guest Gateway
+                </span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+                    Client
+                </h2>
+                <p class="text-xs sm:text-sm text-sky-100/80 font-medium mt-1 max-w-xs">
+                    Book Flight Tickets, Tour Packages & Bus Routes
+                </p>
+            </div>
+
+            <!-- Center Character Illustration (Client Traveler with Backpack & Phone) -->
+            <div class="relative z-10 flex-1 flex items-center justify-center my-2 sm:my-4 w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[380px]">
+                <div class="relative transition-all duration-300 group-hover:-translate-y-3 group-hover:scale-105">
+                    <img 
+                        src="images/role_client_2x.png" 
+                        alt="Mckanes Travel Client Traveler" 
+                        class="w-full h-auto max-h-[36vh] sm:max-h-[44vh] md:max-h-[48vh] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.45)] select-none">
+                </div>
+            </div>
+
+            <!-- Bottom Interactive Call to Action Button -->
+            <div class="relative z-10 flex flex-col items-center">
+                <a 
+                    href="home.html?action=login" 
+                    onclick="navigateToClient(event);"
+                    class="inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-3 sm:py-3.5 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#004eb2] font-black text-sm sm:text-base border border-white/30 backdrop-blur-md shadow-xl transition-all duration-300 group-hover:bg-white group-hover:text-[#004eb2] group-hover:shadow-[0_10px_30px_rgba(255,255,255,0.35)] group-hover:scale-105">
+                    <i class="fas fa-compass text-xs"></i>
+                    <span>Enter Main Page</span>
+                    <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Copyright & Status Bar -->
+    <footer class="w-full bg-slate-950/80 backdrop-blur-md py-2.5 px-4 text-center border-t border-white/10 text-[11px] text-white/60 relative z-20 flex flex-col sm:flex-row items-center justify-between gap-1 max-w-7xl mx-auto">
+        <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Mckanes Travel & Tours Multimodal System Online</span>
+        </div>
+        <div class="flex items-center gap-4 text-[10px] text-white/50">
+            <span>Philippines Domestic Flights & Buses</span>
+            <span>•</span>
+            <span>All Rights Reserved © 2026</span>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Scripts -->
+    <script>
+        // Ensure any persistent admin and client sessions are reset while on public role gateway
+        try {
+            localStorage.removeItem('mckanes_admin_logged_in');
+            localStorage.removeItem('mckanes_admin_session');
+            sessionStorage.removeItem('mckanes_admin_logged_in');
+            sessionStorage.removeItem('mckanes_admin_session');
+            localStorage.removeItem('mckanes_user');
+            sessionStorage.removeItem('mckanes_user');
+        } catch (e) {}
+
+        function navigateToAdmin(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            try {
+                localStorage.removeItem('mckanes_admin_logged_in');
+                localStorage.removeItem('mckanes_admin_session');
+                sessionStorage.removeItem('mckanes_admin_logged_in');
+                sessionStorage.removeItem('mckanes_admin_session');
+            } catch (err) {}
+            window.location.href = 'admin.html?action=login';
+        }
+
+        function navigateToClient(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            try {
+                localStorage.removeItem('mckanes_user');
+                sessionStorage.removeItem('mckanes_user');
+            } catch (err) {}
+            window.location.href = 'home.html?action=login';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Operations Portal - Mckanes Travel and Tours</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1a5b92',
+                            sky: '#5ba4d6',
+                            cta: '#3b82f6',
+                            dark: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="bg-[#f8fafc] text-slate-800 font-sans antialiased min-h-screen flex flex-col lg:flex-row">
+
+    <!-- ==========================================================================
+         ADMIN AUTHENTICATION & LOGIN GATE SCREEN (Luxury Flight Operations Edition)
+         ========================================================================== -->
+    <div id="admin-auth-screen" class="fixed inset-0 z-[100] bg-[#030712] flex flex-col justify-between items-center p-4 sm:p-6 transition-all duration-300 overflow-y-auto">
+        <!-- Deep Atmospheric Flight Horizon Backdrop (Golden Sunset Airplane Wing) -->
+        <div class="fixed inset-0 bg-cover bg-center pointer-events-none opacity-40 mix-blend-luminosity scale-105 filter brightness-90 contrast-125" style="background-image: url('images/about_plane_hd.jpg');"></div>
+        <div class="fixed inset-0 bg-gradient-to-t from-[#030712] via-[#071126]/90 to-[#030712]/95 pointer-events-none"></div>
+        <div class="fixed inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.1)_0%,rgba(3,7,18,0.92)_75%)] pointer-events-none"></div>
+
+        <!-- Global Flight Trajectory Network & Air Traffic Radar SVG -->
+        <svg class="fixed inset-0 w-full h-full pointer-events-none opacity-60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="routeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.85"/>
+                    <stop offset="50%" stop-color="#818cf8" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#c084fc" stop-opacity="0.4"/>
+                </linearGradient>
+                <linearGradient id="routeGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.75"/>
+                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.3"/>
+                </linearGradient>
+                <filter id="radarGlow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+            </defs>
+
+            <!-- Radar Concentric Range Rings (Top Right) -->
+            <g transform="translate(1300, 160)" opacity="0.35" class="hidden md:block">
+                <circle r="70" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3,3"/>
+                <circle r="140" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,4"/>
+                <circle r="220" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5"/>
+                <line x1="-230" y1="0" x2="230" y2="0" stroke="#38bdf8" stroke-width="0.75" stroke-dasharray="4,4"/>
+                <line x1="0" y1="-230" x2="0" y2="230" stroke="#38bdf8" stroke-width="0.75" stroke-dasharray="4,4"/>
+                <!-- Radar Sweep Beam -->
+                <line class="radar-sweep-beam" x1="0" y1="0" x2="160" y2="-160" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+            </g>
+
+            <!-- Flight Trajectory Arcs (Curved Flight Corridors) -->
+            <path d="M 100 240 Q 320 100, 560 280 T 1100 420" fill="none" stroke="url(#routeGrad1)" stroke-width="1.5" stroke-dasharray="6,4" class="flight-path-pulse"/>
+            <path d="M 180 720 Q 420 520, 820 600 T 1350 460" fill="none" stroke="url(#routeGrad2)" stroke-width="1.2" stroke-dasharray="4,4"/>
+            <path d="M 60 520 C 260 340, 640 680, 1180 260" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="3,6"/>
+
+            <!-- Waypoint Nodes with Glowing Halos -->
+            <!-- MNL Manila Gateway -->
+            <g transform="translate(220, 290)">
+                <circle r="12" fill="#0284c7" fill-opacity="0.15" class="animate-ping"/>
+                <circle r="5" fill="#38bdf8" filter="url(#radarGlow)"/>
+                <circle r="2" fill="#ffffff"/>
+                <text x="14" y="4" fill="#bae6fd" font-size="11" font-family="monospace" font-weight="bold" letter-spacing="1">MNL • 14°30'N 121°00'E</text>
+                <text x="14" y="18" fill="#64748b" font-size="9" font-family="monospace">MANILA FLIGHT GATEWAY [HUB-01]</text>
+            </g>
+
+            <!-- CEB Cebu Hub -->
+            <g transform="translate(1020, 310)">
+                <circle r="12" fill="#6366f1" fill-opacity="0.15" class="animate-ping"/>
+                <circle r="5" fill="#818cf8" filter="url(#radarGlow)"/>
+                <circle r="2" fill="#ffffff"/>
+                <text x="14" y="4" fill="#c7d2fe" font-size="11" font-family="monospace" font-weight="bold" letter-spacing="1">CEB • 10°18'N 123°58'E</text>
+                <text x="14" y="18" fill="#64748b" font-size="9" font-family="monospace">CENTRAL VISAYAS HUB [LIVE]</text>
+            </g>
+
+            <!-- DVO Davao Base -->
+            <g transform="translate(1160, 680)">
+                <circle r="5" fill="#38bdf8" filter="url(#radarGlow)"/>
+                <circle r="2" fill="#ffffff"/>
+                <text x="14" y="4" fill="#93c5fd" font-size="10" font-family="monospace" font-weight="bold">DVO • MINDANAO GATEWAY</text>
+            </g>
+
+            <!-- PPS Palawan Base -->
+            <g transform="translate(160, 710)">
+                <circle r="5" fill="#06b6d4" filter="url(#radarGlow)"/>
+                <circle r="2" fill="#ffffff"/>
+                <text x="14" y="4" fill="#a5f3fc" font-size="10" font-family="monospace" font-weight="bold">PPS • PALAWAN CORRIDOR</text>
+            </g>
+
+            <!-- Flight Position Target Marker with Traveling Jet -->
+            <g transform="translate(560, 280)">
+                <polygon points="0,-7 6,7 0,4 -6,7" fill="#38bdf8" transform="rotate(45)" filter="url(#radarGlow)"/>
+                <text x="12" y="14" fill="#38bdf8" font-size="9" font-family="monospace" font-weight="bold">FLIGHT 5J-561 [EN ROUTE - FL320]</text>
+            </g>
+        </svg>
+
+        <!-- Cyber Mesh Dot Matrix Texture -->
+        <div class="fixed inset-0 opacity-[0.08] pointer-events-none bg-[radial-gradient(#38bdf8_1.2px,transparent_1.2px)] [background-size:28px_28px]"></div>
+
+        <!-- Vibrant Multi-Spectrum Ambient Glow Lighting -->
+        <div class="fixed inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[140px]"></div>
+            <div class="absolute top-1/4 -right-40 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[150px]"></div>
+            <div class="absolute -bottom-40 left-1/3 w-[550px] h-[550px] bg-indigo-600/25 rounded-full blur-[140px]"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] bg-sky-500/12 rounded-full blur-[110px]"></div>
+        </div>
+
+        <!-- Top Operational Control Bar (Telemetry HUD) -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto flex items-center justify-between py-2 px-2 sm:px-4 text-xs font-mono text-slate-400 border-b border-white/5">
+            <!-- Left: Brand System Identification -->
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 status-pulse shadow-[0_0_8px_#34d399]"></span>
+                    <span class="font-bold text-white tracking-widest text-[11px] uppercase">Mckanes Global Operations</span>
+                </div>
+                <span class="hidden sm:inline-block text-slate-600">|</span>
+                <span class="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-blue-950/60 border border-blue-800/40 text-[10px] text-blue-300 font-semibold">
+                    <i class="fas fa-radar text-sky-400 text-[9px]"></i> RADAR AIRSPACE: ACTIVE
+                </span>
+            </div>
+
+            <!-- Center: Coordinates & Flight Status (Desktop only) -->
+            <div class="hidden lg:flex items-center gap-4 text-[10px] text-slate-400">
+                <span>GATEWAY: <strong class="text-slate-300">MNL-TERM-03</strong></span>
+                <span>COORDINATES: <strong class="text-slate-300">14.5086° N, 121.0194° E</strong></span>
+                <span>SECURITY: <strong class="text-emerald-400 font-bold">ENCRYPTED 256-BIT</strong></span>
+            </div>
+
+            <!-- Right: Real-time Live Clock (Philippine Standard Time) -->
+            <div class="flex items-center gap-2.5">
+                <span class="text-[10px] text-slate-400 hidden sm:inline">PST (UTC+8):</span>
+                <div id="admin-lock-clock" class="px-2.5 py-1 rounded-lg bg-slate-900/90 border border-slate-700/80 text-sky-400 font-bold text-[11px] tracking-wider shadow-inner font-mono">
+                    --:--:-- PST
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Glassmorphism Operations Card -->
+        <div id="admin-login-card" class="relative z-10 w-full max-w-[460px] bg-slate-900/85 backdrop-blur-2xl border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_50px_rgba(37,99,235,0.2)] rounded-3xl overflow-hidden text-white my-auto">
+            <!-- Top Luminous Gradient Accent Line -->
+            <div class="h-1 w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-90"></div>
+
+            <div class="p-6 sm:p-8">
+                <!-- Brand Security Emblem & Header -->
+                <div class="text-center mb-6">
+                    <div class="relative w-16 h-16 mx-auto mb-3.5 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-blue-500/30 rounded-2xl blur-md"></div>
+                        <div class="relative w-full h-full rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 border border-white/20 shadow-xl flex items-center justify-center text-white text-2xl">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <span class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-slate-950 border-2 border-slate-800 flex items-center justify-center text-[10px] text-amber-400 shadow-md" title="Console Locked">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+
+                    <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center justify-center gap-2">
+                        <span>Admin Operations Portal</span>
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">Mckanes Travel and Tours • Staff Access Gate</p>
+                    
+                    <div class="mt-3.5 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-800/90 border border-slate-700/80 text-[10px] font-bold text-slate-300 shadow-inner">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 status-pulse"></span>
+                        <span class="tracking-wider uppercase">Console Locked • Encrypted Gate</span>
+                    </div>
+                </div>
+
+                <!-- Error Banner -->
+                <div id="admin-login-error" class="hidden mb-4 p-3 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-200 text-xs flex items-center gap-2.5 shadow-sm backdrop-blur-xs">
+                    <i class="fas fa-circle-exclamation text-rose-400 text-sm flex-shrink-0"></i>
+                    <span id="admin-login-error-msg">Invalid Username or Password. Please try again.</span>
+                </div>
+
+                <!-- Sign In Form -->
+                <form id="admin-login-form" onsubmit="handleAdminLogin(event)" class="space-y-4">
+                    <div>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <label for="admin-login-username" class="text-[11px] font-extrabold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                                <i class="fas fa-user-shield text-blue-400 text-xs"></i> Staff Identity
+                            </label>
+                            <span class="text-[10px] text-slate-500 font-medium">Username or Email</span>
+                        </div>
+                        <div class="relative group">
+                            <input type="text" id="admin-login-username" required placeholder="Enter username (e.g. Mckanes@123)" class="w-full bg-slate-800/80 border border-slate-700/80 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 focus:bg-slate-800 transition" autocomplete="username">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <label for="admin-login-password" class="text-[11px] font-extrabold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                                <i class="fas fa-key text-blue-400 text-xs"></i> Security Key
+                            </label>
+                            <span class="text-[10px] text-slate-500 font-medium">Password</span>
+                        </div>
+                        <div class="relative group">
+                            <input type="password" id="admin-login-password" required placeholder="••••••••" class="w-full bg-slate-800/80 border border-slate-700/80 rounded-xl pl-4 pr-11 py-3 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 focus:bg-slate-800 transition font-mono tracking-wider" autocomplete="current-password">
+                            <button type="button" onclick="toggleAdminLoginPassword()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1 text-xs cursor-pointer transition" title="Show or hide password">
+                                <i id="admin-login-pass-icon" class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs pt-1">
+                        <label class="flex items-center gap-2 cursor-pointer text-slate-300 select-none">
+                            <input type="checkbox" id="admin-login-remember" checked class="custom-checkbox">
+                            <span class="text-[11px] text-slate-400 hover:text-slate-200">Remember credentials on this machine</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="admin-login-submit-btn" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600 hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] text-white font-extrabold text-xs sm:text-sm tracking-wide shadow-xl shadow-blue-600/30 hover:shadow-blue-600/50 transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer border border-blue-400/30">
+                        <i class="fas fa-arrow-right-to-bracket text-xs"></i>
+                        <span>Unlock Admin Console</span>
+                    </button>
+
+                    <!-- Quick Demo Credentials Pill for Convenience -->
+                    <div class="pt-1 flex items-center justify-center">
+                        <button type="button" onclick="autofillAdminCredentials(false)" class="text-[11px] text-slate-400 hover:text-sky-300 transition flex items-center gap-1.5 py-1 px-3 rounded-lg bg-slate-800/40 hover:bg-slate-800/80 border border-slate-700/50 cursor-pointer">
+                            <i class="fas fa-key text-[10px] text-amber-400"></i>
+                            <span>Quick Demo Fill: <strong class="text-sky-300 font-mono">Mckanes@123</strong> / <strong class="text-sky-300 font-mono">chibiba</strong></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal Footer: Security Encryption Notice & Switch Portal -->
+            <div class="border-t border-slate-800/90 bg-slate-950/70 backdrop-blur-md px-6 py-3.5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+                <div class="flex items-center text-[10px] text-slate-500 gap-1.5">
+                    <i class="fas fa-shield-halved text-slate-500 text-[10px]"></i>
+                    <span>Authorized Personnel Only • TLS 1.3</span>
+                </div>
+                <div class="flex items-center gap-3 text-[11px]">
+                    <a href="index.html" onclick="goToRoleGateway(event)" class="text-blue-400 hover:text-blue-300 font-semibold transition flex items-center gap-1" title="Back to Role Selection Portal">
+                        <i class="fas fa-users-gear text-[10px]"></i> Switch Role
+                    </a>
+                    <span class="text-slate-700">|</span>
+                    <a href="home.html" class="text-slate-400 hover:text-white transition flex items-center gap-1" title="Go to Main Client Page">
+                        <i class="fas fa-arrow-left text-[10px]"></i> Client Home
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Telemetry Status Ticker -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between py-2 px-2 sm:px-4 text-[10px] font-mono text-slate-500 border-t border-white/5 gap-1">
+            <div class="flex items-center gap-3">
+                <span class="flex items-center gap-1.5 text-slate-400">
+                    <i class="fas fa-satellite-dish text-sky-400 text-[10px]"></i>
+                    <span>AIR TRAFFIC & BOOKINGS DISPATCH TERMINAL</span>
+                </span>
+                <span class="text-slate-700">•</span>
+                <span class="text-slate-500">STATION: MCK-OPS-SECURE</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span>STATUS: <strong class="text-amber-400">RESTRICTED ACCESS</strong></span>
+                <span class="text-slate-700">•</span>
+                <span>ALL SESSIONS AUDITED</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         SIDEBAR NAVIGATION (Fixed on Desktop, Drawer on Mobile)
+         ========================================================================== -->
+    <aside id="admin-sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-slate-900 text-white flex flex-col justify-between transition-transform duration-300 ease-in-out -translate-x-full lg:translate-x-0 shadow-2xl">
+        <!-- Top Section: Brand Header -->
+        <div class="p-6 border-b border-slate-800">
+            <div class="flex items-center justify-between">
+                <a href="admin.html" class="flex items-center gap-3 group" title="Mckanes Travel & Tours Operations Portal">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:scale-105 transition">
+                        <i class="fas fa-globe text-xl text-blue-400"></i>
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-base tracking-tight text-white leading-none">Mckanes</div>
+                        <div class="text-[10px] font-bold uppercase tracking-wider text-blue-400 mt-1">Travel & Tours</div>
+                    </div>
+                </a>
+                <button type="button" onclick="toggleAdminSidebar()" class="lg:hidden text-slate-400 hover:text-white p-2">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+            <div class="mt-4 flex items-center justify-between px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-[11px]">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 status-pulse"></span>
+                    <span class="text-slate-300 font-semibold">Portal v2.5</span>
+                </div>
+                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Live</span>
+            </div>
+        </div>
+
+        <!-- Navigation Menu Links -->
+        <div class="flex-1 overflow-y-auto sidebar-scroll px-4 py-5 space-y-6">
+            <!-- Group 1: Core Operations -->
+            <div>
+                <span class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block mb-2">Operations</span>
+                <nav class="space-y-1">
+                    <button type="button" onclick="switchTab('dashboard')" data-tab="dashboard" class="sidebar-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-semibold text-xs tracking-wide bg-blue-600 text-white shadow-md shadow-blue-500/20 transition cursor-pointer">
+                        <i class="fas fa-chart-pie w-4 text-center"></i>
+                        <span>Dashboard</span>
+                    </button>
+                    <button type="button" onclick="switchTab('bookings')" data-tab="bookings" class="sidebar-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-xs tracking-wide text-slate-400 hover:text-white hover:bg-slate-800/80 transition cursor-pointer">
+                        <i class="fas fa-ticket-alt w-4 text-center"></i>
+                        <span class="flex-1 text-left">Bookings</span>
+                        <span class="bg-blue-500/20 text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded-full">Live</span>
+                    </button>
+                    <button type="button" onclick="switchTab('packages')" data-tab="packages" class="sidebar-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-xs tracking-wide text-slate-400 hover:text-white hover:bg-slate-800/80 transition cursor-pointer">
+                        <i class="fas fa-umbrella-beach w-4 text-center"></i>
+                        <span>Tour Packages</span>
+                    </button>
+                    <button type="button" onclick="switchTab('fleet')" data-tab="fleet" class="sidebar-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-xs tracking-wide text-slate-400 hover:text-white hover:bg-slate-800/80 transition cursor-pointer">
+                        <i class="fas fa-bus-alt w-4 text-center"></i>
+                        <span>Fleet & Schedules</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Group 2: Customer Relations -->
+            <div>
+                <span class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block mb-2">Relations</span>
+                <nav class="space-y-1">
+                    <button type="button" onclick="switchTab('customers')" data-tab="customers" class="sidebar-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-xs tracking-wide text-slate-400 hover:text-white hover:bg-slate-800/80 transition cursor-pointer">
+                        <i class="fas fa-users w-4 text-center"></i>
+                        <span>Travelers & VIPs</span>
+                    </button>
+                    <button type="button" onclick="switchTab('inquiries')" data-tab="inquiries" class="sidebar-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-xs tracking-wide text-slate-400 hover:text-white hover:bg-slate-800/80 transition cursor-pointer">
+                        <i class="fas fa-envelope-open-text w-4 text-center"></i>
+                        <span class="flex-1 text-left">Inquiries</span>
+                        <span class="bg-amber-500/20 text-amber-400 text-[10px] font-bold px-1.5 py-0.5 rounded-full">4</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Group 3: Marketing & Config -->
+            <div>
+                <span class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block mb-2">Management</span>
+                <nav class="space-y-1">
+                    <button type="button" onclick="switchTab('promos')" data-tab="promos" class="sidebar-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-xs tracking-wide text-slate-400 hover:text-white hover:bg-slate-800/80 transition cursor-pointer">
+                        <i class="fas fa-tags w-4 text-center"></i>
+                        <span>Promo Vouchers</span>
+                    </button>
+                    <button type="button" onclick="switchTab('settings')" data-tab="settings" class="sidebar-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-xs tracking-wide text-slate-400 hover:text-white hover:bg-slate-800/80 transition cursor-pointer">
+                        <i class="fas fa-sliders-h w-4 text-center"></i>
+                        <span>Agency Settings</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Bottom User & Exit Block -->
+        <div class="p-4 border-t border-slate-800 bg-slate-950/60">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-500 text-white font-black text-xs flex items-center justify-center shadow-md">
+                    CH
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div id="admin-user-display-name" class="font-bold text-xs text-white truncate">Mckanes Admin (Chibiba)</div>
+                    <div id="admin-user-display-role" class="text-[10px] text-slate-400 truncate">Mckanes@123 (Operations Director)</div>
+                </div>
+                <span class="w-2 h-2 rounded-full bg-emerald-400 status-pulse" title="Active Staff Session"></span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="logoutAdmin()" class="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 hover:text-rose-300 text-xs font-semibold transition border border-rose-500/30 cursor-pointer" title="Sign out and lock admin console">
+                    <i class="fas fa-lock text-[10px]"></i>
+                    <span>Lock Portal</span>
+                </button>
+                <a href="home.html" class="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold transition border border-slate-700/60" title="Return to public travel site">
+                    <i class="fas fa-external-link-alt text-[10px]"></i>
+                    <span>Public Site</span>
+                </a>
+            </div>
+            <a href="index.html" onclick="goToRoleGateway(event)" class="mt-2 w-full flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-xl bg-slate-800/50 hover:bg-slate-800 text-slate-400 hover:text-blue-300 text-[11px] font-medium transition border border-slate-700/40" title="Switch Portal / Role Selection">
+                <i class="fas fa-users-gear text-[10px]"></i>
+                <span>Role Gateway</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Sidebar Backdrop Overlay for Mobile -->
+    <div id="sidebar-backdrop" onclick="toggleAdminSidebar()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-40 hidden lg:hidden"></div>
+
+    <!-- ==========================================================================
+         MAIN CONTENT AREA
+         ========================================================================== -->
+    <div class="flex-1 lg:pl-72 flex flex-col min-h-screen">
+        
+        <!-- Top Application Header Bar -->
+        <header id="admin-topbar" class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-xs">
+            <div class="px-4 sm:px-8 py-3.5 flex items-center justify-between gap-4">
+                <!-- Mobile Hamburger + Page Title -->
+                <div class="flex items-center gap-3">
+                    <button type="button" onclick="toggleAdminSidebar()" class="lg:hidden text-gray-600 hover:text-gray-900 p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                    <div>
+                        <h1 class="text-base sm:text-lg font-extrabold text-gray-900 leading-tight">Admin Operations Console</h1>
+                        <p class="text-[11px] text-gray-500 hidden sm:block">Central reservations, transit dispatch & inventory management</p>
+                    </div>
+                </div>
+
+                <!-- Global Quick Search Input with Live Autocomplete -->
+                <div id="admin-global-search-container" class="hidden md:flex flex-1 max-w-md mx-4 relative">
+                    <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                    <input type="text" id="admin-global-search" placeholder="Search reference, traveler, route... (Ctrl + K)" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-9 pr-14 py-2 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition" autocomplete="off">
+                    <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-mono text-gray-400 bg-gray-200/70 px-1.5 py-0.5 rounded">⌘K</span>
+
+                    <!-- Live Autocomplete Dropdown -->
+                    <div id="admin-global-search-results" class="hidden absolute left-0 right-0 top-11 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50 max-h-96 overflow-y-auto">
+                        <!-- Populated by js/admin.js -->
+                    </div>
+                </div>
+
+                <!-- Right Actions: Clock, Notifications, Add Booking CTA, Public Link -->
+                <div class="flex items-center gap-2 sm:gap-3 relative">
+                    <!-- Live Clock -->
+                    <div class="hidden xl:flex items-center gap-2 bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-xl text-xs font-semibold text-gray-700">
+                        <i class="far fa-clock text-blue-500"></i>
+                        <span id="live-clock">Oct 17, 23:45</span>
+                    </div>
+
+                    <!-- Notifications Bell Dropdown -->
+                    <div class="relative">
+                        <button type="button" id="btn-notifications" onclick="toggleNotifications(event)" class="w-8 h-8 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-600 transition cursor-pointer relative" title="Operational Alerts">
+                            <i class="far fa-bell text-xs"></i>
+                            <span id="notif-badge" class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-500 text-white font-black text-[9px] flex items-center justify-center shadow-xs">3</span>
+                        </button>
+
+                        <!-- Notification Dropdown Panel -->
+                        <div id="admin-notifications-dropdown" class="hidden absolute right-0 mt-2 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden dropdown-menu">
+                            <div class="p-3.5 border-b border-gray-100 flex items-center justify-between bg-slate-50/70">
+                                <span class="font-bold text-xs text-gray-900">Notifications & Alerts</span>
+                                <button type="button" onclick="markAllNotificationsRead()" class="text-[10px] font-semibold text-blue-600 hover:text-blue-800 cursor-pointer">
+                                    Mark all read
+                                </button>
+                            </div>
+                            <div id="notif-items-container" class="max-h-72 overflow-y-auto">
+                                <!-- Populated by js/admin.js -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Lock Console Button -->
+                    <button type="button" onclick="logoutAdmin()" class="w-8 h-8 rounded-xl bg-gray-50 hover:bg-rose-50 border border-gray-200 hover:border-rose-200 flex items-center justify-center text-gray-500 hover:text-rose-600 transition cursor-pointer" title="Lock Console / Sign Out">
+                        <i class="fas fa-lock text-xs"></i>
+                    </button>
+
+                    <!-- Create Manual Booking CTA -->
+                    <button type="button" onclick="openCreateBookingModal()" class="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold text-xs px-3.5 py-2 rounded-xl flex items-center gap-2 shadow-md shadow-blue-500/20 transition cursor-pointer">
+                        <i class="fas fa-plus text-[10px]"></i>
+                        <span class="hidden sm:inline">New Booking</span>
+                    </button>
+
+                    <!-- Quick Public Links -->
+                    <div class="flex items-center gap-1 border-l border-gray-200 pl-2 sm:pl-3">
+                        <a href="plane-booking.html" target="_blank" title="Open Flight Booking Engine" class="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 hover:bg-sky-600 hover:text-white flex items-center justify-center transition text-xs">
+                            <i class="fas fa-plane"></i>
+                        </a>
+                        <a href="bus-booking.html" target="_blank" title="Open Bus Booking Engine" class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 hover:bg-amber-600 hover:text-white flex items-center justify-center transition text-xs">
+                            <i class="fas fa-bus"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Body Container -->
+        <main class="flex-1 p-4 sm:p-8 space-y-8 max-w-7xl w-full mx-auto">
+
+            <!-- ==================================================================
+                 VIEW 1: DASHBOARD OVERVIEW (TAB: dashboard)
+                 ================================================================== -->
+            <section id="tab-dashboard" class="tab-content active space-y-8">
+                
+                <!-- 4 KPI Metric Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <!-- KPI 1: Total Revenue -->
+                    <div class="metric-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Total Bookings Gross</span>
+                            <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold">
+                                ₱
+                            </div>
+                        </div>
+                        <div id="kpi-revenue" class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">₱4,829,450</div>
+                        <div class="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
+                            <i class="fas fa-arrow-trend-up"></i>
+                            <span>+14.8% vs last month</span>
+                        </div>
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-blue-50/50 rounded-full pointer-events-none"></div>
+                    </div>
+
+                    <!-- KPI 2: Total Active Bookings -->
+                    <div class="metric-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Total Bookings</span>
+                            <div class="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-sm">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                        </div>
+                        <div id="kpi-bookings" class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">1,284</div>
+                        <div class="flex items-center gap-1.5 text-[11px] text-gray-500 font-medium">
+                            <span class="font-bold text-sky-600">642 Flights</span> • <span class="font-bold text-amber-600">418 Buses</span> • <span class="font-bold text-emerald-600">224 Pkg</span>
+                        </div>
+                    </div>
+
+                    <!-- KPI 3: Travelers / Pax -->
+                    <div class="metric-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Passengers Served</span>
+                            <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-sm">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                        </div>
+                        <div id="kpi-pax" class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">3,890 Pax</div>
+                        <div class="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
+                            <i class="fas fa-check-circle"></i>
+                            <span>98.4% on-time departure rate</span>
+                        </div>
+                    </div>
+
+                    <!-- KPI 4: Customer Satisfaction -->
+                    <div class="metric-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Satisfaction Score</span>
+                            <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-sm">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">4.9 / 5.0</div>
+                        <div class="flex items-center gap-1.5 text-[11px] text-gray-500 font-medium">
+                            <span>From 1,420+ verified reviews</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Revenue & Service Distribution Row -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left 2 Cols: Monthly Revenue Performance -->
+                    <div class="lg:col-span-2 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-6">
+                            <div>
+                                <h3 class="font-extrabold text-sm sm:text-base text-gray-900">Revenue Trajectory (2026)</h3>
+                                <p class="text-xs text-gray-500">Gross reservation sales across flights, buses and vacation packages</p>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-xs font-bold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                                <i class="fas fa-calendar-check text-[10px]"></i> Philippine Domestic Season
+                            </span>
+                        </div>
+
+                        <!-- Bar Graph Visualization -->
+                        <div class="h-56 flex items-end justify-between gap-2 sm:gap-4 pt-6 px-2 border-b border-gray-100">
+                            <!-- Jan -->
+                            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                                <span class="text-[9px] font-bold text-gray-400 opacity-0 group-hover:opacity-100 transition">₱280K</span>
+                                <div class="w-full bg-blue-200 group-hover:bg-blue-500 rounded-t-md transition-all duration-300" style="height: 35%;"></div>
+                                <span class="text-[10px] font-bold text-gray-500">Jan</span>
+                            </div>
+                            <!-- Feb -->
+                            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                                <span class="text-[9px] font-bold text-gray-400 opacity-0 group-hover:opacity-100 transition">₱310K</span>
+                                <div class="w-full bg-blue-200 group-hover:bg-blue-500 rounded-t-md transition-all duration-300" style="height: 40%;"></div>
+                                <span class="text-[10px] font-bold text-gray-500">Feb</span>
+                            </div>
+                            <!-- Mar -->
+                            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                                <span class="text-[9px] font-bold text-gray-400 opacity-0 group-hover:opacity-100 transition">₱420K</span>
+                                <div class="w-full bg-blue-300 group-hover:bg-blue-500 rounded-t-md transition-all duration-300" style="height: 52%;"></div>
+                                <span class="text-[10px] font-bold text-gray-500">Mar</span>
+                            </div>
+                            <!-- Apr -->
+                            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                                <span class="text-[9px] font-bold text-gray-400 opacity-0 group-hover:opacity-100 transition">₱680K</span>
+                                <div class="w-full bg-blue-400 group-hover:bg-blue-600 rounded-t-md transition-all duration-300" style="height: 75%;"></div>
+                                <span class="text-[10px] font-bold text-blue-600 font-extrabold">Apr</span>
+                            </div>
+                            <!-- May -->
+                            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                                <span class="text-[9px] font-bold text-gray-400 opacity-0 group-hover:opacity-100 transition">₱590K</span>
+                                <div class="w-full bg-blue-300 group-hover:bg-blue-500 rounded-t-md transition-all duration-300" style="height: 65%;"></div>
+                                <span class="text-[10px] font-bold text-gray-500">May</span>
+                            </div>
+                            <!-- Jun -->
+                            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                                <span class="text-[9px] font-bold text-gray-400 opacity-0 group-hover:opacity-100 transition">₱410K</span>
+                                <div class="w-full bg-blue-200 group-hover:bg-blue-500 rounded-t-md transition-all duration-300" style="height: 48%;"></div>
+                                <span class="text-[10px] font-bold text-gray-500">Jun</span>
+                            </div>
+                            <!-- Jul -->
+                            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                                <span class="text-[9px] font-bold text-gray-400 opacity-0 group-hover:opacity-100 transition">₱440K</span>
+                                <div class="w-full bg-blue-200 group-hover:bg-blue-500 rounded-t-md transition-all duration-300" style="height: 50%;"></div>
+                                <span class="text-[10px] font-bold text-gray-500">Jul</span>
+                            </div>
+                            <!-- Aug -->
+                            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                                <span class="text-[9px] font-bold text-gray-400 opacity-0 group-hover:opacity-100 transition">₱490K</span>
+                                <div class="w-full bg-blue-300 group-hover:bg-blue-500 rounded-t-md transition-all duration-300" style="height: 56%;"></div>
+                                <span class="text-[10px] font-bold text-gray-500">Aug</span>
+                            </div>
+                            <!-- Sep -->
+                            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                                <span class="text-[9px] font-bold text-gray-400 opacity-0 group-hover:opacity-100 transition">₱540K</span>
+                                <div class="w-full bg-blue-400 group-hover:bg-blue-600 rounded-t-md transition-all duration-300" style="height: 68%;"></div>
+                                <span class="text-[10px] font-bold text-gray-500">Sep</span>
+                            </div>
+                            <!-- Oct (Current) -->
+                            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                                <span class="text-[9px] font-bold text-blue-600 opacity-100">₱820K</span>
+                                <div class="w-full bg-blue-600 rounded-t-md shadow-md shadow-blue-500/25 transition-all duration-300" style="height: 92%;"></div>
+                                <span class="text-[10px] font-bold text-blue-600 font-extrabold">Oct</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between text-xs text-gray-500">
+                            <span>Peak seasons: Summer (April) and Holiday Festival (October–December)</span>
+                            <span class="font-bold text-emerald-600">Target Q4: ₱5.5M 🎯</span>
+                        </div>
+                    </div>
+
+                    <!-- Right 1 Col: Service Share Distribution -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-extrabold text-sm sm:text-base text-gray-900 mb-1">Service Breakdown</h3>
+                            <p class="text-xs text-gray-500 mb-6">Revenue share by transit category</p>
+
+                            <!-- Breakdown Items -->
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold text-gray-800 mb-1">
+                                        <span class="flex items-center gap-2"><i class="fas fa-plane text-sky-500"></i> Domestic Flights</span>
+                                        <span>48%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+                                        <div class="bg-sky-500 h-2 rounded-full" style="width: 48%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold text-gray-800 mb-1">
+                                        <span class="flex items-center gap-2"><i class="fas fa-umbrella-beach text-emerald-500"></i> Vacation Packages</span>
+                                        <span>32%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+                                        <div class="bg-emerald-500 h-2 rounded-full" style="width: 32%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold text-gray-800 mb-1">
+                                        <span class="flex items-center gap-2"><i class="fas fa-bus text-amber-500"></i> Provincial Buses</span>
+                                        <span>20%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+                                        <div class="bg-amber-500 h-2 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Action Pills -->
+                        <div class="pt-6 border-t border-gray-100 mt-6 space-y-2">
+                            <button type="button" onclick="exportBookingsCSV()" class="w-full bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 font-semibold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition cursor-pointer">
+                                <i class="fas fa-download text-xs text-blue-600"></i> Export All Bookings (CSV)
+                            </button>
+                            <button type="button" onclick="switchTab('bookings')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition cursor-pointer">
+                                <span>Go to Bookings Manager →</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Live Bookings Table -->
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <div class="p-6 border-b border-gray-100 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+                        <div>
+                            <h3 class="font-extrabold text-sm sm:text-base text-gray-900">Recent Booking Transactions</h3>
+                            <p class="text-xs text-gray-500">Real-time reservation feed across all ticketing channels</p>
+                        </div>
+                        <button type="button" onclick="switchTab('bookings')" class="text-blue-600 hover:text-blue-800 text-xs font-bold cursor-pointer hover:underline flex items-center gap-1.5">
+                            <span>View All Bookings</span>
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse admin-table">
+                            <thead>
+                                <tr class="bg-slate-50/70 border-b border-gray-100 text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+                                    <th class="py-3 px-4">Ref Code</th>
+                                    <th class="py-3 px-4">Traveler</th>
+                                    <th class="py-3 px-4">Route / Service</th>
+                                    <th class="py-3 px-4">Amount</th>
+                                    <th class="py-3 px-4">Status</th>
+                                    <th class="py-3 px-4 text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboard-recent-tbody">
+                                <!-- Populated dynamically by js/admin.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================================================================
+                 VIEW 2: BOOKINGS MANAGEMENT ENGINE (TAB: bookings)
+                 ================================================================== -->
+            <section id="tab-bookings" class="tab-content space-y-6">
+                <!-- Header Title + Counter -->
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">Bookings Master Directory</h2>
+                        <p class="text-xs text-gray-500">Search, filter, approve, modify and export traveler reservations</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="clearAllTestBookings()" class="bg-white hover:bg-rose-50 border border-gray-200 hover:border-rose-300 text-gray-700 hover:text-rose-700 font-semibold px-3 py-2 rounded-xl text-xs flex items-center gap-1.5 transition cursor-pointer shadow-xs" title="Clear all bookings from local records">
+                            <i class="fas fa-trash-can text-rose-500 text-xs"></i>
+                            <span>Clear Data</span>
+                        </button>
+                        <button type="button" onclick="exportBookingsCSV()" class="bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-3.5 py-2 rounded-xl text-xs flex items-center gap-2 transition cursor-pointer shadow-xs">
+                            <i class="fas fa-file-csv text-emerald-600 text-sm"></i>
+                            <span>Export CSV</span>
+                        </button>
+                        <button type="button" onclick="openCreateBookingModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-3.5 py-2 rounded-xl text-xs flex items-center gap-2 transition cursor-pointer shadow-md shadow-blue-500/20">
+                            <i class="fas fa-plus text-[10px]"></i>
+                            <span>New Booking</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Status Counters Chips -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+                    <button type="button" onclick="filterBookings('status', 'all')" data-status="all" class="quick-status-chip flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-blue-300 bg-blue-50 text-blue-700 font-bold transition cursor-pointer whitespace-nowrap">
+                        <span>All Bookings</span>
+                        <span id="chip-count-all" class="text-[10px] bg-blue-200/60 px-1.5 py-0.2 rounded-full">0</span>
+                    </button>
+                    <button type="button" onclick="filterBookings('status', 'Confirmed')" data-status="Confirmed" class="quick-status-chip flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-gray-200 bg-white text-gray-600 hover:border-emerald-300 transition cursor-pointer whitespace-nowrap">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <span>Confirmed</span>
+                        <span id="chip-count-confirmed" class="text-[10px] bg-emerald-50 text-emerald-700 px-1.5 py-0.2 rounded-full font-bold">0</span>
+                    </button>
+                    <button type="button" onclick="filterBookings('status', 'Pending')" data-status="Pending" class="quick-status-chip flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-gray-200 bg-white text-gray-600 hover:border-amber-300 transition cursor-pointer whitespace-nowrap">
+                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                        <span>Pending Payment</span>
+                        <span id="chip-count-pending" class="text-[10px] bg-amber-50 text-amber-700 px-1.5 py-0.2 rounded-full font-bold">0</span>
+                    </button>
+                    <button type="button" onclick="filterBookings('status', 'Completed')" data-status="Completed" class="quick-status-chip flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-gray-200 bg-white text-gray-600 hover:border-blue-300 transition cursor-pointer whitespace-nowrap">
+                        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                        <span>Completed</span>
+                        <span id="chip-count-completed" class="text-[10px] bg-blue-50 text-blue-700 px-1.5 py-0.2 rounded-full font-bold">0</span>
+                    </button>
+                    <button type="button" onclick="filterBookings('status', 'Cancelled')" data-status="Cancelled" class="quick-status-chip flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-gray-200 bg-white text-gray-600 hover:border-rose-300 transition cursor-pointer whitespace-nowrap">
+                        <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                        <span>Cancelled</span>
+                        <span id="chip-count-cancelled" class="text-[10px] bg-rose-50 text-rose-700 px-1.5 py-0.2 rounded-full font-bold">0</span>
+                    </button>
+                </div>
+
+                <!-- Filter & Search Controls Bar -->
+                <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+                    <!-- Search Input with Clear Button -->
+                    <div class="w-full md:w-80 relative">
+                        <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                        <input type="text" id="bookings-search-input" oninput="handleBookingSearch(this.value)" placeholder="Search by Ref, Name, Route..." class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-9 pr-8 py-2 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition">
+                        <button type="button" id="bookings-search-clear" onclick="clearBookingSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xs p-1">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </div>
+
+                    <!-- Filter Pills: Service Type -->
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <button type="button" onclick="filterBookings('service', 'all')" data-val="all" class="filter-pill-service bg-blue-600 text-white rounded-full px-3.5 py-1 text-xs font-semibold shadow-xs cursor-pointer">
+                            All Services
+                        </button>
+                        <button type="button" onclick="filterBookings('service', 'flight')" data-val="flight" class="filter-pill-service bg-white border border-gray-200 text-gray-600 hover:border-blue-400 rounded-full px-3.5 py-1 text-xs font-medium cursor-pointer transition">
+                            ✈️ Flights
+                        </button>
+                        <button type="button" onclick="filterBookings('service', 'bus')" data-val="bus" class="filter-pill-service bg-white border border-gray-200 text-gray-600 hover:border-blue-400 rounded-full px-3.5 py-1 text-xs font-medium cursor-pointer transition">
+                            🚌 Buses
+                        </button>
+                        <button type="button" onclick="filterBookings('service', 'package')" data-val="package" class="filter-pill-service bg-white border border-gray-200 text-gray-600 hover:border-blue-400 rounded-full px-3.5 py-1 text-xs font-medium cursor-pointer transition">
+                            🌴 Packages
+                        </button>
+                    </div>
+
+                    <!-- Status Selector Dropdown -->
+                    <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider text-[10px]">Status:</span>
+                        <select id="bookings-status-select" onchange="filterBookings('status', this.value)" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-1.5 text-xs font-semibold text-gray-700 outline-none cursor-pointer">
+                            <option value="all">All Statuses</option>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Pending">Pending Payment</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                        <span id="bookings-filter-count" class="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded-lg">0 Records</span>
+                    </div>
+                </div>
+
+                <!-- Bookings Master Table -->
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <div class="overflow-x-auto min-h-[220px]">
+                        <table class="w-full text-left border-collapse admin-table">
+                            <thead>
+                                <tr class="bg-slate-50 border-b border-gray-100 text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+                                    <th class="py-3 px-3 text-center w-10">
+                                        <input type="checkbox" id="select-all-bookings-checkbox" onchange="toggleSelectAllBookings(this.checked)" class="custom-checkbox" title="Select All">
+                                    </th>
+                                    <th class="py-3 px-4 sortable-th" onclick="sortBookings('id')">
+                                        <div class="flex items-center gap-1.5">
+                                            <span>Booking Ref</span>
+                                            <span id="sort-icon-id"><i class="fas fa-sort text-gray-300"></i></span>
+                                        </div>
+                                    </th>
+                                    <th class="py-3 px-4 sortable-th" onclick="sortBookings('customer')">
+                                        <div class="flex items-center gap-1.5">
+                                            <span>Lead Passenger</span>
+                                            <span id="sort-icon-customer"><i class="fas fa-sort text-gray-300"></i></span>
+                                        </div>
+                                    </th>
+                                    <th class="py-3 px-4">Service & Route</th>
+                                    <th class="py-3 px-4 sortable-th" onclick="sortBookings('date')">
+                                        <div class="flex items-center gap-1.5">
+                                            <span>Travel Date</span>
+                                            <span id="sort-icon-date"><i class="fas fa-sort text-gray-300"></i></span>
+                                        </div>
+                                    </th>
+                                    <th class="py-3 px-4 sortable-th" onclick="sortBookings('amount')">
+                                        <div class="flex items-center gap-1.5">
+                                            <span>Total Amount</span>
+                                            <span id="sort-icon-amount"><i class="fas fa-sort text-gray-300"></i></span>
+                                        </div>
+                                    </th>
+                                    <th class="py-3 px-4 sortable-th" onclick="sortBookings('status')">
+                                        <div class="flex items-center gap-1.5">
+                                            <span>Status</span>
+                                            <span id="sort-icon-status"><i class="fas fa-sort text-gray-300"></i></span>
+                                        </div>
+                                    </th>
+                                    <th class="py-3 px-4 text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookings-tbody">
+                                <!-- Populated dynamically by js/admin.js -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination Footer Strip -->
+                    <div class="p-4 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs bg-slate-50/50">
+                        <div class="flex items-center gap-3">
+                            <span id="bookings-pagination-info" class="text-gray-500 font-medium">Showing 0 reservations</span>
+                            <div class="flex items-center gap-1 text-gray-400">
+                                <span>Show:</span>
+                                <select onchange="changeBookingPageSize(this.value)" class="bg-white border border-gray-200 rounded-lg px-2 py-1 text-xs font-semibold text-gray-700 outline-none cursor-pointer">
+                                    <option value="5">5</option>
+                                    <option value="8" selected>8</option>
+                                    <option value="15">15</option>
+                                    <option value="all">All</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Page Nav Controls -->
+                        <div class="flex items-center gap-1.5">
+                            <button type="button" id="bookings-page-prev" onclick="changeBookingPage(-1)" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:bg-gray-100 text-xs font-semibold text-gray-700 cursor-pointer transition">
+                                <i class="fas fa-chevron-left mr-1 text-[10px]"></i> Prev
+                            </button>
+                            <div id="bookings-pagination-pages" class="flex items-center gap-1">
+                                <!-- Page numbers rendered dynamically -->
+                            </div>
+                            <button type="button" id="bookings-page-next" onclick="changeBookingPage(1)" class="px-3 py-1.5 rounded-lg border border-gray-200 hover:bg-gray-100 text-xs font-semibold text-gray-700 cursor-pointer transition">
+                                Next <i class="fas fa-chevron-right ml-1 text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================================================================
+                 VIEW 3: TOUR PACKAGES INVENTORY (TAB: packages)
+                 ================================================================== -->
+            <section id="tab-packages" class="tab-content space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">Curated Tour Packages</h2>
+                        <p class="text-xs text-gray-500">Live booking slots, pricing controls & vacation package availability</p>
+                    </div>
+                    <div class="flex items-center gap-2.5 flex-wrap">
+                        <span id="packages-count-badge" class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl">
+                            ● 6 Active Holiday Bundles
+                        </span>
+                        <button type="button" onclick="openAddPackageModal()" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-xs font-bold rounded-xl shadow-md shadow-blue-500/20 transition cursor-pointer">
+                            <i class="fas fa-plus-circle text-sm"></i>
+                            <span>Add New Place / Package</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="packages-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Populated dynamically by js/admin.js -->
+                </div>
+            </section>
+
+            <!-- ==================================================================
+                 VIEW 4: FLEET & SCHEDULES (TAB: fleet)
+                 ================================================================== -->
+            <section id="tab-fleet" class="tab-content space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">Fleet & Transit Schedules</h2>
+                        <p class="text-xs text-gray-500">Provincial bus lines and domestic commercial flight timetables</p>
+                    </div>
+
+                    <!-- Sub Tab Switcher -->
+                    <div class="inline-flex bg-gray-100 p-1 rounded-2xl border border-gray-200">
+                        <button type="button" id="fleet-btn-buses" onclick="switchFleetSubTab('buses')" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-xs cursor-pointer">
+                            <i class="fas fa-bus mr-1.5"></i> Provincial Buses
+                        </button>
+                        <button type="button" id="fleet-btn-flights" onclick="switchFleetSubTab('flights')" class="px-4 py-2 rounded-xl text-xs font-semibold text-gray-600 hover:bg-gray-200 cursor-pointer">
+                            <i class="fas fa-plane mr-1.5"></i> Domestic Flights
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bus Line Table -->
+                <div id="fleet-view-buses" class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <div class="p-5 border-b border-gray-100 flex items-center justify-between">
+                        <span class="font-bold text-sm text-gray-900">Active Provincial Bus Operators</span>
+                        <span class="text-xs text-gray-500">Victory Liner • Genesis • JoyBus • Partas • Philtranco</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse admin-table">
+                            <thead>
+                                <tr class="bg-slate-50 border-b border-gray-100 text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+                                    <th class="py-3 px-4">Line Code</th>
+                                    <th class="py-3 px-4">Operator & Class</th>
+                                    <th class="py-3 px-4">Route</th>
+                                    <th class="py-3 px-4">Schedule</th>
+                                    <th class="py-3 px-4">Standard Fare</th>
+                                    <th class="py-3 px-4">Seats Left</th>
+                                    <th class="py-3 px-4">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fleet-buses-tbody">
+                                <!-- Populated dynamically by js/admin.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Flights Table -->
+                <div id="fleet-view-flights" class="hidden bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <div class="p-5 border-b border-gray-100 flex items-center justify-between">
+                        <span class="font-bold text-sm text-gray-900">Commercial Domestic Flights</span>
+                        <span class="text-xs text-gray-500">Philippine Airlines • Cebu Pacific • AirAsia</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse admin-table">
+                            <thead>
+                                <tr class="bg-slate-50 border-b border-gray-100 text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+                                    <th class="py-3 px-4">Flight No</th>
+                                    <th class="py-3 px-4">Airline</th>
+                                    <th class="py-3 px-4">Flight Route</th>
+                                    <th class="py-3 px-4">Departure / Arrival</th>
+                                    <th class="py-3 px-4">Equipment</th>
+                                    <th class="py-3 px-4">Base Fare</th>
+                                    <th class="py-3 px-4">Available</th>
+                                    <th class="py-3 px-4">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fleet-flights-tbody">
+                                <!-- Populated dynamically by js/admin.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================================================================
+                 VIEW 5: TRAVELERS & CUSTOMER DIRECTORY (TAB: customers)
+                 ================================================================== -->
+            <section id="tab-customers" class="tab-content space-y-6">
+                <!-- Header with Action Buttons -->
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">Traveler Customer Directory</h2>
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 status-pulse"></span>
+                                Live Sync Active
+                            </span>
+                        </div>
+                        <p class="text-xs text-gray-500">Real-time client sessions, verified traveler accounts, VIP loyalty tiers, and lifetime booking value</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="exportCustomersCsv()" class="px-3.5 py-2 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 text-xs font-semibold shadow-xs transition flex items-center gap-1.5 cursor-pointer">
+                            <i class="fas fa-file-csv text-emerald-600"></i>
+                            <span>Export CSV</span>
+                        </button>
+                        <button type="button" onclick="openAddCustomerModal()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-md shadow-blue-500/20 transition flex items-center gap-1.5 cursor-pointer">
+                            <i class="fas fa-user-plus text-xs"></i>
+                            <span>Register New Client</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Client Metrics Summary Cards -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 bg-white rounded-2xl border border-gray-100 shadow-xs">
+                        <div class="flex items-center justify-between text-gray-500 mb-1">
+                            <span class="text-[11px] font-bold uppercase tracking-wider">Total Clients</span>
+                            <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="text-2xl font-black text-gray-900" id="cust-stat-total">0</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">Registered traveler accounts</div>
+                    </div>
+
+                    <div class="p-4 bg-white rounded-2xl border border-gray-100 shadow-xs">
+                        <div class="flex items-center justify-between text-gray-500 mb-1">
+                            <span class="text-[11px] font-bold uppercase tracking-wider">Online / Active Now</span>
+                            <div class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
+                                <i class="fas fa-signal"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl font-black text-emerald-600" id="cust-stat-online">0</span>
+                            <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100/80 text-emerald-800">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Live
+                            </span>
+                        </div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">Signed in on public portal</div>
+                    </div>
+
+                    <div class="p-4 bg-white rounded-2xl border border-gray-100 shadow-xs">
+                        <div class="flex items-center justify-between text-gray-500 mb-1">
+                            <span class="text-[11px] font-bold uppercase tracking-wider">VIP Members</span>
+                            <div class="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center text-xs">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                        </div>
+                        <div class="text-2xl font-black text-purple-700" id="cust-stat-vip">0</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">Gold & Platinum VIP tier</div>
+                    </div>
+
+                    <div class="p-4 bg-white rounded-2xl border border-gray-100 shadow-xs">
+                        <div class="flex items-center justify-between text-gray-500 mb-1">
+                            <span class="text-[11px] font-bold uppercase tracking-wider">Lifetime Spend</span>
+                            <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                        </div>
+                        <div class="text-2xl font-black text-gray-900" id="cust-stat-spend">₱0</div>
+                        <div class="text-[10px] text-gray-400 mt-0.5">Combined client bookings</div>
+                    </div>
+                </div>
+
+                <!-- Customer Directory Search & Filter Controls -->
+                <div class="p-4 bg-white rounded-2xl border border-gray-100 shadow-xs flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+                    <!-- Search Input -->
+                    <div class="relative w-full md:w-80">
+                        <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                        <input type="text" id="cust-search-input" oninput="filterCustomers()" placeholder="Search client name, email, phone, city..." class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-9 pr-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500 transition">
+                    </div>
+
+                    <!-- Filters & Sort -->
+                    <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                        <select id="cust-tier-filter" onchange="filterCustomers()" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold text-gray-700 outline-none cursor-pointer">
+                            <option value="all">All Loyalty Tiers</option>
+                            <option value="Platinum VIP">Platinum VIP</option>
+                            <option value="Gold VIP">Gold VIP</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Bronze">Bronze</option>
+                        </select>
+
+                        <select id="cust-status-filter" onchange="filterCustomers()" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold text-gray-700 outline-none cursor-pointer">
+                            <option value="all">All Statuses</option>
+                            <option value="Online">Online Now</option>
+                            <option value="Offline">Offline</option>
+                            <option value="Active">Active</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Suspended">Suspended</option>
+                        </select>
+
+                        <select id="cust-sort-filter" onchange="filterCustomers()" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold text-gray-700 outline-none cursor-pointer">
+                            <option value="recent">Sort: Most Recently Active</option>
+                            <option value="spend-high">Sort: Highest Spend</option>
+                            <option value="trips-high">Sort: Most Trips</option>
+                            <option value="name-asc">Sort: Name (A-Z)</option>
+                        </select>
+
+                        <button type="button" onclick="resetCustomerFilters()" class="p-2 text-gray-500 hover:text-gray-800 rounded-xl hover:bg-gray-100 transition cursor-pointer" title="Reset Filters">
+                            <i class="fas fa-rotate-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customer Directory Table -->
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse admin-table">
+                            <thead>
+                                <tr class="bg-slate-50 border-b border-gray-100 text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+                                    <th class="py-3.5 px-4">Client ID</th>
+                                    <th class="py-3.5 px-4">Traveler Profile</th>
+                                    <th class="py-3.5 px-4">Contact Details</th>
+                                    <th class="py-3.5 px-4">Loyalty Tier</th>
+                                    <th class="py-3.5 px-4">Trips Completed</th>
+                                    <th class="py-3.5 px-4">Total Spend</th>
+                                    <th class="py-3.5 px-4">Last Active</th>
+                                    <th class="py-3.5 px-4 text-right">Manage Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customers-tbody">
+                                <!-- Populated dynamically by js/admin.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================================================================
+                 VIEW 6: INQUIRIES & CONTACT MESSAGES (TAB: inquiries)
+                 ================================================================== -->
+            <section id="tab-inquiries" class="tab-content space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">Customer Inquiries Inbox</h2>
+                        <p class="text-xs text-gray-500">Direct inquiries received via website contact form and booking assistance</p>
+                    </div>
+                    <span class="text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+                        ⚡ Quick Response Recommended
+                    </span>
+                </div>
+
+                <div id="inquiries-list" class="space-y-4">
+                    <!-- Populated dynamically by js/admin.js -->
+                </div>
+            </section>
+
+            <!-- ==================================================================
+                 VIEW 7: PROMO CODES & VOUCHERS (TAB: promos)
+                 ================================================================== -->
+            <section id="tab-promos" class="tab-content space-y-6">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">Promo Vouchers & Discounts</h2>
+                    <p class="text-xs text-gray-500">Configure seasonal promo codes, usage limits, and campaign discounts</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Table: Active Promos -->
+                    <div class="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                        <div class="p-5 border-b border-gray-100">
+                            <h3 class="font-bold text-sm text-gray-900">Active Voucher Codes</h3>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse admin-table">
+                                <thead>
+                                    <tr class="bg-slate-50 border-b border-gray-100 text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+                                        <th class="py-3 px-4">Code</th>
+                                        <th class="py-3 px-4">Discount</th>
+                                        <th class="py-3 px-4">Min Spend</th>
+                                        <th class="py-3 px-4">Redeemed</th>
+                                        <th class="py-3 px-4">Valid Until</th>
+                                        <th class="py-3 px-4">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="promos-tbody">
+                                    <!-- Populated dynamically by js/admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Form: Create New Promo -->
+                    <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                        <h3 class="font-extrabold text-sm text-gray-900 mb-1">Create Promo Code</h3>
+                        <p class="text-xs text-gray-500 mb-5">Instantly generate a new coupon for campaigns</p>
+
+                        <form id="form-add-promo" onsubmit="handleAddPromoSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Promo Code</label>
+                                <input type="text" id="new-promo-code" required placeholder="e.g. FIESTA20" class="w-full uppercase font-mono font-bold bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Discount Value</label>
+                                <input type="text" id="new-promo-discount" required placeholder="e.g. 15% OFF or ₱500 OFF" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-blue-500">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Min Spend (₱)</label>
+                                    <input type="number" id="new-promo-min" value="1000" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Max Uses</label>
+                                    <input type="number" id="new-promo-uses" value="250" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-blue-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Expiration Date</label>
+                                <input type="date" id="new-promo-expiry" required value="2026-12-31" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-blue-500">
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold py-2.5 rounded-xl text-xs shadow-md shadow-blue-500/20 transition cursor-pointer">
+                                Activate Promo Code
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================================================================
+                 VIEW 8: AGENCY SETTINGS (TAB: settings)
+                 ================================================================== -->
+            <section id="tab-settings" class="tab-content space-y-6">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">Agency & Portal Settings</h2>
+                    <p class="text-xs text-gray-500">Official licensing, contact credentials, and database operations</p>
+                </div>
+
+                <form onsubmit="saveAgencySettings(event)" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Agency Profile Card -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm space-y-4">
+                        <h3 class="font-extrabold text-sm text-gray-900 flex items-center gap-2">
+                            <i class="fas fa-building text-blue-600"></i> Business & DOT Accreditation
+                        </h3>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <label class="text-gray-400 block text-[10px] uppercase font-bold mb-1">Official Business Name</label>
+                                <input type="text" id="setting-name" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-gray-800">
+                            </div>
+                            <div>
+                                <label class="text-gray-400 block text-[10px] uppercase font-bold mb-1">DOT Accreditation Number</label>
+                                <input type="text" id="setting-accreditation" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-gray-800">
+                            </div>
+                            <div>
+                                <label class="text-gray-400 block text-[10px] uppercase font-bold mb-1">Headquarters Address</label>
+                                <input type="text" id="setting-address" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-gray-800">
+                            </div>
+                            <div>
+                                <label class="text-gray-400 block text-[10px] uppercase font-bold mb-1">24/7 Hotline</label>
+                                <input type="text" id="setting-hotline" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-blue-600">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fee Parameters Card -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm space-y-4 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-extrabold text-sm text-gray-900 flex items-center gap-2 mb-3">
+                                <i class="fas fa-receipt text-blue-600"></i> Fee & Tax Configuration
+                            </h3>
+                            <div class="space-y-3 text-xs">
+                                <div>
+                                    <label class="text-gray-400 block text-[10px] uppercase font-bold mb-1">Bus Terminal Fee (₱)</label>
+                                    <input type="text" id="setting-bus-fee" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-gray-800">
+                                </div>
+                                <div>
+                                    <label class="text-gray-400 block text-[10px] uppercase font-bold mb-1">Aviation Security Fee (₱)</label>
+                                    <input type="text" id="setting-plane-fee" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-gray-800">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-md shadow-blue-500/20 transition cursor-pointer">
+                            Save Agency Configuration
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Database Maintenance Block -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                    <h3 class="font-extrabold text-sm text-gray-900 mb-1">Local Database & Seed Operations</h3>
+                    <p class="text-xs text-gray-500 mb-4">Export raw local storage data or reset all records to the original factory seed dataset.</p>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <button type="button" onclick="exportBookingsCSV()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl text-xs transition cursor-pointer">
+                            <i class="fas fa-file-export mr-1.5"></i> Export All Bookings (CSV)
+                        </button>
+                        <button type="button" onclick="resetLocalDatabase()" class="bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 font-semibold px-4 py-2 rounded-xl text-xs transition cursor-pointer">
+                            <i class="fas fa-undo mr-1.5"></i> Reset All Data to Default Seed
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ==========================================================================
+         FLOATING BULK ACTION BAR
+         ========================================================================== -->
+    <div id="bulk-action-bar" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-4 text-xs font-semibold">
+            <span id="bulk-selected-count" class="font-extrabold text-blue-400 bg-slate-800 px-2.5 py-1 rounded-lg">0 Selected</span>
+            <div class="h-4 w-px bg-slate-700"></div>
+            <button onclick="bulkSetStatus('Confirmed')" class="hover:text-emerald-400 transition cursor-pointer flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Mark Confirmed
+            </button>
+            <button onclick="bulkSetStatus('Cancelled')" class="hover:text-rose-400 transition cursor-pointer flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-rose-400"></span> Mark Cancelled
+            </button>
+            <button onclick="exportBookingsCSV(true)" class="hover:text-blue-400 transition cursor-pointer flex items-center gap-1">
+                <i class="fas fa-download text-[10px]"></i> Export Selected
+            </button>
+            <button onclick="bulkDelete()" class="hover:text-rose-400 transition cursor-pointer flex items-center gap-1">
+                <i class="fas fa-trash-alt text-[10px]"></i> Delete
+            </button>
+            <button onclick="clearBulkSelection()" class="text-slate-400 hover:text-white p-1" title="Deselect All">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         MODAL 1: VIEW BOOKING DETAILS & E-TICKET RECEIPT
+         ========================================================================== -->
+    <div id="booking-details-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-5 hidden modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-slate-200 modal-box transition-all">
+            <!-- Modal Header: Executive Dark Navy Banner -->
+            <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white p-5 sm:p-6 flex-shrink-0 border-b border-slate-800">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-start gap-3">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-blue-400 bg-blue-950/80 border border-blue-800/60 px-2.5 py-0.5 rounded-full flex items-center gap-1.5 shadow-xs">
+                                <i id="modal-booking-type-icon" class="fas fa-ticket-alt text-[9px]"></i>
+                                <span id="modal-booking-type-badge">Official E-Ticket Manifest</span>
+                            </span>
+                            <span class="text-[10px] text-slate-400 font-mono">Channel: Online Portal</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 flex-wrap">
+                            <h3 id="modal-booking-ref" class="text-2xl sm:text-3xl font-mono font-black tracking-tight text-white">MCK-BK-0000</h3>
+                            <button type="button" onclick="copyModalRef()" class="text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 px-2.5 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer" title="Copy Reference Code">
+                                <i class="far fa-copy text-[10px]"></i> <span>Copy</span>
+                            </button>
+                        </div>
+                        <div class="text-xs text-slate-400 mt-1.5 flex items-center gap-2 flex-wrap">
+                            <span class="flex items-center gap-1.5 text-slate-300">
+                                <i class="far fa-calendar-check text-blue-400"></i> Booked on <span id="modal-booking-created" class="font-bold text-white">—</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Right Header: Status Selector & Close Button (Cleanly Spaced, No Overlap) -->
+                    <div class="flex items-center gap-2.5 self-start sm:self-auto">
+                        <div class="relative flex items-center">
+                            <label for="modal-booking-status-select" class="sr-only">Booking Status</label>
+                            <select id="modal-booking-status-select" onchange="handleModalStatusChange(this.value)" class="bg-slate-800/95 hover:bg-slate-800 text-white border-2 border-slate-700 focus:border-blue-500 pl-3 pr-8 py-1.5 rounded-xl text-xs font-black tracking-wide outline-none cursor-pointer appearance-none shadow-sm transition">
+                                <option value="Confirmed">✓ Confirmed</option>
+                                <option value="Pending">⏱ Pending</option>
+                                <option value="Completed">★ Completed</option>
+                                <option value="Cancelled">✕ Cancelled</option>
+                            </select>
+                            <i class="fas fa-chevron-down absolute right-3 pointer-events-none text-[10px] text-slate-400"></i>
+                        </div>
+                        <button type="button" onclick="closeBookingModal()" class="w-9 h-9 rounded-xl bg-slate-800/80 hover:bg-rose-500/20 text-slate-400 hover:text-rose-300 flex items-center justify-center transition cursor-pointer no-print border border-slate-700/80" title="Close Modal">
+                            <i class="fas fa-times text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Content (Scrollable, 2-Column Responsive Layout) -->
+            <div class="p-5 sm:p-6 overflow-y-auto flex-1 space-y-4 text-xs">
+                <!-- Traveler Dossier Card -->
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black text-sm flex items-center justify-center shadow-md flex-shrink-0" id="modal-booking-initials">
+                            JC
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="text-[10px] font-extrabold text-blue-700 bg-blue-100/80 px-2 py-0.5 rounded-md uppercase tracking-wider">Lead Traveler</span>
+                                <span id="modal-booking-pax" class="text-[10px] font-bold text-gray-600 bg-white border border-gray-200 px-2 py-0.5 rounded-md">1 Passenger</span>
+                            </div>
+                            <h4 id="modal-booking-customer" class="font-black text-base text-gray-900 mt-0.5">—</h4>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:items-end gap-1 text-xs text-gray-600">
+                        <a id="modal-booking-email-link" href="#" class="flex items-center gap-1.5 font-medium text-gray-700 hover:text-blue-600 transition truncate max-w-[280px]">
+                            <i class="far fa-envelope text-blue-500 text-xs"></i>
+                            <span id="modal-booking-email">—</span>
+                        </a>
+                        <a id="modal-booking-phone-link" href="#" class="flex items-center gap-1.5 font-medium text-gray-700 hover:text-blue-600 transition">
+                            <i class="fas fa-phone text-emerald-500 text-xs"></i>
+                            <span id="modal-booking-phone">—</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2-Column Grid for Itinerary & Service Specs -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Column 1: Journey & Carrier Specifications -->
+                    <div class="border border-gray-200 rounded-2xl p-4 bg-white shadow-2xs space-y-3">
+                        <div class="flex items-center gap-2 font-bold text-xs text-gray-900 pb-2 border-b border-gray-100">
+                            <i class="fas fa-route text-blue-600"></i>
+                            <span>Journey & Carrier Route</span>
+                        </div>
+
+                        <div class="space-y-2.5">
+                            <div>
+                                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Service Description</span>
+                                <span id="modal-booking-service" class="font-extrabold text-gray-900 text-xs sm:text-sm block leading-snug">Manila (MNL) ➔ Cebu (CEB)</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2 pt-1">
+                                <div>
+                                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Carrier / Partner</span>
+                                    <span id="modal-booking-operator" class="font-bold text-gray-800 block">Cebu Pacific</span>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Travel Date</span>
+                                    <span id="modal-booking-date" class="font-bold text-blue-700 block">Oct 15, 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Cabin, Seat & Baggage Inclusions -->
+                    <div class="border border-gray-200 rounded-2xl p-4 bg-white shadow-2xs space-y-3">
+                        <div class="flex items-center gap-2 font-bold text-xs text-gray-900 pb-2 border-b border-gray-100">
+                            <i class="fas fa-chair text-blue-600"></i>
+                            <span>Seating & Inclusions</span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <div>
+                                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Seat Allocation</span>
+                                <span id="modal-booking-seat" class="font-black text-xs text-gray-900 inline-block bg-blue-50 text-blue-800 px-2.5 py-1 rounded-lg border border-blue-200 mt-0.5">12A (Window)</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Cabin / Class</span>
+                                <span id="modal-booking-cabin" class="font-bold text-gray-800 block mt-0.5">Economy Class</span>
+                            </div>
+                            <div class="col-span-2 pt-1 border-t border-gray-100">
+                                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Baggage Inclusions</span>
+                                <span id="modal-booking-baggage" class="font-medium text-gray-700 flex items-center gap-1.5 mt-0.5">
+                                    <i class="fas fa-suitcase text-slate-400 text-[11px]"></i> 20kg Checked + 7kg Hand-carry Included
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial & Billing Summary Box -->
+                <div class="bg-gradient-to-r from-blue-50/70 via-indigo-50/40 to-slate-50 border border-blue-100 rounded-2xl p-4 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-blue-800 block">Payment & Settlement Summary</span>
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="text-gray-600 font-medium">Payment Channel:</span>
+                            <span id="modal-booking-payment" class="font-black text-gray-900 uppercase bg-white px-2 py-0.5 rounded-md border border-gray-200 text-[11px]">GCash</span>
+                            <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-100/90 border border-emerald-300 px-2 py-0.5 rounded-full">
+                                <i class="fas fa-check-circle text-[9px]"></i> Verified Transaction
+                            </span>
+                        </div>
+                    </div>
+                    <div class="sm:text-right">
+                        <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Total Billed Amount</span>
+                        <span id="modal-booking-total" class="text-2xl sm:text-3xl font-black text-blue-700 block tracking-tight">₱3,470</span>
+                        <span class="text-[10px] text-gray-500">VAT & Aviation Security Fee Included</span>
+                    </div>
+                </div>
+
+                <!-- Operational Admin Notes (Full-Width, Multi-Line Textarea with Quick Tags) -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <label for="modal-booking-notes" class="text-[11px] font-extrabold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fas fa-clipboard-list text-blue-600"></i> Operational Admin Notes & Manifest Directives
+                        </label>
+                        <span class="text-[10px] text-slate-400 font-medium">Staff Accessible Only</span>
+                    </div>
+
+                    <textarea id="modal-booking-notes" rows="3" placeholder="Enter special passenger requirements, baggage tags, gate assignments, or operational notes..." class="w-full bg-white border border-gray-200 rounded-xl p-3 text-xs text-gray-800 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 leading-relaxed resize-y"></textarea>
+
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 pt-1">
+                        <div class="flex flex-wrap items-center gap-1.5 text-[10px]" id="modal-quick-note-tags">
+                            <span class="text-gray-400 font-bold mr-0.5">Quick Tags:</span>
+                            <button type="button" onclick="appendQuickNote('VIP Traveler')" class="px-2 py-0.5 rounded-lg bg-white border border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 transition cursor-pointer">+ VIP</button>
+                            <button type="button" onclick="appendQuickNote('Baggage Verified')" class="px-2 py-0.5 rounded-lg bg-white border border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 transition cursor-pointer">+ Baggage OK</button>
+                            <button type="button" onclick="appendQuickNote('Priority Boarding')" class="px-2 py-0.5 rounded-lg bg-white border border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 transition cursor-pointer">+ Priority</button>
+                            <button type="button" onclick="appendQuickNote('Special Assistance')" class="px-2 py-0.5 rounded-lg bg-white border border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 transition cursor-pointer">+ Assistance</button>
+                        </div>
+
+                        <button type="button" onclick="handleSaveBookingNotes()" class="bg-slate-900 hover:bg-slate-800 active:scale-95 text-white font-bold px-4 py-2 rounded-xl text-xs transition cursor-pointer flex items-center justify-center gap-1.5 shadow-sm no-print">
+                            <i class="fas fa-floppy-disk text-[11px]"></i> <span>Save Notes</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer (Action Strip) -->
+            <div class="p-4 sm:p-5 border-t border-gray-100 bg-gray-50/90 flex flex-col sm:flex-row items-center justify-between gap-3 flex-shrink-0 no-print">
+                <div class="flex items-center gap-2 w-full sm:w-auto flex-wrap">
+                    <button type="button" onclick="printBookingManifest()" class="bg-slate-900 hover:bg-slate-800 active:scale-95 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition cursor-pointer shadow-md shadow-slate-900/10">
+                        <i class="fas fa-print text-xs"></i> <span>Print Official E-Ticket</span>
+                    </button>
+                    <button type="button" onclick="copyFullBookingManifest()" class="bg-white hover:bg-gray-100 border border-gray-200 active:scale-95 text-gray-700 font-bold px-3.5 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition cursor-pointer">
+                        <i class="far fa-copy text-xs"></i> <span>Copy Details</span>
+                    </button>
+                    <button type="button" onclick="openEditBookingFromView()" class="bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 active:scale-95 text-blue-700 font-bold px-3.5 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition cursor-pointer">
+                        <i class="fas fa-pen-to-square text-xs"></i> <span>Edit Reservation</span>
+                    </button>
+                </div>
+
+                <button type="button" onclick="closeBookingModal()" class="w-full sm:w-auto bg-gray-200 hover:bg-gray-300 active:scale-95 text-gray-800 font-bold px-6 py-2.5 rounded-xl text-xs transition cursor-pointer">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         MODAL 2: EDIT BOOKING MODAL
+         ========================================================================== -->
+    <div id="edit-booking-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-gray-100 modal-box">
+            <div class="bg-slate-900 text-white p-5 flex justify-between items-center">
+                <div>
+                    <h3 class="font-extrabold text-base">Edit Reservation Details</h3>
+                    <p class="text-[11px] text-slate-400">Modify traveler info, seats, route, or pricing</p>
+                </div>
+                <button type="button" onclick="closeEditBookingModal()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form onsubmit="handleEditBookingSubmit(event)" class="p-6 space-y-3.5 text-xs">
+                <input type="hidden" id="edit-booking-id">
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Lead Passenger Full Name</label>
+                    <input type="text" id="edit-booking-name" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Email Address</label>
+                        <input type="email" id="edit-booking-email" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Phone Number</label>
+                        <input type="tel" id="edit-booking-phone" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Route / Service Title</label>
+                    <input type="text" id="edit-booking-route" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Carrier / Operator</label>
+                        <input type="text" id="edit-booking-operator" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Travel Date</label>
+                        <input type="date" id="edit-booking-date" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-2 py-2 text-xs outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Pax Count</label>
+                        <input type="number" id="edit-booking-pax" min="1" max="10" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Seat Assignment</label>
+                        <input type="text" id="edit-booking-seat" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Total (₱)</label>
+                        <input type="number" id="edit-booking-amount" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none font-bold">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Payment Method</label>
+                        <select id="edit-booking-payment" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold outline-none">
+                            <option value="GCash">GCash</option>
+                            <option value="Maya">Maya</option>
+                            <option value="Credit Card (Visa)">Credit Card (Visa)</option>
+                            <option value="Credit Card (Mastercard)">Credit Card (Mastercard)</option>
+                            <option value="Over-The-Counter">Over-The-Counter</option>
+                            <option value="Bank Transfer">Bank Transfer</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Booking Status</label>
+                        <select id="edit-booking-status" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold outline-none">
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Pending">Pending Payment</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-end gap-2">
+                    <button type="button" onclick="closeEditBookingModal()" class="px-4 py-2 rounded-xl text-gray-600 hover:bg-gray-100 font-semibold transition">Cancel</button>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md shadow-blue-500/20 transition cursor-pointer">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         MODAL 3: CREATE MANUAL BOOKING MODAL
+         ========================================================================== -->
+    <div id="create-booking-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-gray-100 modal-box">
+            <div class="bg-slate-900 text-white p-5 flex justify-between items-center">
+                <div>
+                    <h3 class="font-extrabold text-base">Create Manual Reservation</h3>
+                    <p class="text-[11px] text-slate-400">Walk-in, direct agency telephone or VIP bookings</p>
+                </div>
+                <button type="button" onclick="closeCreateBookingModal()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form onsubmit="handleCreateBookingSubmit(event)" class="p-6 space-y-3.5 text-xs">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Service Type</label>
+                        <select id="new-booking-type" onchange="handleCreateServiceChange(this.value)" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold outline-none">
+                            <option value="flight">✈️ Flight Reservation</option>
+                            <option value="bus">🚌 Bus Ticket</option>
+                            <option value="package">🌴 Tour Package</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Carrier / Operator</label>
+                        <input type="text" id="new-booking-operator" required value="Philippine Airlines" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Lead Passenger Full Name</label>
+                    <input type="text" id="new-booking-name" required placeholder="e.g. Roberto Gomez" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Email Address</label>
+                        <input type="email" id="new-booking-email" required placeholder="e.g. roberto@gmail.com" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Phone Number</label>
+                        <input type="tel" id="new-booking-phone" required placeholder="e.g. +63 917 123 4567" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Route / Package Title</label>
+                    <input type="text" id="new-booking-route" required value="Manila (MNL) ➔ Caticlan / Boracay (MPH)" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                </div>
+
+                <div class="grid grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Travel Date</label>
+                        <input type="date" id="new-booking-date" required value="2026-10-25" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-2 py-2 text-xs outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Pax Count</label>
+                        <input type="number" id="new-booking-pax" min="1" max="10" value="1" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Total (₱)</label>
+                        <input type="number" id="new-booking-amount" required value="4375" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none font-bold">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Payment Method</label>
+                    <select id="new-booking-payment" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold outline-none">
+                        <option value="Cash OTC">Cash (Over The Counter)</option>
+                        <option value="GCash">GCash Transfer</option>
+                        <option value="Maya">Maya App</option>
+                        <option value="Credit Card">Credit Card (Visa/Mastercard)</option>
+                        <option value="Bank Transfer">Direct Bank Wire</option>
+                    </select>
+                </div>
+
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-end gap-2">
+                    <button type="button" onclick="closeCreateBookingModal()" class="px-4 py-2 rounded-xl text-gray-600 hover:bg-gray-100 font-semibold transition">Cancel</button>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md shadow-blue-500/20 transition cursor-pointer">
+                        Confirm & Issue Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         MODAL 4: INQUIRY REPLY MODAL
+         ========================================================================== -->
+    <div id="inquiry-reply-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-gray-100 modal-box">
+            <div class="bg-slate-900 text-white p-5 flex justify-between items-center">
+                <div>
+                    <h3 class="font-extrabold text-base">Reply to Customer Inquiry</h3>
+                    <p id="reply-modal-customer" class="text-[11px] text-slate-400">Client Inquiry</p>
+                </div>
+                <button type="button" onclick="closeReplyModal()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form onsubmit="handleReplySubmit(event)" class="p-6 space-y-3.5 text-xs">
+                <input type="hidden" id="reply-modal-inq-id">
+
+                <div>
+                    <span class="text-[10px] font-bold uppercase text-gray-400 block mb-1">Subject</span>
+                    <div id="reply-modal-subject" class="font-bold text-gray-800 text-sm">Corporate Boracay Retreat</div>
+                </div>
+
+                <div>
+                    <span class="text-[10px] font-bold uppercase text-gray-400 block mb-1">Original Customer Message</span>
+                    <div id="reply-modal-message" class="p-3 bg-gray-50 rounded-xl text-gray-600 border border-gray-100 italic">
+                        "Need quotes for flights..."
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-400 mb-1">Admin Response</label>
+                    <textarea id="reply-modal-text" required rows="4" placeholder="Type your response here. This will be recorded in the inquiry history..." class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-xs outline-none focus:bg-white focus:border-blue-500"></textarea>
+                </div>
+
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-end gap-2">
+                    <button type="button" onclick="closeReplyModal()" class="px-4 py-2 rounded-xl text-gray-600 hover:bg-gray-100 font-semibold transition">Cancel</button>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md shadow-blue-500/20 transition cursor-pointer">
+                        Send & Mark Resolved
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         VIEW CLIENT PROFILE & BOOKING HISTORY MODAL
+         ========================================================================== -->
+    <div id="view-customer-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-gray-100 transform scale-100 transition">
+            <!-- Header -->
+            <div class="p-6 bg-slate-900 text-white flex items-start justify-between relative rounded-t-3xl">
+                <div class="flex items-center gap-3.5">
+                    <div id="view-cust-avatar" class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-lg font-black text-white shadow-md">
+                        TR
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 id="view-cust-name" class="text-lg font-black text-white">Traveler Profile</h3>
+                            <span id="view-cust-status-badge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Active</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs text-slate-300 mt-1">
+                            <span id="view-cust-id" class="font-mono text-blue-400 font-bold">CUST-00</span>
+                            <span>•</span>
+                            <span id="view-cust-city">Metro Manila</span>
+                            <span>•</span>
+                            <span id="view-cust-tier" class="font-bold text-amber-300">Standard</span>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" onclick="closeViewCustomerModal()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fas fa-times text-base"></i>
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div class="p-6 space-y-6 text-xs">
+                <!-- Lifetime Metrics Strip -->
+                <div class="grid grid-cols-3 gap-3 p-4 bg-gray-50 rounded-2xl border border-gray-100 text-center">
+                    <div>
+                        <div class="text-[10px] uppercase font-bold text-gray-400">Total Trips</div>
+                        <div id="view-cust-trips" class="text-xl font-black text-gray-900 mt-0.5">0</div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] uppercase font-bold text-gray-400">Total Billed</div>
+                        <div id="view-cust-spend" class="text-xl font-black text-blue-600 mt-0.5">₱0</div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] uppercase font-bold text-gray-400">Login Sessions</div>
+                        <div id="view-cust-logins" class="text-xl font-black text-gray-900 mt-0.5">1</div>
+                    </div>
+                </div>
+
+                <!-- Contact & Session Meta -->
+                <div class="p-4 bg-white rounded-2xl border border-gray-100 space-y-2">
+                    <div class="text-[11px] font-extrabold uppercase tracking-wider text-gray-400 mb-2">Account & Contact Info</div>
+                    <div class="flex justify-between items-center py-1 border-b border-gray-50">
+                        <span class="text-gray-500">Email Address:</span>
+                        <a id="view-cust-email-link" href="#" class="font-semibold text-blue-600 hover:underline flex items-center gap-1.5">
+                            <span id="view-cust-email">—</span>
+                            <i class="fas fa-envelope text-[10px]"></i>
+                        </a>
+                    </div>
+                    <div class="flex justify-between items-center py-1 border-b border-gray-50">
+                        <span class="text-gray-500">Account Password:</span>
+                        <span id="view-cust-password" class="font-mono font-bold text-slate-800 bg-gray-100 px-2 py-0.5 rounded">••••••••</span>
+                    </div>
+                    <div class="flex justify-between items-center py-1 border-b border-gray-50">
+                        <span class="text-gray-500">Contact Number:</span>
+                        <span id="view-cust-phone" class="font-semibold text-gray-800">—</span>
+                    </div>
+                    <div class="flex justify-between items-center py-1 border-b border-gray-50">
+                        <span class="text-gray-500">Primary Residence:</span>
+                        <span id="view-cust-location" class="font-semibold text-gray-800">Metro Manila, Philippines</span>
+                    </div>
+                    <div class="flex justify-between items-center py-1 border-b border-gray-50">
+                        <span class="text-gray-500">Account Joined:</span>
+                        <span id="view-cust-joined" class="font-semibold text-gray-700">—</span>
+                    </div>
+                    <div class="flex justify-between items-center py-1">
+                        <span class="text-gray-500">Last Active / Signed In:</span>
+                        <span id="view-cust-lastactive" class="font-semibold text-emerald-600 font-mono">Recently</span>
+                    </div>
+                </div>
+
+                <!-- Client Bookings History -->
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="text-[11px] font-extrabold uppercase tracking-wider text-gray-400">
+                            Client Reservation History (<span id="view-cust-bookings-count">0</span>)
+                        </div>
+                    </div>
+                    <div id="view-cust-bookings-list" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Operational Staff Notes -->
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                    <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 mb-1.5">
+                        Operational Traveler Notes & Preferences
+                    </label>
+                    <textarea id="view-cust-notes" rows="2" placeholder="Record seat preferences, dietary requests, VIP escort instructions..." class="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-xs outline-none focus:border-blue-500"></textarea>
+                    <div class="flex justify-end mt-2">
+                        <button type="button" onclick="saveCurrentCustomerNotes()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-900 text-white font-bold text-[11px] transition cursor-pointer">
+                            <i class="fas fa-save mr-1"></i> Save Traveler Notes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="p-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between rounded-b-3xl">
+                <button type="button" onclick="openEditFromView()" class="px-4 py-2 rounded-xl bg-blue-50 border border-blue-200 hover:bg-blue-100 text-blue-700 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer">
+                    <i class="fas fa-pen-to-square text-xs"></i>
+                    <span>Edit Profile</span>
+                </button>
+                <button type="button" onclick="closeViewCustomerModal()" class="px-5 py-2 rounded-xl bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold text-xs transition cursor-pointer">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         REGISTER / EDIT CLIENT MODAL
+         ========================================================================== -->
+    <div id="customer-form-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-lg w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-gray-100 transform scale-100 transition">
+            <div class="p-6 bg-slate-900 text-white flex items-center justify-between rounded-t-3xl">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                        <i id="cust-form-icon" class="fas fa-user-plus text-base"></i>
+                    </div>
+                    <div>
+                        <h3 id="cust-form-title" class="text-base font-extrabold text-white">Register New Client</h3>
+                        <p class="text-[11px] text-slate-400">Add or modify traveler account details in the operations directory</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeCustomerFormModal()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fas fa-times text-base"></i>
+                </button>
+            </div>
+
+            <form id="customer-profile-form" onsubmit="handleSaveCustomer(event)" class="p-6 space-y-4 text-xs">
+                <input type="hidden" id="cust-form-id">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Traveler Full Name *</label>
+                        <input type="text" id="cust-form-name" required placeholder="e.g. Maria Santos" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Email Address *</label>
+                        <input type="email" id="cust-form-email" required placeholder="e.g. maria@travel.ph" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Mobile Contact Number</label>
+                        <input type="text" id="cust-form-phone" placeholder="+63 917 000 0000" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">City / Province</label>
+                        <input type="text" id="cust-form-city" placeholder="e.g. Makati City" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Account Password / Access Code</label>
+                        <input type="text" id="cust-form-password" placeholder="Client login password" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500 font-mono">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Account Status</label>
+                        <select id="cust-form-status" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold outline-none focus:bg-white focus:border-blue-500 cursor-pointer">
+                            <option value="Online">Online Now</option>
+                            <option value="Offline">Offline</option>
+                            <option value="Active">Active Account</option>
+                            <option value="Standard">Standard Account</option>
+                            <option value="Suspended">Suspended</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-gray-700 mb-1">Loyalty Tier</label>
+                    <select id="cust-form-tier" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold outline-none focus:bg-white focus:border-blue-500 cursor-pointer">
+                        <option value="Bronze">Bronze Traveler</option>
+                        <option value="Silver">Silver Traveler</option>
+                        <option value="Gold VIP">Gold VIP Member</option>
+                        <option value="Platinum VIP">Platinum VIP Executive</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Trips Completed</label>
+                        <input type="number" min="0" id="cust-form-trips" value="0" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Total Lifetime Spend (₱)</label>
+                        <input type="number" min="0" id="cust-form-spend" value="0" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-gray-700 mb-1">Admin Notes</label>
+                    <textarea id="cust-form-notes" rows="2" placeholder="Internal remarks, VIP handling requests..." class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs outline-none focus:bg-white focus:border-blue-500"></textarea>
+                </div>
+
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-end gap-2">
+                    <button type="button" onclick="closeCustomerFormModal()" class="px-4 py-2 rounded-xl text-gray-600 hover:bg-gray-100 font-semibold transition">Cancel</button>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md shadow-blue-500/20 transition cursor-pointer">
+                        Save Client Profile
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         EDIT VACATION PACKAGE MODAL (REAL-TIME SYNC TO MAIN CLIENT PAGE)
+         ========================================================================== -->
+    <div id="package-edit-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[92vh]">
+            <!-- Header -->
+            <div class="p-6 bg-slate-900 text-white flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-black tracking-tight flex items-center gap-2">
+                        <i class="fas fa-umbrella-beach text-blue-400"></i>
+                        <span>Edit Vacation Package</span>
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Rates and status edited here reflect live on the public client page</p>
+                </div>
+                <button type="button" onclick="closePackageEditModal()" class="text-slate-400 hover:text-white p-2 rounded-xl transition cursor-pointer">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Form -->
+            <form id="package-edit-form" onsubmit="handleSavePackageEdit(event)" class="p-6 overflow-y-auto space-y-4 text-xs">
+                <input type="hidden" id="edit-pkg-id">
+
+                <div>
+                    <label class="block font-bold text-gray-700 mb-1">Package Title</label>
+                    <input type="text" id="edit-pkg-name" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-gray-900 outline-none focus:bg-white focus:border-blue-500">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Destination Location</label>
+                        <input type="text" id="edit-pkg-dest" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Duration</label>
+                        <input type="text" id="edit-pkg-duration" required placeholder="e.g. 3D2N or 4D3N" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-100/80 space-y-3">
+                    <div class="font-extrabold text-blue-900 flex items-center justify-between">
+                        <span class="flex items-center gap-1.5">
+                            <i class="fas fa-tags text-blue-600"></i> Pricing & Discount Controls
+                        </span>
+                        <span class="text-[10px] text-blue-600 font-semibold uppercase">Client-Facing Rate</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-bold text-blue-950 mb-1">Base Rate / Pax (PHP)</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 -translate-y-1/2 font-black text-blue-600 text-sm">₱</span>
+                                <input type="number" id="edit-pkg-price" required min="100" class="w-full bg-white border border-blue-200 rounded-xl pl-8 pr-3 py-2 text-sm font-black text-gray-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-bold text-gray-700 mb-1">Original Price (Strike-through)</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 -translate-y-1/2 font-bold text-gray-400 text-sm">₱</span>
+                                <input type="number" id="edit-pkg-original-price" min="100" class="w-full bg-white border border-gray-200 rounded-xl pl-8 pr-3 py-2 text-sm font-bold text-gray-700 outline-none focus:border-blue-600">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Booking Status</label>
+                        <select id="edit-pkg-status" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold outline-none focus:bg-white focus:border-blue-500 cursor-pointer">
+                            <option value="Active">Active (Open for Clients)</option>
+                            <option value="Paused">Paused (Seasonal Pause / Full)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Booked Slots</label>
+                        <input type="number" id="edit-pkg-booked" min="0" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Total Capacity</label>
+                        <input type="number" id="edit-pkg-capacity" min="1" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-end gap-2.5">
+                    <button type="button" onclick="closePackageEditModal()" class="px-4 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-100 font-bold text-gray-700 transition cursor-pointer">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md shadow-blue-500/20 transition cursor-pointer flex items-center gap-2">
+                        <i class="fas fa-check-circle text-xs"></i>
+                        <span>Save & Reflect on Main Page</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         ADD NEW PLACE / VACATION PACKAGE MODAL (REAL-TIME SYNC)
+         ========================================================================== -->
+    <div id="add-package-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[92vh]">
+            <!-- Header -->
+            <div class="p-6 bg-slate-900 text-white flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-black tracking-tight flex items-center gap-2">
+                        <i class="fas fa-map-location-dot text-blue-400"></i>
+                        <span>Add New Place / Tour Package</span>
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Publish a new destination that immediately reflects live on the public client catalog</p>
+                </div>
+                <button type="button" onclick="closeAddPackageModal()" class="text-slate-400 hover:text-white p-2 rounded-xl transition cursor-pointer">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Form -->
+            <form id="add-package-form" onsubmit="handleCreatePackageSubmit(event)" class="p-6 overflow-y-auto space-y-4 text-xs">
+                <!-- Row 1: Title & Destination -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Package Title <span class="text-rose-500">*</span></label>
+                        <input type="text" id="add-pkg-name" required placeholder="e.g. Batanes Heritage & Rolling Hills Tour" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-gray-900 outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Destination Location <span class="text-rose-500">*</span></label>
+                        <input type="text" id="add-pkg-dest" required placeholder="e.g. Basco & Sabtang, Batanes" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-gray-900 outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                </div>
+
+                <!-- Row 2: Category, Duration, Transport -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Category <span class="text-rose-500">*</span></label>
+                        <select id="add-pkg-category" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold outline-none focus:bg-white focus:border-blue-500 cursor-pointer">
+                            <option value="island">Island Getaway</option>
+                            <option value="beach">Tropical Beach</option>
+                            <option value="highland">Highland & Mountains</option>
+                            <option value="adventure">Heritage & Adventure</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Duration <span class="text-rose-500">*</span></label>
+                        <input type="text" id="add-pkg-duration" required placeholder="e.g. 3D2N or 4D3N" value="3D2N" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold outline-none focus:bg-white focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Transit / Inclusions <span class="text-rose-500">*</span></label>
+                        <select id="add-pkg-transport" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold outline-none focus:bg-white focus:border-blue-500 cursor-pointer">
+                            <option value="Flights Included">Flights Included</option>
+                            <option value="Deluxe Bus Included">Deluxe Bus Included</option>
+                            <option value="Fastcraft + Bus Included">Fastcraft + Bus Included</option>
+                            <option value="Private Van Included">Private Van Included</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Row 3: Pricing & Slots Box -->
+                <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-100/80 space-y-3">
+                    <div class="font-extrabold text-blue-900 flex items-center justify-between">
+                        <span class="flex items-center gap-1.5">
+                            <i class="fas fa-tags text-blue-600"></i> Pricing & Inventory Allocation
+                        </span>
+                        <span class="text-[10px] text-blue-600 font-semibold uppercase">Real-Time Sync</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block font-bold text-blue-950 mb-1">Rate / Pax (PHP) <span class="text-rose-500">*</span></label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 -translate-y-1/2 font-black text-blue-600 text-sm">₱</span>
+                                <input type="number" id="add-pkg-price" required min="100" placeholder="8999" class="w-full bg-white border border-blue-200 rounded-xl pl-8 pr-3 py-2 text-sm font-black text-gray-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-bold text-gray-700 mb-1">Original Price (Strike-through)</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 -translate-y-1/2 font-bold text-gray-400 text-sm">₱</span>
+                                <input type="number" id="add-pkg-original-price" min="100" placeholder="12499 (optional)" class="w-full bg-white border border-gray-200 rounded-xl pl-8 pr-3 py-2 text-sm font-bold text-gray-700 outline-none focus:border-blue-600">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-bold text-gray-700 mb-1">Total Available Capacity <span class="text-rose-500">*</span></label>
+                            <input type="number" id="add-pkg-capacity" required min="1" max="500" value="25" class="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-sm font-bold text-gray-800 outline-none focus:border-blue-600">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 4: Hotel Resort Accommodation -->
+                <div>
+                    <label class="block font-bold text-gray-700 mb-1">Resort / Hotel Partner Name</label>
+                    <input type="text" id="add-pkg-resort" placeholder="e.g. Batanes Seaside Eco-Lodge & Suites" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2 text-xs font-semibold text-gray-900 outline-none focus:bg-white focus:border-blue-500">
+                </div>
+
+                <!-- Row 5: Scenic Destination Image Chooser -->
+                <div>
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label class="block font-bold text-gray-700">Destination Scenic Cover Image <span class="text-rose-500">*</span></label>
+                        <span class="text-[10px] text-gray-400">Click a preset image or enter custom URL</span>
+                    </div>
+
+                    <!-- Preset Image Thumbnails Grid -->
+                    <div class="grid grid-cols-4 sm:grid-cols-6 gap-2 mb-2">
+                        <button type="button" onclick="selectPresetImage('images/place1.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-blue-600 ring-2 ring-blue-500/30 h-14 cursor-pointer">
+                            <img src="images/place1.jpg" alt="Batanes" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Batanes</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/place2.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/place2.jpg" alt="Palawan" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Palawan</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/place3.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/place3.jpg" alt="Siargao" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Siargao</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/baguio.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/baguio.jpg" alt="Baguio" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Baguio</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/davao.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/davao.jpg" alt="Davao" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Davao</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/iloilo.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/iloilo.jpg" alt="Iloilo" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Iloilo</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/la_union.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/la_union.jpg" alt="La Union" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">La Union</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/vigan.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/vigan.jpg" alt="Vigan" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Vigan</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/batangas.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/batangas.jpg" alt="Batangas" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Batangas</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/waterfall.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/waterfall.jpg" alt="Siquijor" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Siquijor</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/boracay.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/boracay.jpg" alt="Boracay" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Boracay</span>
+                        </button>
+                        <button type="button" onclick="selectPresetImage('images/cebu_bohol.jpg', this)" class="preset-img-btn group relative rounded-xl overflow-hidden border-2 border-transparent hover:border-gray-300 h-14 cursor-pointer">
+                            <img src="images/cebu_bohol.jpg" alt="Cebu/Bohol" class="w-full h-full object-cover">
+                            <span class="absolute inset-x-0 bottom-0 bg-black/60 text-[9px] text-white font-bold text-center py-0.5 truncate">Bohol</span>
+                        </button>
+                    </div>
+
+                    <!-- Custom Image URL input with Live Preview -->
+                    <div class="flex items-center gap-2">
+                        <div class="relative flex-1">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 text-xs">
+                                <i class="fas fa-image"></i>
+                            </span>
+                            <input type="text" id="add-pkg-image" required value="images/place1.jpg" oninput="updateAddImagePreview(this.value)" placeholder="Image path or URL" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-8 pr-3 py-2 text-xs outline-none focus:bg-white focus:border-blue-500 font-mono">
+                        </div>
+                        <div class="w-10 h-10 rounded-xl overflow-hidden border border-gray-200 flex-shrink-0 bg-gray-100 shadow-2xs">
+                            <img id="add-pkg-image-preview" src="images/place1.jpg" alt="Preview" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 6: Description & Highlights -->
+                <div>
+                    <label class="block font-bold text-gray-700 mb-1">Place Highlights & Overview</label>
+                    <textarea id="add-pkg-overview" rows="2" placeholder="Experience picturesque rolling hills, traditional stone villages, pristine coastlines, and guided sightseeing." class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-xs outline-none focus:bg-white focus:border-blue-500 leading-relaxed"></textarea>
+                </div>
+
+                <!-- Actions -->
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-end gap-2.5">
+                    <button type="button" onclick="closeAddPackageModal()" class="px-4 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-100 font-bold text-gray-700 transition cursor-pointer">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl shadow-md shadow-blue-500/20 transition cursor-pointer flex items-center gap-2">
+                        <i class="fas fa-plus-circle text-xs"></i>
+                        <span>Create & Publish Place</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         GLOBAL FLOATING STATUS DROPDOWN PORTAL (FIXED POSITIONING, IMMUNE TO OVERFLOW CLIPPING)
+         ========================================================================== -->
+    <div id="global-status-dropdown" class="fixed z-[9999] hidden bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-200/90 py-2 w-52 transition-all duration-150 ring-1 ring-black/5 select-none" role="menu" aria-orientation="vertical">
+        <div class="px-3.5 py-1.5 border-b border-gray-100 flex items-center justify-between">
+            <span class="text-[10px] font-black uppercase tracking-wider text-gray-400">Update Status</span>
+            <span id="global-status-dropdown-ref" class="text-[9px] font-mono font-extrabold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100">REF</span>
+        </div>
+        <div class="p-1.5 space-y-1">
+            <button type="button" data-status-opt="Confirmed" onclick="handleGlobalStatusSelect('Confirmed')" class="w-full flex items-center justify-between px-3 py-2 text-xs font-bold text-emerald-700 hover:bg-emerald-50 rounded-xl transition text-left cursor-pointer group">
+                <span class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-xs shadow-emerald-500/50"></span>
+                    <span>Confirmed</span>
+                </span>
+                <i class="status-check-icon fas fa-check text-[10px] text-emerald-600 transition"></i>
+            </button>
+            <button type="button" data-status-opt="Pending" onclick="handleGlobalStatusSelect('Pending')" class="w-full flex items-center justify-between px-3 py-2 text-xs font-bold text-amber-700 hover:bg-amber-50 rounded-xl transition text-left cursor-pointer group">
+                <span class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-xs shadow-amber-500/50"></span>
+                    <span>Pending Payment</span>
+                </span>
+                <i class="status-check-icon fas fa-check text-[10px] text-amber-600 transition"></i>
+            </button>
+            <button type="button" data-status-opt="Completed" onclick="handleGlobalStatusSelect('Completed')" class="w-full flex items-center justify-between px-3 py-2 text-xs font-bold text-blue-700 hover:bg-blue-50 rounded-xl transition text-left cursor-pointer group">
+                <span class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-xs shadow-blue-500/50"></span>
+                    <span>Completed</span>
+                </span>
+                <i class="status-check-icon fas fa-check text-[10px] text-blue-600 transition"></i>
+            </button>
+            <button type="button" data-status-opt="Cancelled" onclick="handleGlobalStatusSelect('Cancelled')" class="w-full flex items-center justify-between px-3 py-2 text-xs font-bold text-rose-700 hover:bg-rose-50 rounded-xl transition text-left cursor-pointer group">
+                <span class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-xs shadow-rose-500/50"></span>
+                    <span>Cancelled</span>
+                </span>
+                <i class="status-check-icon fas fa-check text-[10px] text-rose-600 transition"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         CUSTOM CONFIRMATION & PROMPT MODAL (REPLACES NATIVE BROWSER CONFIRM/ALERT/PROMPT)
+         ========================================================================== -->
+    <div id="admin-confirm-modal" class="fixed inset-0 z-[115] bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4 hidden transition-opacity duration-200">
+        <div id="admin-confirm-box" class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-gray-100 transform scale-95 opacity-0 transition-all duration-200 text-center">
+            <!-- Modal Body -->
+            <div class="p-6">
+                <!-- Icon Badge -->
+                <div id="admin-confirm-icon-bg" class="w-16 h-16 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-4 border border-rose-100 text-2xl shadow-xs transition-colors">
+                    <i id="admin-confirm-icon" class="fas fa-lock"></i>
+                </div>
+                
+                <h3 id="admin-confirm-title" class="text-lg font-black text-gray-900 mb-1.5">Lock Admin Console?</h3>
+                <p id="admin-confirm-message" class="text-xs text-gray-600 leading-relaxed max-w-sm mx-auto">
+                    Are you sure you want to lock the Admin Operations Console and sign out? You will need administrator credentials to log back in.
+                </p>
+
+                <!-- Prompt Input Container (Hidden unless used as prompt) -->
+                <div id="admin-confirm-input-container" class="mt-4 hidden text-left">
+                    <label id="admin-confirm-input-label" class="block text-[11px] font-bold text-gray-700 mb-1">New Value</label>
+                    <input type="text" id="admin-confirm-input" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-gray-900 outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition">
+                </div>
+            </div>
+
+            <!-- Modal Action Buttons -->
+            <div class="p-4 bg-gray-50/80 border-t border-gray-100 flex items-center justify-end gap-2.5">
+                <button type="button" id="admin-confirm-cancel-btn" onclick="resolveAdminConfirm(false)" class="px-4 py-2.5 rounded-xl bg-white hover:bg-gray-100 border border-gray-200 text-gray-700 font-bold text-xs transition cursor-pointer">
+                    Cancel
+                </button>
+                <button type="button" id="admin-confirm-action-btn" onclick="resolveAdminConfirm(true)" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md shadow-rose-600/25 transition cursor-pointer flex items-center gap-2">
+                    <i id="admin-confirm-action-icon" class="fas fa-lock text-[10px]"></i>
+                    <span id="admin-confirm-action-text">Lock & Sign Out</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         REAL-TIME LIVE BOOKING ALERT POPUP BANNER
+         ========================================================================== -->
+    <div id="admin-live-booking-alert" class="fixed top-6 right-6 z-[130] transform -translate-y-28 opacity-0 pointer-events-none transition-all duration-500 max-w-md w-[calc(100%-3rem)] shadow-2xl">
+        <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white rounded-2xl p-4 border-2 border-emerald-500/50 shadow-emerald-500/20 shadow-xl flex items-start gap-3 backdrop-blur-md">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center flex-shrink-0 text-lg">
+                <i id="live-alert-icon" class="fas fa-bell"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between gap-2">
+                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Live Reservation Received
+                    </span>
+                    <span id="live-alert-time" class="text-[10px] text-slate-400 font-mono">Just now</span>
+                </div>
+                <h4 id="live-alert-customer" class="font-bold text-sm text-white truncate mt-0.5">Traveler Name</h4>
+                <p id="live-alert-details" class="text-xs text-slate-300 truncate mt-0.5">Route / Service</p>
+                <div class="mt-2.5 flex items-center justify-between text-xs pt-2 border-t border-slate-800">
+                    <span id="live-alert-amount" class="font-extrabold text-emerald-400">₱0</span>
+                    <div class="flex items-center gap-3">
+                        <button type="button" id="live-alert-view-btn" onclick="handleLiveAlertView()" class="text-[11px] font-bold text-blue-400 hover:text-blue-300 underline cursor-pointer">View Details →</button>
+                        <button type="button" onclick="closeAdminLiveAlert()" class="text-slate-400 hover:text-white text-xs p-1 cursor-pointer">✕</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         FLOATING TOAST NOTIFICATION
+         ========================================================================== -->
+    <div id="admin-toast" class="fixed bottom-6 right-6 z-[120] transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3">
+            <i id="admin-toast-icon" class="fas fa-check-circle text-emerald-400 text-sm"></i>
+            <span id="admin-toast-msg" class="text-xs font-semibold">Operation completed successfully.</span>
+        </div>
+    </div>
+
+    <!-- Admin Logic Controller -->
+    <script src="js/admin.js"></script>
+</body>
+</html>

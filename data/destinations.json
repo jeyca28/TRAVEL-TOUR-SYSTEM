@@ -1,0 +1,123 @@
+[
+  {
+    "id": "coron",
+    "name": "Coron Island",
+    "location": "Palawan, Philippines",
+    "region": "MIMAROPA",
+    "rating": "4.9",
+    "reviews": "840+ reviews",
+    "tag": "Island Hopping & Diving",
+    "category": "islands",
+    "desc": "Crystal clear lagoons, dramatic limestone cliffs, Kayangan Lake, and world-class WWII shipwreck diving await in Coron.",
+    "image": "images/coron.jpg",
+    "season": "Nov – May (Dry Season)",
+    "stay": "4 Days / 3 Nights",
+    "transportType": "flight",
+    "transportText": "Direct Flight Available",
+    "bookHref": "plane-booking.html?dest=PPS",
+    "bookLabel": "Book Flight to Palawan",
+    "highlights": [
+      "Kayangan Lake (Cleanest lake in Asia)",
+      "Twin Lagoon limestone passages",
+      "Barracuda Lake thermocline diving",
+      "Malcapuya Island powder beach",
+      "Maquinit saltwater hot spring"
+    ],
+    "itinerary": [
+      "Day 1: Arrival at Busuanga (USU), town tour & Maquinit Hot Springs sunset soak.",
+      "Day 2: Ultimate Coron Island Tour: Kayangan Lake, Twin Lagoon & Coral Garden snorkel.",
+      "Day 3: Island Escapade: Malcapuya Island, Banana Island & Bulog Dos sandbar.",
+      "Day 4: Souvenir shopping, cashew factory visit & departure flight."
+    ]
+  },
+  {
+    "id": "boracay",
+    "name": "White Beach",
+    "location": "Boracay Island, Aklan",
+    "region": "Western Visayas",
+    "rating": "4.8",
+    "reviews": "1,250+ reviews",
+    "tag": "Powdery Sand & Sunsets",
+    "category": "islands",
+    "desc": "World-famous 4-kilometer stretch of talcum-soft white sand, crystal azure waters, vibrant beachfront dining, and legendary tropical sunsets.",
+    "image": "images/boracay.jpg",
+    "season": "Dec – May (Amihan Season)",
+    "stay": "3 Days / 2 Nights",
+    "transportType": "flight",
+    "transportText": "Direct Flight to Caticlan",
+    "bookHref": "plane-booking.html?dest=MPH",
+    "bookLabel": "Book Flight to Boracay",
+    "highlights": [
+      "White Beach Stations 1, 2 & 3",
+      "Paraw sunset sailing cruise",
+      "Willy's Rock volcanic grotto",
+      "Puka Shell secluded beach",
+      "Ariel's Point cliff diving excursion"
+    ],
+    "itinerary": [
+      "Day 1: Arrival via Caticlan (MPH), beachfront hotel check-in & sunset cocktail session.",
+      "Day 2: Morning island hopping to Puka Beach, crystal kayak photoshoot & sunset paraw sail.",
+      "Day 3: Stand-up paddleboarding, D'Mall shopping & scenic departure."
+    ]
+  },
+  {
+    "id": "siquijor",
+    "name": "Waterfall Trails",
+    "location": "Lazi, Siquijor",
+    "region": "Central Visayas",
+    "rating": "4.7",
+    "reviews": "620+ reviews",
+    "tag": "Mystical Eco-Adventures",
+    "category": "nature",
+    "desc": "Tarzan rope swings into multi-tiered turquoise pools at Cambugahay Falls, 400-year-old enchanted Balete trees, and pristine marine sanctuaries.",
+    "image": "images/waterfall.jpg",
+    "season": "Year-Round (Best Nov – June)",
+    "stay": "3 Days / 2 Nights",
+    "transportType": "flight",
+    "transportText": "Flight to Visayas / Ferry",
+    "bookHref": "plane-booking.html?dest=CEB",
+    "bookLabel": "Book Flight to Visayas",
+    "highlights": [
+      "Cambugahay 3-Tier Waterfall pools",
+      "Tarzan vine rope swing jumps",
+      "400-year-old Old Enchanted Balete Tree",
+      "Salagdoong 10m cliff diving beach",
+      "Paliton Beach coconut palm sunsets"
+    ],
+    "itinerary": [
+      "Day 1: Ferry arrival, coastal motorcycle drive & fish spa at the Enchanted Balete Tree.",
+      "Day 2: Cambugahay Falls morning swim & rope swings, Salagdoong cliff jumping.",
+      "Day 3: Snorkeling at Tubod Marine Sanctuary, Paliton Beach picnic & departure."
+    ]
+  },
+  {
+    "id": "banaue",
+    "name": "Cultural Landscapes",
+    "location": "Banaue, Ifugao",
+    "region": "Cordillera Mountain Range",
+    "rating": "4.5",
+    "reviews": "580+ reviews",
+    "tag": "UNESCO World Heritage",
+    "category": "highlands",
+    "desc": "Hand-carved 2,000-year-old mountain rice terraces rising 1,500 meters into the clouds, living Ifugao heritage, and panoramic highland trekking.",
+    "image": "images/banaue.jpg",
+    "season": "March – June & Oct – Dec",
+    "stay": "3 Days / 2 Nights",
+    "transportType": "bus",
+    "transportText": "Highland Bus from Manila",
+    "bookHref": "bus-booking.html",
+    "bookLabel": "Book Highland Bus",
+    "highlights": [
+      "Batad Amphitheater Rice Terraces",
+      "Tappiya 70-meter mountain waterfall",
+      "Banaue Main Viewpoint scenic deck",
+      "Traditional native Ifugao thatch village",
+      "Tam-an heritage woodcarving trail"
+    ],
+    "itinerary": [
+      "Day 1: Overnight luxury VIP bus from Manila, dawn arrival in Banaue, viewpoint photo walk.",
+      "Day 2: Jeepney adventure to Batad, mountain trek down to Tappiya Falls for a refreshing dip.",
+      "Day 3: Village cultural immersion, native coffee tasting & evening return coach."
+    ]
+  }
+]

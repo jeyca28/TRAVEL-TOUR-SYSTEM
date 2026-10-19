@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Plane Ticket - Mckanes Travel and Tours</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0066f5',
+                        brand: {
+                            blue: '#1a5b92',
+                            sky: '#5ba4d6',
+                            cta: '#0066f5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom Booking & Ticket Print Stylesheet -->
+    <link rel="stylesheet" href="css/plane-booking.css">
+</head>
+<body class="bg-[#f8fafc] text-gray-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- 1. Top Navigation Header -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm transition-all duration-300">
+        <nav class="max-w-7xl mx-auto py-3.5 px-4 sm:px-6 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="home.html" class="flex items-center gap-2 flex-shrink-0 group" title="Return to Main Page">
+                <i class="fas fa-globe text-3xl text-[#1a5b92] group-hover:rotate-12 transition-transform duration-300"></i>
+                <div class="flex flex-col leading-none">
+                    <span class="font-bold text-xl text-[#1a5b92]">Mckanes</span>
+                    <span class="text-[9px] text-[#5ba4d6] font-bold tracking-wider mt-0.5">TRAVEL & TOURS</span>
+                </div>
+            </a>
+
+            <!-- Centered Navigation Links in Natural Flex Flow -->
+            <div class="hidden lg:flex items-center justify-center gap-4 xl:gap-6 flex-1 mx-2 sm:mx-4">
+                <div class="flex items-center gap-4 xl:gap-6 text-xs font-bold text-gray-700 uppercase tracking-wider whitespace-nowrap">
+                    <a href="home.html" class="hover:text-blue-600 transition">Home</a>
+                    <a href="bus-booking.html" class="hover:text-blue-600 transition">Bus Booking</a>
+                    <a href="plane-booking.html" class="text-blue-600 font-extrabold border-b-2 border-blue-600 pb-0.5">Flights</a>
+                    <a href="home.html#packages" class="hover:text-blue-600 transition">Packages</a>
+                    <a href="home.html#destinations" class="hover:text-blue-600 transition">Destinations</a>
+                    <a href="home.html#reviews" class="hover:text-blue-600 transition">Reviews</a>
+                    <a href="home.html#contact" class="hover:text-blue-600 transition font-bold text-blue-700">Contact</a>
+                </div>
+            </div>
+
+            <!-- Navigation Actions -->
+            <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                <a href="index.html" class="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs font-bold text-gray-700 bg-white hover:bg-blue-50 hover:text-blue-700 rounded-full border border-gray-200 shadow-2xs transition" title="Switch Portal / Role Selection">
+                    <i class="fas fa-users-gear text-blue-600 text-xs"></i>
+                    <span class="hidden sm:inline">Role Portal</span>
+                </a>
+                <div id="plane-nav-account-pill" class="flex items-center gap-2 bg-gray-50 border border-gray-200/90 py-1 px-2.5 sm:px-3 rounded-full text-xs shadow-2xs flex-shrink-0">
+                    <div id="plane-nav-avatar" class="w-6 h-6 rounded-full bg-gradient-to-tr from-slate-500 to-slate-700 text-white font-bold flex items-center justify-center text-[10px]">GT</div>
+                    <span id="plane-nav-user-name" class="font-bold text-gray-800 text-xs hidden sm:inline truncate max-w-[120px]">Guest Traveler</span>
+                    <span class="w-2 h-2 rounded-full bg-slate-300" title="Guest Session"></span>
+                    <span class="text-[9px] bg-slate-100 text-slate-600 font-extrabold px-1.5 py-0.2 rounded-full uppercase hidden 2xl:inline">Guest Session</span>
+                </div>
+                <a href="home.html" class="text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1.5 transition flex-shrink-0 whitespace-nowrap">
+                    <i class="fas fa-arrow-left text-xs"></i> <span>Back to Home</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 2. Hero Graphic Banner (Exact Match: Book Your Plane Ticket with Cebu Pacific Jet) -->
+    <section class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-1">
+        <div class="w-full rounded-2xl overflow-hidden shadow-md border border-blue-100 bg-[#3a8adc]">
+            <img src="images/plane_banner.png" alt="Book Your Plane Ticket - Cebu Pacific and Domestic Flights" class="w-full h-auto object-cover select-none">
+        </div>
+    </section>
+
+    <!-- 3. Multi-Step Checkout Stepper Card (1:1 Exact Match & Alignment to Banner Card) -->
+    <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 mt-3">
+        <div class="bg-white rounded-2xl border border-gray-200/90 shadow-xs py-3 px-5 sm:px-8 flex items-center justify-between">
+            <!-- Step 1: Flight Details -->
+            <div id="stepper-item-1" class="flex items-center gap-2.5 cursor-pointer" onclick="scrollToSection('card-flight-details')">
+                <span id="step-badge-1" class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-sm">1</span>
+                <div>
+                    <h4 id="step-title-1" class="font-bold text-gray-900 text-xs sm:text-sm leading-tight">Flight Details</h4>
+                    <p class="text-[10px] text-gray-500 leading-none mt-0.5 hidden sm:block">Search and select your flight</p>
+                </div>
+            </div>
+
+            <!-- Connector 1-2 -->
+            <div class="flex-1 h-[1px] bg-gray-200 mx-3 sm:mx-6"></div>
+
+            <!-- Step 2: Passenger Information -->
+            <div id="stepper-item-2" class="flex items-center gap-2.5 cursor-pointer" onclick="scrollToSection('card-passenger-info')">
+                <span id="step-badge-2" class="w-6 h-6 rounded-full border border-gray-300 text-gray-500 font-bold flex items-center justify-center text-xs">2</span>
+                <div>
+                    <h4 id="step-title-2" class="font-semibold text-gray-600 text-xs sm:text-sm leading-tight">Passenger Information</h4>
+                    <p class="text-[10px] text-gray-400 leading-none mt-0.5 hidden sm:block">Enter traveler details</p>
+                </div>
+            </div>
+
+            <!-- Connector 2-3 -->
+            <div class="flex-1 h-[1px] bg-gray-200 mx-3 sm:mx-6"></div>
+
+            <!-- Step 3: Review & Payment -->
+            <div id="stepper-item-3" class="flex items-center gap-2.5 cursor-pointer" onclick="openReviewModal()">
+                <span id="step-badge-3" class="w-6 h-6 rounded-full border border-gray-300 text-gray-500 font-bold flex items-center justify-center text-xs">3</span>
+                <div>
+                    <h4 id="step-title-3" class="font-semibold text-gray-600 text-xs sm:text-sm leading-tight">Review & Payment</h4>
+                    <p class="text-[10px] text-gray-400 leading-none mt-0.5 hidden sm:block">Confirm and complete booking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Main Two-Column Booking Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 w-full flex-1">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+            <!-- Left Column: Search & Passenger Information Forms (7 cols) -->
+            <div class="lg:col-span-7 space-y-6">
+
+                <!-- CARD 1: Flight Details Search Card -->
+                <div id="card-flight-details" class="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 sm:p-6 transition-all duration-300">
+                    <!-- Header -->
+                    <div class="flex items-center justify-between pb-4 border-b border-gray-100 flex-wrap gap-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-base shadow-xs">
+                                <i class="fas fa-plane-departure"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-gray-900 leading-tight">Flight Details</h2>
+                                <p class="text-xs text-gray-500 mt-0.5">Choose your flight route, dates, and travel preferences.</p>
+                            </div>
+                        </div>
+
+                        <!-- Trip Type Toggle Pills -->
+                        <div class="flex items-center gap-2 bg-gray-100/70 p-1 rounded-xl">
+                            <button type="button" id="btn-roundtrip" onclick="setTripType('roundtrip')" class="bg-[#0066f5] text-white font-semibold text-xs px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 shadow-sm transition">
+                                <i class="fas fa-undo-alt text-[10px]"></i> Round-trip
+                            </button>
+                            <button type="button" id="btn-oneway" onclick="setTripType('oneway')" class="bg-transparent text-gray-600 hover:text-gray-900 font-semibold text-xs px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 transition">
+                                <i class="fas fa-arrow-right text-[10px]"></i> One-way
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Origin & Destination Form with Center Swap Button -->
+                    <div class="grid grid-cols-1 md:grid-cols-11 gap-3 items-center mt-5">
+                        <!-- Origin Airport (From) -->
+                        <div class="md:col-span-5 border border-gray-200 rounded-xl p-3 hover:border-blue-400 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition">
+                            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">From</label>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2.5">
+                                    <i class="fas fa-map-marker-alt text-blue-600 text-sm"></i>
+                                    <div>
+                                        <select id="origin-select" onchange="updateRoute()" class="font-bold text-gray-900 text-xs sm:text-sm bg-transparent border-none focus:outline-none cursor-pointer">
+                                            <option value="MNL" selected>Manila (MNL)</option>
+                                            <option value="CEB">Cebu (CEB)</option>
+                                            <option value="DVO">Davao (DVO)</option>
+                                            <option value="ILO">Iloilo (ILO)</option>
+                                            <option value="PPS">Puerto Princesa (PPS)</option>
+                                            <option value="MPH">Boracay/Caticlan (MPH)</option>
+                                        </select>
+                                        <span id="origin-subtext" class="text-[10px] text-gray-500 block leading-none mt-0.5">Ninoy Aquino International Airport</span>
+                                    </div>
+                                </div>
+                                <i class="fas fa-chevron-down text-gray-400 text-[10px]"></i>
+                            </div>
+                        </div>
+
+                        <!-- Swap Button -->
+                        <div class="md:col-span-1 flex justify-center py-1 md:py-0">
+                            <button type="button" onclick="swapAirports()" class="w-8 h-8 rounded-full border border-gray-200 bg-white hover:bg-blue-50 hover:border-blue-300 text-blue-600 flex items-center justify-center shadow-sm transition hover:rotate-180 duration-300 cursor-pointer" title="Swap Origin and Destination">
+                                <i class="fas fa-exchange-alt text-xs"></i>
+                            </button>
+                        </div>
+
+                        <!-- Destination Airport (To) -->
+                        <div class="md:col-span-5 border border-gray-200 rounded-xl p-3 hover:border-blue-400 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition">
+                            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">To</label>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2.5">
+                                    <i class="fas fa-map-marker-alt text-blue-600 text-sm"></i>
+                                    <div>
+                                        <select id="dest-select" onchange="updateRoute()" class="font-bold text-gray-900 text-xs sm:text-sm bg-transparent border-none focus:outline-none cursor-pointer">
+                                            <option value="CEB" selected>Cebu (CEB)</option>
+                                            <option value="MNL">Manila (MNL)</option>
+                                            <option value="DVO">Davao (DVO)</option>
+                                            <option value="MPH">Boracay/Caticlan (MPH)</option>
+                                            <option value="IAO">Siargao (IAO)</option>
+                                            <option value="PPS">Puerto Princesa (PPS)</option>
+                                        </select>
+                                        <span id="dest-subtext" class="text-[10px] text-gray-500 block leading-none mt-0.5">Mactan-Cebu International Airport</span>
+                                    </div>
+                                </div>
+                                <i class="fas fa-chevron-down text-gray-400 text-[10px]"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dates Row -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                        <!-- Departure Date -->
+                        <div id="depart-date-container" onclick="triggerDatePicker('depart')" class="border border-gray-200 rounded-xl p-3 hover:border-blue-400 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition relative cursor-pointer group bg-white hover:bg-blue-50/20 active:scale-[0.99]">
+                            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1 pointer-events-none">Departure Date</label>
+                            <div class="flex items-center justify-between pointer-events-none">
+                                <div class="flex items-center gap-2.5">
+                                    <i class="far fa-calendar-alt text-blue-600 text-sm group-hover:scale-110 transition-transform"></i>
+                                    <div>
+                                        <span id="depart-date-display" class="text-xs sm:text-sm font-bold text-gray-900 block leading-tight">Oct 15, 2026</span>
+                                        <span id="depart-day-display" class="text-[10px] text-gray-500 font-medium block leading-tight mt-0.5">Thursday</span>
+                                    </div>
+                                </div>
+                                <i class="fas fa-chevron-down text-gray-400 text-[10px] group-hover:text-blue-500 transition-colors"></i>
+                            </div>
+                            <input type="date" id="depart-date-input" value="2026-10-15" onchange="handleDateChange('depart')" onclick="event.stopPropagation(); try{this.showPicker();}catch(e){}" class="opacity-0 absolute inset-0 cursor-pointer w-full h-full z-10">
+                        </div>
+
+                        <!-- Return Date -->
+                        <div id="return-date-container" onclick="triggerDatePicker('return')" class="border border-gray-200 rounded-xl p-3 hover:border-blue-400 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition relative cursor-pointer group bg-white hover:bg-blue-50/20 active:scale-[0.99]">
+                            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1 pointer-events-none">Return Date</label>
+                            <div class="flex items-center justify-between pointer-events-none">
+                                <div class="flex items-center gap-2.5">
+                                    <i class="far fa-calendar-alt text-blue-600 text-sm group-hover:scale-110 transition-transform"></i>
+                                    <div>
+                                        <span id="return-date-display" class="text-xs sm:text-sm font-bold text-gray-900 block leading-tight">Oct 20, 2026</span>
+                                        <span id="return-day-display" class="text-[10px] text-gray-500 font-medium block leading-tight mt-0.5">Tuesday</span>
+                                    </div>
+                                </div>
+                                <i class="fas fa-chevron-down text-gray-400 text-[10px] group-hover:text-blue-500 transition-colors"></i>
+                            </div>
+                            <input type="date" id="return-date-input" value="2026-10-20" onchange="handleDateChange('return')" onclick="event.stopPropagation(); try{this.showPicker();}catch(e){}" class="opacity-0 absolute inset-0 cursor-pointer w-full h-full z-10">
+                        </div>
+                    </div>
+
+                    <!-- Passenger Quantities & Cabin Class Row (4 Cols) -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
+                        <!-- Adults -->
+                        <div class="border border-gray-200 rounded-xl p-3 flex flex-col justify-between">
+                            <span class="text-[10px] font-bold text-gray-500 block">Adults</span>
+                            <div class="flex items-center justify-between my-1">
+                                <button type="button" onclick="changeCount('adults', -1)" class="w-6 h-6 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center font-bold text-xs cursor-pointer">-</button>
+                                <span id="count-adults" class="font-extrabold text-sm text-gray-900">1</span>
+                                <button type="button" onclick="changeCount('adults', 1)" class="w-6 h-6 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center font-bold text-xs cursor-pointer">+</button>
+                            </div>
+                            <span class="text-[9px] text-gray-400">12+ years</span>
+                        </div>
+
+                        <!-- Children -->
+                        <div class="border border-gray-200 rounded-xl p-3 flex flex-col justify-between">
+                            <span class="text-[10px] font-bold text-gray-500 block">Children</span>
+                            <div class="flex items-center justify-between my-1">
+                                <button type="button" onclick="changeCount('children', -1)" class="w-6 h-6 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center font-bold text-xs cursor-pointer">-</button>
+                                <span id="count-children" class="font-extrabold text-sm text-gray-900">0</span>
+                                <button type="button" onclick="changeCount('children', 1)" class="w-6 h-6 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center font-bold text-xs cursor-pointer">+</button>
+                            </div>
+                            <span class="text-[9px] text-gray-400">2–11 years</span>
+                        </div>
+
+                        <!-- Infants -->
+                        <div class="border border-gray-200 rounded-xl p-3 flex flex-col justify-between">
+                            <span class="text-[10px] font-bold text-gray-500 block">Infants</span>
+                            <div class="flex items-center justify-between my-1">
+                                <button type="button" onclick="changeCount('infants', -1)" class="w-6 h-6 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center font-bold text-xs cursor-pointer">-</button>
+                                <span id="count-infants" class="font-extrabold text-sm text-gray-900">0</span>
+                                <button type="button" onclick="changeCount('infants', 1)" class="w-6 h-6 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center font-bold text-xs cursor-pointer">+</button>
+                            </div>
+                            <span class="text-[9px] text-gray-400">Under 2 years</span>
+                        </div>
+
+                        <!-- Cabin Class -->
+                        <div class="border border-gray-200 rounded-xl p-3 flex flex-col justify-between">
+                            <span class="text-[10px] font-bold text-gray-500 block">Cabin Class</span>
+                            <div class="flex items-center gap-1.5 my-1">
+                                <i class="fas fa-couch text-blue-600 text-xs"></i>
+                                <select id="cabin-select" onchange="updateCabin()" class="font-bold text-xs text-gray-900 bg-transparent border-none focus:outline-none cursor-pointer w-full">
+                                    <option value="Economy" selected>Economy</option>
+                                    <option value="Premium Economy">Premium</option>
+                                    <option value="Business Class">Business</option>
+                                </select>
+                            </div>
+                            <span class="text-[9px] text-gray-400">Best value for your trip</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Search Button -->
+                    <button type="button" onclick="executeFlightSearch()" id="btn-search-flights" class="w-full mt-5 bg-[#0066f5] hover:bg-blue-700 active:scale-[0.99] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition duration-200 cursor-pointer text-sm sm:text-base">
+                        <i class="fas fa-search text-xs"></i> <span id="search-flights-label">Search Flights</span>
+                    </button>
+                </div>
+
+                <!-- Available Flights Selection List (Interactive dynamic panel) -->
+                <div id="flight-results-panel" class="hidden bg-white rounded-2xl shadow-sm border border-gray-200 p-5 space-y-4 transition-all duration-300">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 pb-3 border-b border-gray-100">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h3 id="results-route-title" class="font-extrabold text-gray-900 text-base sm:text-lg">Available Flights</h3>
+                                <span id="results-count-badge" class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">4 Flights Available</span>
+                            </div>
+                            <p id="results-subtitle" class="text-xs text-gray-500 mt-0.5">Showing scheduled direct flights for Manila (MNL) to Cebu (CEB).</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-gray-400 font-medium">Sort:</span>
+                            <select id="flight-sort-select" onchange="handleFlightSort(this.value)" class="text-xs font-semibold text-gray-800 bg-gray-50 border border-gray-200 rounded-lg p-1.5 focus:outline-none cursor-pointer">
+                                <option value="cheapest">Cheapest First</option>
+                                <option value="earliest">Earliest Departure</option>
+                                <option value="fastest">Shortest Duration</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Airline Filter Pills -->
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold" id="airline-filter-pills">
+                        <button type="button" onclick="filterAirline('all', this)" class="airline-filter-btn bg-blue-600 text-white rounded-full px-3.5 py-1 shadow-xs transition">All Airlines</button>
+                        <button type="button" onclick="filterAirline('Cebu Pacific', this)" class="airline-filter-btn border border-gray-200 text-gray-600 hover:border-blue-400 rounded-full px-3.5 py-1 bg-white transition">Cebu Pacific</button>
+                        <button type="button" onclick="filterAirline('Philippine Airlines', this)" class="airline-filter-btn border border-gray-200 text-gray-600 hover:border-blue-400 rounded-full px-3.5 py-1 bg-white transition">Philippine Airlines</button>
+                        <button type="button" onclick="filterAirline('AirAsia', this)" class="airline-filter-btn border border-gray-200 text-gray-600 hover:border-blue-400 rounded-full px-3.5 py-1 bg-white transition">AirAsia</button>
+                    </div>
+
+                    <!-- Round-trip Outbound / Return Leg Switcher Tabs (Shown when Round-trip) -->
+                    <div id="leg-tabs-container" class="flex border-b border-gray-200 text-xs font-bold">
+                        <button type="button" id="tab-outbound" onclick="switchFlightLeg('outbound')" class="py-2.5 px-4 text-blue-600 border-b-2 border-blue-600 flex items-center gap-2 transition">
+                            <i class="fas fa-plane-departure text-xs"></i> <span>1. Outbound Flight (<span id="tab-outbound-code">MNL ➔ CEB</span>)</span>
+                            <span id="tab-outbound-check" class="text-[10px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full hidden">✓ Selected</span>
+                        </button>
+                        <button type="button" id="tab-inbound" onclick="switchFlightLeg('inbound')" class="py-2.5 px-4 text-gray-500 hover:text-gray-800 border-b-2 border-transparent flex items-center gap-2 transition">
+                            <i class="fas fa-plane-arrival text-xs"></i> <span>2. Return Flight (<span id="tab-inbound-code">CEB ➔ MNL</span>)</span>
+                            <span id="tab-inbound-check" class="text-[10px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full hidden">✓ Selected</span>
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Flight Cards List -->
+                    <div id="flight-cards-list" class="space-y-3 pt-1">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- CARD 2: Passenger Information (Exact Match to Mockup Step 2) -->
+                <div id="card-passenger-info" class="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 sm:p-6 transition-all duration-300">
+                    <!-- Header -->
+                    <div class="flex items-start justify-between pb-4 border-b border-gray-100 flex-wrap gap-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">2</span>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 leading-tight">Passenger Information</h3>
+                                <p class="text-xs text-gray-500 mt-0.5">Enter the details of all passengers. Make sure the information matches your valid ID.</p>
+                            </div>
+                        </div>
+
+                        <!-- Verification Shield Notice -->
+                        <div class="bg-blue-50 border border-blue-100 text-blue-700 text-xs px-3.5 py-2 rounded-xl flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-blue-600"></i>
+                            <span class="text-[11px] font-medium leading-tight">Use the same name as shown on your government-issued ID or passport.</span>
+                        </div>
+                    </div>
+
+                    <!-- Account Linked & Auto-fill Verification Banner -->
+                    <div id="plane-account-sync-banner" class="mt-4 p-3.5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50/60 border border-blue-200/80 flex items-center justify-between gap-3 text-xs shadow-2xs">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black text-xs flex items-center justify-center shadow-xs flex-shrink-0" id="plane-account-sync-avatar">
+                                CH
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="font-extrabold text-gray-900" id="plane-account-sync-name">Chibiba Mckanes</span>
+                                    <span class="text-[9px] bg-blue-100 text-blue-700 font-extrabold px-1.5 py-0.5 rounded-md uppercase tracking-wider">Account Linked</span>
+                                </div>
+                                <p class="text-[11px] text-gray-500 mt-0.5" id="plane-account-sync-details">chibiba@mckanes.com • +63 917 123 4567</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100/90 border border-emerald-300 px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 flex-shrink-0">
+                            <i class="fas fa-check-circle text-[9px]"></i> Auto-Filled
+                        </span>
+                    </div>
+
+                    <!-- Passenger Form Block -->
+                    <div class="mt-4 space-y-4">
+                        <div class="flex items-center justify-between mb-1">
+                            <h4 class="font-bold text-gray-800 text-xs sm:text-sm">Passenger Details</h4>
+                            <button type="button" onclick="addPassenger()" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition cursor-pointer flex items-center gap-1">
+                                <i class="fas fa-user-plus text-[10px]"></i> Add Another Passenger +
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Passengers Container -->
+                        <div id="dynamic-passengers-container" class="space-y-4">
+                            <!-- Populated dynamically via JavaScript (Passenger 1, Passenger 2...) -->
+                        </div>
+
+                        <!-- Seat Selection & Preferences -->
+                        <div class="pt-4 border-t border-gray-100">
+                            <label class="text-[11px] font-bold text-gray-700 block mb-2 uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fas fa-chair text-blue-600"></i> Seat Preference
+                            </label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs" id="seat-selection-group">
+                                <label class="seat-pill-btn border-2 border-blue-600 bg-blue-50 text-blue-700 p-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer font-semibold transition">
+                                    <input type="radio" name="seat-pref" value="12A (Window)" checked onchange="handleSeatSelect('12A (Window)', this)" class="text-blue-600"> 12A (Window)
+                                </label>
+                                <label class="seat-pill-btn border border-gray-200 p-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer hover:border-blue-400 transition font-medium text-gray-700">
+                                    <input type="radio" name="seat-pref" value="12B (Aisle)" onchange="handleSeatSelect('12B (Aisle)', this)" class="text-blue-600"> 12B (Aisle)
+                                </label>
+                                <label class="seat-pill-btn border border-gray-200 p-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer hover:border-blue-400 transition font-medium text-gray-700">
+                                    <input type="radio" name="seat-pref" value="14A (Window)" onchange="handleSeatSelect('14A (Window)', this)" class="text-blue-600"> 14A (Window)
+                                </label>
+                                <label class="seat-pill-btn border border-gray-200 p-2.5 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer hover:border-blue-400 transition font-medium text-gray-700">
+                                    <input type="radio" name="seat-pref" value="15C (Aisle)" onchange="handleSeatSelect('15C (Aisle)', this)" class="text-blue-600"> 15C (Aisle)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Add-ons: Baggage & Travel Insurance -->
+                        <div class="pt-4 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="border border-gray-200 rounded-xl p-3 bg-gray-50/50">
+                                <div class="flex items-center justify-between mb-1.5">
+                                    <span class="text-xs font-bold text-gray-800 flex items-center gap-1.5">
+                                        <i class="fas fa-suitcase-rolling text-blue-600 text-xs"></i> Check-in Baggage
+                                    </span>
+                                    <span class="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full">Standard Included</span>
+                                </div>
+                                <select id="baggage-addon-select" onchange="updateBaggageAddon(this.value)" class="w-full text-xs font-semibold text-gray-800 bg-white border border-gray-200 rounded-lg p-2 focus:outline-none focus:border-blue-500 cursor-pointer">
+                                    <option value="0" selected>Standard 20kg (Included Free)</option>
+                                    <option value="450">Extra Pack 32kg (+₱450)</option>
+                                    <option value="850">Maximum Pack 40kg (+₱850)</option>
+                                </select>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-xl p-3 bg-gray-50/50 flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-bold text-gray-800 flex items-center gap-1.5">
+                                        <i class="fas fa-shield-alt text-emerald-600 text-xs"></i> Flight Protection
+                                    </span>
+                                    <p class="text-[10px] text-gray-500 mt-0.5">Medical, delays & cancellation coverage</p>
+                                </div>
+                                <label class="flex items-center gap-1.5 cursor-pointer">
+                                    <input type="checkbox" id="insurance-addon-check" onchange="updateInsuranceAddon(this.checked)" class="w-4 h-4 text-blue-600 rounded cursor-pointer">
+                                    <span class="text-xs font-bold text-blue-600">+₱280</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information Section -->
+                    <div class="mt-6 pt-5 border-t border-gray-100">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i class="far fa-envelope text-blue-600 text-sm"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-xs sm:text-sm leading-tight">Contact Information</h4>
+                                <p class="text-[11px] text-gray-500 mt-0.5">We'll send your booking details to these contacts.</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- Email -->
+                            <div>
+                                <label class="text-[11px] font-semibold text-gray-500 block mb-1">Email Address *</label>
+                                <div class="relative">
+                                    <i class="far fa-envelope absolute left-3.5 top-3 text-gray-400 text-xs"></i>
+                                    <input type="email" id="contact-email" placeholder="e.g. traveler@email.com" class="w-full border border-gray-200 rounded-xl pl-9 p-2.5 text-xs text-gray-900 font-medium focus:border-blue-500 focus:outline-none transition">
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div>
+                                <label class="text-[11px] font-semibold text-gray-500 block mb-1">Phone Number *</label>
+                                <div class="flex items-center gap-1.5 border border-gray-200 rounded-xl p-1.5 focus-within:border-blue-500 transition bg-white">
+                                    <span class="text-xs font-bold text-gray-700 pl-2">🇵🇭 +63 ▾</span>
+                                    <input type="tel" id="contact-phone" placeholder="912 345 6789" class="w-full p-1 text-xs text-gray-900 font-medium focus:outline-none">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Validation feedback alert -->
+                        <div id="passenger-validation-alert" class="hidden mt-3 bg-red-50 border border-red-200 text-red-700 text-xs p-2.5 rounded-xl flex items-center gap-2">
+                            <i class="fas fa-exclamation-circle text-red-500"></i>
+                            <span id="passenger-validation-msg">Please complete all required passenger and contact fields.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Your Trip Summary Sidebar (5 cols) -->
+            <div class="lg:col-span-5 sticky top-24 space-y-4">
+
+                <!-- Trip Summary Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 sm:p-6">
+                    <!-- Header -->
+                    <div class="flex items-center justify-between pb-3 border-b border-gray-100">
+                        <div class="flex items-center gap-2.5">
+                            <i class="far fa-list-alt text-blue-600 text-base"></i>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-sm sm:text-base leading-tight">Your Trip Summary</h3>
+                                <p class="text-[10px] text-gray-500 mt-0.5">Review your flight details and passenger information.</p>
+                            </div>
+                        </div>
+                        <button type="button" onclick="scrollToSection('card-flight-details')" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1 cursor-pointer">
+                            <i class="fas fa-pen text-[9px]"></i> Edit
+                        </button>
+                    </div>
+
+                    <!-- Destination Banner Card (Landscape Thumbnail with Route Badge) -->
+                    <div class="mt-4 rounded-xl overflow-hidden border border-gray-100 relative group shadow-sm">
+                        <div class="relative h-28 w-full overflow-hidden bg-slate-800">
+                            <img id="summary-dest-img" src="images/cebu.jpg" alt="Cebu - Bantayan Island & Coastline" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                            <!-- Destination location badge -->
+                            <span id="summary-dest-tag" class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-white/20 flex items-center gap-1 shadow-sm">
+                                <i class="fas fa-map-marker-alt text-amber-400 text-[9px]"></i>
+                                <span id="summary-dest-tag-text">Cebu</span>
+                            </span>
+                            <!-- Round-trip capsule pill -->
+                            <span id="summary-trip-pill" class="absolute bottom-2.5 right-2.5 bg-white text-blue-600 font-extrabold text-[10px] px-3 py-1 rounded-full shadow-md">
+                                Round-trip
+                            </span>
+                        </div>
+                        <!-- Dark Bottom Overlay Bar -->
+                        <div class="bg-[#112437] p-3 text-white">
+                            <h4 id="summary-route-title" class="font-extrabold text-xs sm:text-sm text-white flex items-center gap-2">
+                                Manila (MNL) <i class="fas fa-arrow-right text-[10px] text-blue-400"></i> Cebu (CEB)
+                            </h4>
+                            <p id="summary-route-meta" class="text-[10px] text-gray-300 mt-0.5">
+                                Oct 15, 2026 – Oct 20, 2026 | 1 Adult | Economy
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Flights Section -->
+                    <div class="mt-4">
+                        <div class="flex items-center gap-1.5 text-xs font-bold text-gray-900 mb-2.5">
+                            <i class="fas fa-plane text-blue-600 text-xs"></i>
+                            <span>Flights</span>
+                        </div>
+
+                        <!-- Departure Flight Card (Golden Boarding Pass Style) -->
+                        <div class="relative bg-gradient-to-b from-[#fff9e6] via-[#fef3cc] to-[#fae6a3] rounded-2xl p-4 border border-[#e8ce85] mb-3 text-gray-950 shadow-sm transition hover:shadow-md overflow-hidden">
+                            <!-- Top Header -->
+                            <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-amber-900/10">
+                                <div class="flex items-center gap-1.5 min-w-0">
+                                    <span class="w-1.5 h-3.5 bg-blue-600 rounded-full inline-block flex-shrink-0"></span>
+                                    <span class="text-[11px] font-black tracking-wider text-amber-950 uppercase flex-shrink-0">DEPARTURE</span>
+                                    <span class="text-[10px] font-bold text-gray-700 ml-1 truncate" id="summary-airline-depart">Cebu Pacific 5J 561</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/90 border border-emerald-300/50 px-2 py-0.5 rounded-full flex-shrink-0 ml-1">Direct</span>
+                            </div>
+
+                            <!-- Route Grid (3-1-3 Balanced Distribution) -->
+                            <div class="grid grid-cols-7 items-center gap-1 my-1">
+                                <!-- Origin -->
+                                <div class="col-span-3 text-left">
+                                    <span id="summary-depart-city" class="text-[11px] font-bold text-amber-950/80 block leading-tight truncate">Manila</span>
+                                    <span id="depart-code-text" class="text-2xl font-black text-gray-950 block leading-none my-1 tracking-tight">MNL</span>
+                                    <div class="space-y-0.5">
+                                        <span id="summary-depart-date" class="text-[10px] font-semibold text-gray-600 block leading-tight">Sat, Oct 15</span>
+                                        <span id="depart-time-text" class="text-xs font-black text-blue-700 block leading-tight">08:00 AM</span>
+                                    </div>
+                                </div>
+
+                                <!-- Center Flight Path -->
+                                <div class="col-span-1 flex flex-col items-center justify-center">
+                                    <div class="relative w-full flex items-center justify-center my-0.5">
+                                        <div class="w-full border-t border-dashed border-amber-900/30 absolute"></div>
+                                        <div class="w-6 h-6 rounded-full bg-white border border-amber-300/80 flex items-center justify-center z-10 shadow-2xs">
+                                            <i class="fas fa-plane text-blue-600 text-[10px] rotate-45 transform"></i>
+                                        </div>
+                                    </div>
+                                    <span id="depart-duration-text" class="text-[9px] font-extrabold text-amber-950/80 mt-1 whitespace-nowrap">1h 15m</span>
+                                </div>
+
+                                <!-- Destination -->
+                                <div class="col-span-3 text-right">
+                                    <span id="summary-dest-city" class="text-[11px] font-bold text-amber-950/80 block leading-tight truncate">Cebu</span>
+                                    <span id="dest-code-text" class="text-2xl font-black text-gray-950 block leading-none my-1 tracking-tight">CEB</span>
+                                    <div class="space-y-0.5">
+                                        <span id="summary-arrive-date" class="text-[10px] font-semibold text-gray-600 block leading-tight">Sat, Oct 15</span>
+                                        <span id="arrive-time-text" class="text-xs font-black text-gray-950 block leading-tight">09:15 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Terminal Strip -->
+                            <div class="mt-2.5 pt-2 border-t border-dashed border-amber-900/15 flex items-center justify-between text-[10px] text-gray-700">
+                                <span class="flex items-center gap-1 font-semibold truncate max-w-[48%]">
+                                    <i class="fas fa-plane-departure text-[9px] text-blue-600 flex-shrink-0"></i>
+                                    <span id="depart-terminal-text" class="truncate">Manila Terminal 3</span>
+                                </span>
+                                <span class="flex items-center gap-1 font-semibold truncate max-w-[48%] text-right justify-end">
+                                    <span id="arrive-terminal-text" class="truncate">Cebu Terminal 1</span>
+                                    <i class="fas fa-plane-arrival text-[9px] text-emerald-600 flex-shrink-0"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Return Flight Card (Golden Boarding Pass Style) -->
+                        <div id="summary-return-block" class="relative bg-gradient-to-b from-[#fff9e6] via-[#fef3cc] to-[#fae6a3] rounded-2xl p-4 border border-[#e8ce85] mb-3 text-gray-950 shadow-sm transition hover:shadow-md overflow-hidden">
+                            <!-- Top Header -->
+                            <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-amber-900/10">
+                                <div class="flex items-center gap-1.5 min-w-0">
+                                    <span class="w-1.5 h-3.5 bg-blue-600 rounded-full inline-block flex-shrink-0"></span>
+                                    <span class="text-[11px] font-black tracking-wider text-amber-950 uppercase flex-shrink-0">RETURN</span>
+                                    <span class="text-[10px] font-bold text-gray-700 ml-1 truncate" id="summary-airline-return">Cebu Pacific 5J 566</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/90 border border-emerald-300/50 px-2 py-0.5 rounded-full flex-shrink-0 ml-1">Direct</span>
+                            </div>
+
+                            <!-- Route Grid (3-1-3 Balanced Distribution) -->
+                            <div class="grid grid-cols-7 items-center gap-1 my-1">
+                                <!-- Origin (Return Leg) -->
+                                <div class="col-span-3 text-left">
+                                    <span id="summary-return-depart-city" class="text-[11px] font-bold text-amber-950/80 block leading-tight truncate">Cebu</span>
+                                    <span id="return-depart-code-text" class="text-2xl font-black text-gray-950 block leading-none my-1 tracking-tight">CEB</span>
+                                    <div class="space-y-0.5">
+                                        <span id="summary-return-date" class="text-[10px] font-semibold text-gray-600 block leading-tight">Mon, Oct 20</span>
+                                        <span id="return-depart-time-text" class="text-xs font-black text-blue-700 block leading-tight">04:20 PM</span>
+                                    </div>
+                                </div>
+
+                                <!-- Center Flight Path -->
+                                <div class="col-span-1 flex flex-col items-center justify-center">
+                                    <div class="relative w-full flex items-center justify-center my-0.5">
+                                        <div class="w-full border-t border-dashed border-amber-900/30 absolute"></div>
+                                        <div class="w-6 h-6 rounded-full bg-white border border-amber-300/80 flex items-center justify-center z-10 shadow-2xs">
+                                            <i class="fas fa-plane text-blue-600 text-[10px] rotate-45 transform"></i>
+                                        </div>
+                                    </div>
+                                    <span id="return-duration-text" class="text-[9px] font-extrabold text-amber-950/80 mt-1 whitespace-nowrap">1h 20m</span>
+                                </div>
+
+                                <!-- Destination (Return Leg) -->
+                                <div class="col-span-3 text-right">
+                                    <span id="summary-return-dest-city" class="text-[11px] font-bold text-amber-950/80 block leading-tight truncate">Manila</span>
+                                    <span id="return-dest-code-text" class="text-2xl font-black text-gray-950 block leading-none my-1 tracking-tight">MNL</span>
+                                    <div class="space-y-0.5">
+                                        <span id="summary-return-arrive-date" class="text-[10px] font-semibold text-gray-600 block leading-tight">Mon, Oct 20</span>
+                                        <span id="return-arrive-time-text" class="text-xs font-black text-gray-950 block leading-tight">05:40 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Terminal Strip -->
+                            <div class="mt-2.5 pt-2 border-t border-dashed border-amber-900/15 flex items-center justify-between text-[10px] text-gray-700">
+                                <span class="flex items-center gap-1 font-semibold truncate max-w-[48%]">
+                                    <i class="fas fa-plane-departure text-[9px] text-blue-600 flex-shrink-0"></i>
+                                    <span id="return-depart-terminal-text" class="truncate">Cebu Terminal 1</span>
+                                </span>
+                                <span class="flex items-center gap-1 font-semibold truncate max-w-[48%] text-right justify-end">
+                                    <span id="return-dest-terminal-text" class="truncate">Manila Terminal 3</span>
+                                    <i class="fas fa-plane-arrival text-[9px] text-emerald-600 flex-shrink-0"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Passengers, Cabin Class & Add-ons Info Rows -->
+                    <div class="grid grid-cols-2 gap-3 mt-4 pt-3 border-t border-gray-100 text-xs">
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-user-friends text-blue-600 text-xs mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-gray-800 block text-xs" id="summary-pass-count">Passengers</span>
+                                <span class="text-[11px] font-semibold text-gray-900 block leading-tight" id="summary-pass-breakdown">1 Adult</span>
+                                <span class="text-[10px] text-gray-500 block leading-tight" id="summary-pass-name">Lead Passenger</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-couch text-blue-600 text-xs mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-gray-800 block text-xs">Cabin & Seat</span>
+                                <span class="text-[11px] font-semibold text-gray-900 block leading-tight" id="summary-cabin-class">Economy</span>
+                                <span class="text-[10px] text-emerald-600 font-semibold block leading-tight" id="summary-seat-label">Seat: 12A (Window)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fare Breakdown -->
+                    <div class="mt-4 pt-3 border-t border-gray-100 space-y-2 text-xs">
+                        <div class="flex justify-between items-center text-gray-500 text-[11px]">
+                            <span class="font-semibold text-gray-700">Fare Summary <span class="text-[10px] font-normal text-gray-400">(All Taxes Included)</span></span>
+                        </div>
+                        <div class="flex justify-between text-gray-600 text-xs">
+                            <span>Base Fare (<span id="calc-pax-multiplier">1x</span>)</span>
+                            <span id="summary-base-fare" class="font-semibold text-gray-800">₱2,850</span>
+                        </div>
+                        <div class="flex justify-between text-gray-600 text-xs">
+                            <span>Taxes, Security & Fuel Fees</span>
+                            <span id="summary-taxes" class="font-semibold text-gray-800">₱620</span>
+                        </div>
+                        <div class="flex justify-between text-gray-600 text-xs" id="row-baggage-addon">
+                            <span>Baggage Allowance</span>
+                            <span id="summary-baggage-text" class="font-bold text-emerald-600">20kg (Included)</span>
+                        </div>
+                        <div class="flex justify-between text-gray-600 text-xs hidden" id="row-insurance-addon">
+                            <span>Travel Protection</span>
+                            <span id="summary-insurance-text" class="font-bold text-blue-600">₱280</span>
+                        </div>
+                        <div class="pt-2 border-t border-gray-100 flex justify-between items-center">
+                            <span class="font-extrabold text-sm text-gray-900">Total Amount</span>
+                            <span id="summary-total-fare" class="text-xl sm:text-2xl font-black text-blue-600">₱3,470</span>
+                        </div>
+                    </div>
+
+                    <!-- Notice Pill -->
+                    <div class="mt-4 bg-blue-50/70 border border-blue-100 rounded-xl p-2.5 flex items-start gap-2">
+                        <i class="fas fa-info-circle text-blue-600 text-xs mt-0.5"></i>
+                        <span class="text-[10px] text-blue-800 leading-tight">Instant e-ticket receipt and airline booking reference (PNR) issued immediately upon payment.</span>
+                    </div>
+
+                    <!-- Continue to Review Button -->
+                    <button type="button" onclick="validateAndOpenReview()" class="w-full mt-4 bg-[#0066f5] hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-md shadow-blue-500/20 transition flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm">
+                        <span>Continue to Review</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 5. Step 3: Review & Payment Confirmation Modal -->
+    <div id="review-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full max-h-[92vh] overflow-y-auto shadow-2xl p-6 sm:p-8 relative">
+            <!-- Close Button -->
+            <button type="button" onclick="closeReviewModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center transition cursor-pointer">
+                <i class="fas fa-times text-sm"></i>
+            </button>
+
+            <!-- STATE 1: Review & Payment Form -->
+            <div id="modal-step-review">
+                <!-- Modal Header -->
+                <div class="flex items-center gap-3 pb-4 border-b border-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-md">
+                        3
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Review & Payment</h3>
+                        <p class="text-xs text-gray-500">Confirm your flight booking and proceed with secure payment</p>
+                    </div>
+                </div>
+
+                <!-- E-Ticket Preview Card -->
+                <div class="mt-5 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 rounded-2xl p-5 text-white shadow-lg relative overflow-hidden">
+                    <div class="flex justify-between items-start border-b border-white/10 pb-3">
+                        <div>
+                            <span class="text-[9px] uppercase tracking-wider font-bold text-blue-300">Booking Reference (PNR)</span>
+                            <h4 id="ticket-ref" class="text-base font-mono font-bold tracking-wider text-white">MCK-MNLCEB-8924</h4>
+                        </div>
+                        <span class="text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/40 px-2.5 py-0.5 rounded-full">READY TO CONFIRM</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 my-3 text-xs">
+                        <div>
+                            <span class="text-[10px] text-gray-300 block">Lead Passenger</span>
+                            <span id="ticket-passenger" class="font-bold text-white text-sm">Lead Passenger</span>
+                            <span id="ticket-pass-count" class="text-[10px] text-blue-200 block mt-0.5">1 Adult</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] text-gray-300 block">Route & Class</span>
+                            <span id="ticket-route" class="font-bold text-white text-sm">MNL ➔ CEB • Economy</span>
+                            <span id="ticket-seat-display" class="text-[10px] text-blue-200 block mt-0.5">Seat 12A • 20kg Included</span>
+                        </div>
+                    </div>
+
+                    <!-- Flight Timing Summary Inside Ticket -->
+                    <div class="bg-gradient-to-r from-[#fef3cc] to-[#fae6a3] border border-[#e8ce85]/50 text-gray-950 rounded-xl p-3 my-2 text-xs flex justify-between items-center shadow-xs">
+                        <div>
+                            <span class="text-[10px] text-gray-700 block uppercase font-bold tracking-wider" id="ticket-airline-label">Cebu Pacific 5J 561</span>
+                            <span class="font-extrabold text-gray-900 text-xs sm:text-sm" id="ticket-depart-time">08:00 AM (MNL) ➔ 09:15 AM (CEB)</span>
+                        </div>
+                        <span class="text-[10px] bg-amber-900/10 text-gray-900 px-2.5 py-1 rounded-md font-bold" id="ticket-duration">1h 15m Direct</span>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs">
+                        <div>
+                            <span class="text-[10px] text-gray-300 block">Total Fare to Pay</span>
+                            <span id="ticket-amount" class="text-xl sm:text-2xl font-black text-amber-300">₱3,470</span>
+                        </div>
+                        <div class="text-right flex items-center gap-2">
+                            <i class="fas fa-qrcode text-3xl text-white/90"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods Selector -->
+                <div class="mt-5 space-y-3">
+                    <span class="text-xs font-bold text-gray-700 block">Select Payment Method:</span>
+                    <div class="grid grid-cols-4 gap-2 text-xs">
+                        <button type="button" onclick="selectPaymentMethod('gcash')" id="pm-gcash" class="pm-btn border-2 border-blue-600 bg-blue-50/70 rounded-xl p-2.5 flex flex-col items-center justify-center text-center cursor-pointer transition">
+                            <span class="font-bold text-xs text-blue-700">GCash</span>
+                            <span class="text-[9px] text-gray-500">E-Wallet</span>
+                        </button>
+                        <button type="button" onclick="selectPaymentMethod('maya')" id="pm-maya" class="pm-btn border border-gray-200 hover:border-blue-400 rounded-xl p-2.5 flex flex-col items-center justify-center text-center cursor-pointer transition">
+                            <span class="font-bold text-xs text-gray-800">Maya</span>
+                            <span class="text-[9px] text-gray-500">E-Wallet</span>
+                        </button>
+                        <button type="button" onclick="selectPaymentMethod('card')" id="pm-card" class="pm-btn border border-gray-200 hover:border-blue-400 rounded-xl p-2.5 flex flex-col items-center justify-center text-center cursor-pointer transition">
+                            <span class="font-bold text-xs text-gray-800">Card</span>
+                            <span class="text-[9px] text-gray-500">Visa / MC</span>
+                        </button>
+                        <button type="button" onclick="selectPaymentMethod('otc')" id="pm-otc" class="pm-btn border border-gray-200 hover:border-blue-400 rounded-xl p-2.5 flex flex-col items-center justify-center text-center cursor-pointer transition">
+                            <span class="font-bold text-xs text-gray-800">OTC</span>
+                            <span class="text-[9px] text-gray-500">7-Eleven</span>
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Sub-form for Selected Payment -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 text-xs mt-3">
+                        <!-- GCash Form -->
+                        <div id="payment-form-gcash">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-bold text-gray-800 flex items-center gap-1.5"><i class="fas fa-wallet text-blue-600"></i> Pay with GCash</span>
+                                <span class="text-[10px] text-blue-600 font-bold bg-blue-100 px-2 py-0.5 rounded-full">Instant E-Ticket</span>
+                            </div>
+                            <label class="text-[11px] text-gray-500 block mb-1">Registered GCash Mobile Number:</label>
+                            <div class="flex items-center gap-1.5 border border-gray-200 rounded-lg p-2 bg-white focus-within:border-blue-500">
+                                <span class="text-xs font-bold text-gray-700 pl-1">🇵🇭 +63</span>
+                                <input type="tel" id="gcash-number" value="912 345 6789" class="w-full text-xs font-bold text-gray-900 focus:outline-none">
+                            </div>
+                        </div>
+
+                        <!-- Maya Form -->
+                        <div id="payment-form-maya" class="hidden">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-bold text-gray-800 flex items-center gap-1.5"><i class="fas fa-mobile-alt text-emerald-600"></i> Pay with Maya</span>
+                                <span class="text-[10px] text-emerald-600 font-bold bg-emerald-100 px-2 py-0.5 rounded-full">Instant Approval</span>
+                            </div>
+                            <label class="text-[11px] text-gray-500 block mb-1">Maya Registered Mobile:</label>
+                            <div class="flex items-center gap-1.5 border border-gray-200 rounded-lg p-2 bg-white focus-within:border-emerald-500">
+                                <span class="text-xs font-bold text-gray-700 pl-1">🇵🇭 +63</span>
+                                <input type="tel" id="maya-number" value="912 345 6789" class="w-full text-xs font-bold text-gray-900 focus:outline-none">
+                            </div>
+                        </div>
+
+                        <!-- Card Form -->
+                        <div id="payment-form-card" class="hidden space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-gray-800 flex items-center gap-1.5"><i class="fas fa-credit-card text-blue-600"></i> Credit or Debit Card</span>
+                                <div class="flex gap-1.5 text-sm text-gray-600"><i class="fab fa-cc-visa text-blue-700"></i> <i class="fab fa-cc-mastercard text-red-600"></i></div>
+                            </div>
+                            <div>
+                                <label class="text-[10px] text-gray-500 block mb-0.5">Cardholder Name</label>
+                                <input type="text" id="card-holder" value="JUAN DELA CRUZ" class="w-full border border-gray-200 rounded-lg p-2 text-xs font-bold bg-white focus:outline-none focus:border-blue-500">
+                            </div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="col-span-2">
+                                    <label class="text-[10px] text-gray-500 block mb-0.5">Card Number</label>
+                                    <input type="text" id="card-num" value="4111 2222 3333 4444" class="w-full border border-gray-200 rounded-lg p-2 text-xs font-bold bg-white focus:outline-none focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] text-gray-500 block mb-0.5">Expiry / CVV</label>
+                                    <input type="text" value="12/28 • 888" class="w-full border border-gray-200 rounded-lg p-2 text-xs font-bold bg-white focus:outline-none focus:border-blue-500">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Over the counter Form -->
+                        <div id="payment-form-otc" class="hidden">
+                            <span class="font-bold text-gray-800 flex items-center gap-1.5 mb-1"><i class="fas fa-store text-amber-600"></i> 7-Eleven / Bayad Center</span>
+                            <p class="text-[11px] text-gray-500">A payment barcode reference will be generated. You have 24 hours to pay at any nationwide 7-Eleven or Bayad branch.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Confirm Button -->
+                <button type="button" onclick="completeBooking()" id="btn-confirm-pay" class="w-full mt-6 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-emerald-500/25 transition flex items-center justify-center gap-2 cursor-pointer text-sm">
+                    <i class="fas fa-check-circle"></i> <span id="confirm-pay-text">Confirm Booking & Pay ₱3,470</span>
+                </button>
+            </div>
+
+            <!-- STATE 2: Processing Reservation State -->
+            <div id="modal-step-processing" class="hidden py-12 text-center space-y-4">
+                <div class="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
+                <h4 class="text-xl font-bold text-gray-900">Securing Flight Reservation...</h4>
+                <p class="text-xs text-gray-500 max-w-sm mx-auto" id="processing-status-text">Connecting to Airline Global Distribution System (GDS) to issue verified PNR tickets...</p>
+            </div>
+
+            <!-- STATE 3: Booking Confirmed & Official Boarding Pass -->
+            <div id="modal-step-confirmed" class="hidden py-2 space-y-5">
+                <div class="text-center">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-2 shadow-xs">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-gray-900">Booking Confirmed!</h3>
+                    <p class="text-xs text-gray-500">Your official airline electronic ticket and boarding pass have been issued.</p>
+                </div>
+
+                <!-- PNR Copy Card -->
+                <div class="bg-blue-50 border border-blue-200 rounded-2xl p-3.5 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-blue-600 uppercase font-bold tracking-wider block">Official Airline PNR Locator</span>
+                        <span id="confirmed-pnr-code" class="text-base font-mono font-black text-blue-950 tracking-wider">MCK-5J-8492</span>
+                    </div>
+                    <button type="button" onclick="copyPnrCode()" id="btn-copy-pnr" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition cursor-pointer">
+                        <i class="far fa-copy text-xs"></i> <span>Copy</span>
+                    </button>
+                </div>
+
+                <!-- PRINTABLE BOARDING PASS CARD -->
+                <div id="printable-boarding-pass" class="border-2 border-gray-200 rounded-2xl overflow-hidden bg-white shadow-md text-gray-800">
+                    <!-- Boarding Pass Header -->
+                    <div id="bp-header" class="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 text-blue-950 p-4 flex justify-between items-center border-b border-amber-400/50">
+                        <div class="flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-lg bg-blue-900 text-white font-black text-xs flex items-center justify-center shadow-xs" id="bp-logo-badge">5J</span>
+                            <div>
+                                <h4 class="font-black text-sm uppercase tracking-wide leading-tight" id="bp-airline-name">Cebu Pacific</h4>
+                                <span class="text-[10px] font-semibold text-blue-900 block">Electronic Boarding Pass</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[9px] font-bold uppercase tracking-wider block text-blue-900">PNR / Class</span>
+                            <div class="flex items-center gap-1.5 justify-end mt-0.5">
+                                <span id="bp-pnr-badge" class="text-[11px] font-mono font-black text-blue-950 bg-white/90 px-2 py-0.5 rounded shadow-2xs">MCK-5J-8492</span>
+                                <span id="bp-cabin" class="text-[11px] font-extrabold uppercase bg-white/80 px-2 py-0.5 rounded">ECONOMY</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Passenger & Flight Grid -->
+                    <div class="p-4 space-y-3 text-xs">
+                        <div class="grid grid-cols-2 gap-2 border-b border-gray-100 pb-2">
+                            <div>
+                                <span class="text-[9px] uppercase font-bold text-gray-400 block">Passenger Name</span>
+                                <span id="bp-passenger" class="font-extrabold text-sm text-gray-900">JUAN DELA CRUZ</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[9px] uppercase font-bold text-gray-400 block">Flight No.</span>
+                                <span id="bp-flight-no" class="font-extrabold text-sm text-blue-600">5J 561</span>
+                            </div>
+                        </div>
+
+                        <!-- Route & Time Flight Card (Golden Boarding Pass Style) -->
+                        <div class="bg-gradient-to-b from-[#fff9e6] via-[#fef3cc] to-[#fae6a3] border border-[#e8ce85] rounded-2xl p-4 my-1 text-gray-950 shadow-xs">
+                            <div class="flex justify-between items-center mb-2.5 pb-1.5 border-b border-amber-900/10">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-1.5 h-3.5 bg-blue-600 rounded-full inline-block"></span>
+                                    <span class="text-[10px] font-black uppercase tracking-wider text-amber-950">DEPARTURE ROUTE</span>
+                                </div>
+                                <span class="text-[9px] font-bold text-emerald-800 bg-emerald-100/90 border border-emerald-300/40 px-2 py-0.5 rounded-full uppercase tracking-wider">Direct</span>
+                            </div>
+                            <div class="grid grid-cols-7 items-center gap-1">
+                                <div class="col-span-3 text-left">
+                                    <span id="bp-origin-city" class="text-[11px] font-bold text-amber-950/80 block leading-tight truncate">Manila</span>
+                                    <span id="bp-origin-code" class="text-2xl font-black text-gray-950 block leading-none my-1 tracking-tight">MNL</span>
+                                    <div class="space-y-0.5">
+                                        <span id="bp-route-date-origin" class="text-[10px] font-semibold text-gray-600 block leading-tight">Oct 15, 2026</span>
+                                        <span id="bp-depart-time" class="text-xs font-black text-blue-700 block leading-tight">08:00 AM</span>
+                                    </div>
+                                </div>
+                                <div class="col-span-1 flex flex-col items-center justify-center">
+                                    <div class="relative w-full flex items-center justify-center my-0.5">
+                                        <div class="w-full border-t border-dashed border-amber-900/30 absolute"></div>
+                                        <div class="w-6 h-6 rounded-full bg-white border border-amber-300/80 flex items-center justify-center z-10 shadow-2xs">
+                                            <i class="fas fa-plane text-blue-600 text-[10px] rotate-45 transform"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-[9px] font-extrabold text-amber-950/80 mt-1 whitespace-nowrap" id="bp-duration">1h 15m</span>
+                                </div>
+                                <div class="col-span-3 text-right">
+                                    <span id="bp-dest-city" class="text-[11px] font-bold text-amber-950/80 block leading-tight truncate">Cebu</span>
+                                    <span id="bp-dest-code" class="text-2xl font-black text-gray-950 block leading-none my-1 tracking-tight">CEB</span>
+                                    <div class="space-y-0.5">
+                                        <span id="bp-route-date-dest" class="text-[10px] font-semibold text-gray-600 block leading-tight">Oct 15, 2026</span>
+                                        <span id="bp-arrive-time" class="text-xs font-black text-gray-900 block leading-tight">09:15 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Boarding Gate, Seat, Date Strip -->
+                        <div class="grid grid-cols-4 gap-2 bg-gray-50 rounded-xl p-2.5 text-center border border-gray-100">
+                            <div>
+                                <span class="text-[9px] text-gray-400 font-bold block uppercase">Date</span>
+                                <span id="bp-date" class="font-extrabold text-[11px] text-gray-800">Oct 15, 2026</span>
+                            </div>
+                            <div>
+                                <span class="text-[9px] text-gray-400 font-bold block uppercase">Boarding</span>
+                                <span id="bp-boarding" class="font-extrabold text-[11px] text-blue-600">07:15 AM</span>
+                            </div>
+                            <div>
+                                <span class="text-[9px] text-gray-400 font-bold block uppercase">Gate</span>
+                                <span id="bp-gate" class="font-extrabold text-[11px] text-gray-800">Gate 4</span>
+                            </div>
+                            <div>
+                                <span class="text-[9px] text-gray-400 font-bold block uppercase">Seat</span>
+                                <span id="bp-seat" class="font-extrabold text-[11px] text-emerald-600">12A</span>
+                            </div>
+                        </div>
+
+                        <!-- Barcode Simulation Strip -->
+                        <div class="pt-2 flex items-center justify-between border-t border-dashed border-gray-300">
+                            <div class="space-y-0.5">
+                                <div class="font-mono text-[9px] text-gray-400">BOARDING PASS • SECURITY SCANNABLE</div>
+                                <div class="font-mono font-bold text-[10px] text-gray-700" id="bp-barcode-text">||||| | |||| ||| |||||| || |||||||| |||| | ||||| ||||</div>
+                            </div>
+                            <i class="fas fa-qrcode text-3xl text-gray-800"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="flex items-center justify-between gap-3 pt-2">
+                    <button type="button" onclick="printBoardingPass()" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+                        <i class="fas fa-print"></i> Print Boarding Pass
+                    </button>
+                    <button type="button" onclick="downloadTicketReceipt()" class="flex-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold py-3 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+                        <i class="fas fa-download"></i> Download E-Ticket
+                    </button>
+                </div>
+                <button type="button" onclick="resetBookingFlow()" class="w-full text-center text-xs font-semibold text-blue-600 hover:text-blue-800 py-1 cursor-pointer">
+                    Book Another Flight & Return ➔
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-12 pb-8 border-t border-gray-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-800 text-xs">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <i class="fas fa-globe text-2xl text-blue-400"></i>
+                    <span class="font-bold text-lg text-white">Mckanes Travel</span>
+                </div>
+                <p class="text-gray-400 leading-relaxed text-[11px]">
+                    Your trusted companion for multimodal journeys across the 7,641 islands of the Philippines.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px]">Quick Links</h4>
+                <ul class="space-y-2 text-gray-400 text-[11px]">
+                    <li><a href="home.html" class="hover:text-blue-400 transition">Home</a></li>
+                    <li><a href="plane-booking.html" class="hover:text-blue-400 transition">Flight Booking</a></li>
+                    <li><a href="bus-booking.html" class="hover:text-blue-400 transition">Bus Booking</a></li>
+                    <li><a href="home.html#destinations" class="hover:text-blue-400 transition">Top Destinations</a></li>
+                    <li><a href="index.html" class="hover:text-blue-400 transition font-semibold text-blue-300">Role Selection Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px]">Airlines Supported</h4>
+                <ul class="space-y-2 text-gray-400 text-[11px]">
+                    <li>Cebu Pacific (5J)</li>
+                    <li>Philippine Airlines (PR)</li>
+                    <li>AirAsia Philippines (Z2)</li>
+                    <li>Sunlight Air & AirSWIFT</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px]">Customer Support</h4>
+                <p class="text-gray-400 text-[11px] mb-1">Hotline: +63 02 8888-MCKANES</p>
+                <p class="text-gray-400 text-[11px] mb-2">Email: flights@mckanestravel.ph</p>
+                <span class="inline-block bg-blue-900/60 text-blue-300 px-2 py-0.5 rounded text-[10px] font-semibold">24/7 Flight Assist</span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500">
+            <span>&copy; 2026 Mckanes Travel and Tours. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <!-- Custom Notice / Alert Modal -->
+    <div id="plane-notice-modal" class="fixed inset-0 z-[115] bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4 hidden transition-opacity duration-200">
+        <div id="plane-notice-box" class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-gray-100 transform scale-95 opacity-0 transition-all duration-200 text-center">
+            <div class="p-6">
+                <div id="plane-notice-icon-bg" class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto mb-4 border border-amber-100 text-2xl shadow-xs">
+                    <i id="plane-notice-icon" class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3 id="plane-notice-title" class="text-lg font-black text-gray-900 mb-1.5">Notice</h3>
+                <p id="plane-notice-message" class="text-xs text-gray-600 leading-relaxed max-w-sm mx-auto">Notification message</p>
+            </div>
+            <div class="p-4 bg-gray-50/80 border-t border-gray-100 flex items-center justify-end gap-2.5">
+                <button type="button" id="plane-notice-cancel-btn" onclick="resolvePlaneNotice(false)" class="hidden px-4 py-2.5 rounded-xl bg-white hover:bg-gray-100 border border-gray-200 text-gray-700 font-bold text-xs transition cursor-pointer">
+                    Cancel
+                </button>
+                <button type="button" id="plane-notice-confirm-btn" onclick="resolvePlaneNotice(true)" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition cursor-pointer">
+                    <span id="plane-notice-confirm-text">OK</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complete Dynamic Plane Booking Engine -->
+    <script src="js/plane-booking.js"></script>
+</body>
+</html>

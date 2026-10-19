@@ -1,0 +1,303 @@
+/* ==========================================================================
+   Mckanes Travel and Tours - Admin Panel Stylesheet (css/admin.css)
+   ========================================================================== */
+
+/* Custom Smooth Transitions */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Sidebar Custom Scrollbar */
+.sidebar-scroll::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* Metric Card Hover Physics */
+.metric-card {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.08);
+}
+
+/* Interactive Table Styling */
+.admin-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Pulse indicator for live operational status */
+@keyframes pulseDot {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(1.15);
+    }
+}
+
+.status-pulse {
+    animation: pulseDot 2s infinite ease-in-out;
+}
+
+/* Radar Sweep and Flight Pulse Animations for Locked Gate */
+@keyframes radarSweep {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.radar-sweep-beam {
+    transform-origin: 0px 0px;
+    animation: radarSweep 8s linear infinite;
+}
+
+@keyframes flightPulse {
+    0%, 100% { stroke-dashoffset: 0; }
+    50% { stroke-dashoffset: 24; }
+}
+
+.flight-path-pulse {
+    animation: flightPulse 6s ease-in-out infinite alternate;
+}
+
+/* Dropdown popovers & Search result overlays */
+.dropdown-menu {
+    animation: menuScale 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform-origin: top right;
+}
+
+@keyframes menuScale {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Sort header buttons */
+.sortable-th {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s ease;
+}
+
+.sortable-th:hover {
+    color: #1e293b;
+}
+
+/* Custom Checkbox */
+.custom-checkbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1.5px solid #cbd5e1;
+    cursor: pointer;
+    accent-color: #2563eb;
+    transition: all 0.15s ease;
+}
+
+.custom-checkbox:hover {
+    border-color: #3b82f6;
+}
+
+/* Floating Bulk Action Bar */
+#bulk-action-bar {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Shake Animation for Invalid Auth Credentials */
+@keyframes shakeError {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
+.shake-error {
+    animation: shakeError 0.4s ease-in-out;
+}
+
+/* Admin Auth Screen Visibility Enforcement */
+#admin-auth-screen.hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* =============================================================================
+   GUARANTEED 1-PAGE BOOKING MANIFEST & E-TICKET PRINTING
+   ============================================================================= */
+@page {
+    size: portrait;
+    margin: 8mm 10mm;
+}
+
+@media print {
+    html, body {
+        height: auto !important;
+        max-height: 100vh !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Collapse everything outside the active ticket modal */
+    aside,
+    header,
+    nav,
+    main,
+    #admin-sidebar,
+    #admin-topbar,
+    #bulk-action-bar,
+    #admin-toast,
+    #global-status-dropdown,
+    #admin-live-booking-alert,
+    #admin-confirm-modal,
+    #edit-booking-modal,
+    #create-booking-modal,
+    #cust-view-modal,
+    #cust-edit-modal,
+    #package-edit-modal,
+    .no-print {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Modal Backdrop Flattening */
+    #booking-details-modal {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        overflow: visible !important;
+    }
+
+    #booking-details-modal .modal-box {
+        display: block !important;
+        width: 100% !important;
+        max-width: 650px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        border: 2px solid #0f172a !important;
+        border-radius: 14px !important;
+        box-shadow: none !important;
+        background: #ffffff !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+    }
+
+    /* Header in print */
+    #booking-details-modal .modal-box > div:first-child {
+        padding: 10px 14px !important;
+        background: #0f172a !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    #booking-details-modal #modal-booking-status-select {
+        background: #1e293b !important;
+        color: #ffffff !important;
+        border: 1px solid #475569 !important;
+    }
+
+    /* Content Area */
+    #booking-details-modal .overflow-y-auto {
+        overflow: visible !important;
+        padding: 12px 14px !important;
+        max-height: none !important;
+    }
+
+    #booking-details-modal .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 8px !important;
+    }
+
+    /* Notes section in print */
+    #modal-quick-note-tags,
+    #modal-booking-notes + div button {
+        display: none !important;
+    }
+
+    #modal-booking-notes {
+        height: 38px !important;
+        min-height: 38px !important;
+        max-height: 48px !important;
+        padding: 4px 8px !important;
+        font-size: 10px !important;
+        border: 1px solid #cbd5e1 !important;
+        resize: none !important;
+    }
+
+    /* Footer buttons */
+    #booking-details-modal .border-t.bg-gray-50\/90 {
+        display: none !important;
+    }
+}

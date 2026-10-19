@@ -1,0 +1,157 @@
+body { font-family: 'Inter', sans-serif; }
+/* Style date inputs to look clean */
+input[type="date"] {
+    min-width: 0;
+    padding: 0;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.2s ease;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+.flight-select-active {
+    border-color: #0066f5 !important;
+    background-color: #eff6ff !important;
+}
+
+/* =============================================================================
+   GUARANTEED 1-PAGE FLIGHT BOARDING PASS PRINTING
+   ============================================================================= */
+@page {
+    size: portrait;
+    margin: 8mm 10mm;
+}
+
+@media print {
+    html, body {
+        height: auto !important;
+        max-height: 100vh !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Completely collapse all other top-level wrappers to prevent page 2 spillover */
+    header,
+    nav,
+    main,
+    footer,
+    #plane-account-sync-banner,
+    #seat-modal,
+    #plane-notice-modal,
+    .no-print {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Target modal containing the boarding pass */
+    #booking-modal {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        border: none !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+    }
+
+    #booking-modal > div {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+    }
+
+    #booking-modal-card {
+        display: block !important;
+        width: 100% !important;
+        max-width: 580px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+
+    /* Hide non-ticket elements inside modal */
+    #booking-modal-header,
+    #modal-step-passenger,
+    #modal-step-seat,
+    #modal-step-addons,
+    #modal-step-review,
+    #modal-step-processing,
+    #modal-step-confirmed > div:first-child,
+    #modal-step-confirmed > div:nth-child(2),
+    #modal-step-confirmed > div:nth-child(4),
+    #modal-step-confirmed > button {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #modal-step-confirmed {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+
+    /* Single Page Printable Boarding Pass Card */
+    #printable-boarding-pass {
+        display: block !important;
+        visibility: visible !important;
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 560px !important;
+        margin: 0 auto !important;
+        padding: 10px 12px !important;
+        background: #ffffff !important;
+        color: #0f172a !important;
+        border: 2px solid #0f172a !important;
+        border-radius: 14px !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+    }
+
+    #printable-boarding-pass * {
+        visibility: visible !important;
+    }
+
+    #bp-header {
+        padding: 8px 12px !important;
+        background: #fef08a !important;
+        color: #0f172a !important;
+        border-bottom: 1.5px solid #e2e8f0 !important;
+    }
+
+    #printable-boarding-pass .p-4 {
+        padding: 8px 12px !important;
+    }
+
+    #printable-boarding-pass .space-y-3 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 6px !important;
+    }
+}

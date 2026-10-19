@@ -1,0 +1,162 @@
+{
+  "airports": {
+    "MNL": {
+      "name": "Manila",
+      "airport": "Ninoy Aquino International Airport",
+      "terminal": "Terminal 3",
+      "city": "Manila"
+    },
+    "CEB": {
+      "name": "Cebu",
+      "airport": "Mactan-Cebu International Airport",
+      "terminal": "Terminal 1",
+      "city": "Cebu"
+    },
+    "DVO": {
+      "name": "Davao",
+      "airport": "Francisco Bangoy International Airport",
+      "terminal": "Main Terminal",
+      "city": "Davao"
+    },
+    "MPH": {
+      "name": "Boracay / Caticlan",
+      "airport": "Godofredo P. Ramos Airport",
+      "terminal": "Passenger Terminal",
+      "city": "Boracay"
+    },
+    "IAO": {
+      "name": "Siargao",
+      "airport": "Sayak Airport",
+      "terminal": "Domestic Terminal",
+      "city": "Siargao"
+    },
+    "PPS": {
+      "name": "Puerto Princesa",
+      "airport": "Puerto Princesa International Airport",
+      "terminal": "Main Terminal",
+      "city": "Palawan"
+    },
+    "ILO": {
+      "name": "Iloilo",
+      "airport": "Iloilo International Airport",
+      "terminal": "Main Terminal",
+      "city": "Iloilo"
+    }
+  },
+  "flights": [
+    {
+      "id": "5J-561",
+      "airline": "Cebu Pacific",
+      "code": "5J",
+      "flightNo": "5J 561",
+      "aircraft": "Airbus A321neo",
+      "badgeBg": "bg-yellow-400 text-blue-950 font-black",
+      "depTime": "08:00 AM",
+      "arrTime": "09:15 AM",
+      "duration": "1h 15m",
+      "durationMinutes": 75,
+      "basePrice": 2850,
+      "amenities": [
+        "7kg Carry-on",
+        "20kg Check-in",
+        "USB Charging Port"
+      ],
+      "baggage": "20kg Included"
+    },
+    {
+      "id": "PR-1841",
+      "airline": "Philippine Airlines",
+      "code": "PR",
+      "flightNo": "PR 1841",
+      "aircraft": "Airbus A321",
+      "badgeBg": "bg-red-600 text-white font-black",
+      "depTime": "10:30 AM",
+      "arrTime": "11:45 AM",
+      "duration": "1h 15m",
+      "durationMinutes": 75,
+      "basePrice": 3240,
+      "amenities": [
+        "7kg Carry-on",
+        "25kg Check-in",
+        "Complimentary In-flight Snack"
+      ],
+      "baggage": "25kg & Snack Included"
+    },
+    {
+      "id": "Z2-771",
+      "airline": "AirAsia",
+      "code": "Z2",
+      "flightNo": "Z2 771",
+      "aircraft": "Airbus A320",
+      "badgeBg": "bg-red-500 text-white font-black",
+      "depTime": "06:45 AM",
+      "arrTime": "08:00 AM",
+      "duration": "1h 15m",
+      "durationMinutes": 75,
+      "basePrice": 2190,
+      "amenities": [
+        "7kg Carry-on",
+        "20kg Check-in",
+        "Standard Recline"
+      ],
+      "baggage": "20kg Included"
+    },
+    {
+      "id": "5J-571",
+      "airline": "Cebu Pacific",
+      "code": "5J",
+      "flightNo": "5J 571",
+      "aircraft": "Airbus A321neo",
+      "badgeBg": "bg-yellow-400 text-blue-950 font-black",
+      "depTime": "02:40 PM",
+      "arrTime": "03:55 PM",
+      "duration": "1h 15m",
+      "durationMinutes": 75,
+      "basePrice": 2680,
+      "amenities": [
+        "7kg Carry-on",
+        "20kg Check-in",
+        "Eco Jetliner"
+      ],
+      "baggage": "20kg Included"
+    },
+    {
+      "id": "PR-1853",
+      "airline": "Philippine Airlines",
+      "code": "PR",
+      "flightNo": "PR 1853",
+      "aircraft": "Airbus A321",
+      "badgeBg": "bg-red-600 text-white font-black",
+      "depTime": "04:15 PM",
+      "arrTime": "05:35 PM",
+      "duration": "1h 20m",
+      "durationMinutes": 80,
+      "basePrice": 3450,
+      "amenities": [
+        "7kg Carry-on",
+        "25kg Check-in",
+        "Full Service Livery"
+      ],
+      "baggage": "25kg Included"
+    },
+    {
+      "id": "Z2-775",
+      "airline": "AirAsia",
+      "code": "Z2",
+      "flightNo": "Z2 775",
+      "aircraft": "Airbus A320",
+      "badgeBg": "bg-red-500 text-white font-black",
+      "depTime": "07:20 PM",
+      "arrTime": "08:35 PM",
+      "duration": "1h 15m",
+      "durationMinutes": 75,
+      "basePrice": 1980,
+      "amenities": [
+        "7kg Carry-on",
+        "20kg Check-in",
+        "Night Flight Saver"
+      ],
+      "baggage": "20kg Included"
+    }
+  ]
+}
